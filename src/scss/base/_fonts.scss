@@ -11,45 +11,6 @@
 // }
 
 @font-face {
-  font-family: "Brice";
-  src: url('../fonts/Brice-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: "Brice-Bold";
-  src: url('../fonts/Brice-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: "Brice-Light";
-  src: url('../fonts/Brice-Light.otf') format('opentype');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Brice-RegularExp";
-  src: url('../fonts/Brice-RegularExpanded.otf') format('opentype');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Brice-SemiBoldExp";
-  src: url('../fonts/Brice-SemiBoldExpanded.otf') format('opentype');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Brice-ExtraLightExp";
-  src: url('../fonts/Brice-ExtraLightExpanded.otf') format('opentype');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Walsh";
-  src: url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: "Mohol";
-  src: url('../fonts/Mohol-Regular.ttf') format('truetype');
+  font-family: "Avenir";
+  src: url('../fonts/AvenirLTStd-Roman.otf') format('opentype');
 }

@@ -1,7 +1,6 @@
 import '../scss/app.scss';
+import "slick-carousel"
 
-import './demo.js';
-import "./custome"
 
 import Utils from './utils';
 
@@ -12,23 +11,28 @@ import CarouselModule from './modules/Carousel.module'
 import Alpine from 'alpinejs';
 import $ from 'jquery'
 
+import "./custome.js"
+import './demo.js';
+
 
 import axios from "axios";
+// import CarouselModule from "./modules/Carousel.module";
 
 window.$ = $;
-window.CarouselModule = CarouselModule;
+// window.CarouselModule = CarouselModule;
 window.Emkalab = {
-    $:$,
+    $: $,
     JQuery: import("jquery"),
     AOS: AOSController,
     Utils: Utils,
-    CarouselModule:CarouselModule,
+    CarouselModule: CarouselModule,
     Animation: EmkalabAnimation,
     _fetch: {
         baseURL: "https://localhost:8000",
         render: FetchController,
     }
 }
+
 
 window.Alpine = Alpine;
 queueMicrotask(() => {
@@ -42,15 +46,16 @@ window.addEventListener('load', () => {
     new Emkalab.AOS()
 })
 
-window.addEventListener('DOMContentLoaded', function (){
+window.addEventListener('DOMContentLoaded', function () {
     let divSlick = document.querySelectorAll("[data-slick]")
-    if (typeof(divSlick) !== "undefined"){
-        if(divSlick.length > 0 ){
-            for(let i = 0 ; i < divSlick.length ; i++){
+    if (typeof (divSlick) !== "undefined") {
+        if (divSlick.length > 0) {
+            for (let i = 0; i < divSlick.length; i++) {
                 let item = divSlick[i]
                 // console.log(item.getAttribute("data-slick"), "ITEM")
                 // console.log(JSON.parse(item.getAttribute("data-slick")),"attribute")
-                new Emkalab.CarouselModule({element: item, options: JSON.parse(item.getAttribute("data-slick"))})
+                // console.log(item, "ITEM")
+                Emkalab.CarouselModule({element: item, options: JSON.parse(item.getAttribute("data-slick"))})
             }
         }
     }

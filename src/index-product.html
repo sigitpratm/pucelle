@@ -2,3301 +2,445 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Tavi</title>
-	<meta name="description"
-	      content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
-	<meta name="keywords"
-	      content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Plamen Nikolov, WeAreAthlon">
+    <meta charset="UTF-8">
+    <title>pucelle</title>
+    <meta name="description"
+          content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+    <meta name="keywords"
+          content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Plamen Nikolov, WeAreAthlon">
+    <script src="./js/custome.js"></script>
 </head>
 
-<body id="main-body" class="relative">
+<body class="relative">
 
-<div id="modal-review-question"
-     class="opacity-0 hidden main-modal-review-question bg-black w-full h-full min-h-screen z-[60] absolute top-0 left-0 bg-black bg-opacity-70 absolute backdrop-opacity-70 px-4">
+<!-- modal -->
+<div id="main-modal"
+     class="modal absolute opacity-0 hidden w-full h-full min-h-screen bg-black/50 z-[100] flex items-center justify-center text-scheme-grey px-4 md:px-0">
 
-	<!-- modal -->
-	<div id="modal-question" class="modal-question w-full h-auto sticky top-20 md:top-12 font-walsh opacity-0 hidden">
-		<div class="bg-white w-full xl:w-2/3 2xl:w-1/2 h-auto mx-auto px-4 py-8 md:px-8 md:py-8 space-y-4 md:space-y-8">
-			<div class="flex items-center justify-end">
-				<button id="hide-question" class="text-scheme-base-pink">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-					</svg>
-				</button>
-			</div>
-			<p class="text-2xl md:text-3xl font-bold font-brice text-center text-scheme-dusk-blue">Ask Your Question</p>
-			<form action="" class="space-y-4 md:space-y-8">
-				<label for="" class="w-full block">
-					<textarea name="" rows="10" class="w-full rounded-lg border border-gray-300 shadow">What do you want to know about this product ?</textarea>
-				</label>
-				<button class="w-full py-2 text-lg bg-scheme-dusk-blue text-white rounded-lg">Submit Question</button>
-			</form>
-		</div>
-	</div>
+    <!-- modal buy -->
+    <div id="modal-buy" class="fixed hidden modal opacity-0 top-[15%] md:top-1/4 w-[90%] md:w-[40%] h-auto bg-white p-4">
+        <button id="hide-modal-buy" class="w-full flex justify-end text-scheme-pink mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
 
-	<!-- modal -->
-	<div id="modal-review" class="modal-review w-full h-auto sticky top-20 md:top-12 font-walsh opacity-0 hidden">
-		<div class="bg-white w-full xl:w-2/3 2xl:w-1/2 h-[32rem] md:h-[30rem] xl:h-[36rem] 2xl:h-[44rem] md:h-auto mx-auto px-4 md:px-8 pt-4 overflow-y-auto">
-			<!-- close btn -->
-			<div class="flex items-center justify-end">
-				<button id="hide-review" class="text-scheme-base-pink">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-					</svg>
-				</button>
-			</div>
+        <div class="pb-12 px-8 space-y-12">
+            <p class="text-center text-3xl">BUY NOW</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
 
-			<div class="space-y-4 pb-16">
-				<p class="text-2xl md:text-3xl font-bold font-brice text-center md:text-left text-scheme-dusk-blue pb-4">
-					Product Review
-				</p>
+                <a href="" target="_blank" class="w-full">
+                    <div class="w-full shadow-sm border border-gray-100 rounded-xl py-4 flex flex-col items-center justify-center text-scheme-pink bg-white transition hover:text-white hover:bg-orange-400 gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 36" class="w-12 h-12"
+                             fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M9.10398 10.2675H2.02501C1.18832 10.2675 0.445635 10.9632 0.502041 11.7998L1.931 31.5984C2.08141 33.7418 3.41636 35.4998 5.93583 35.4998H26.1856C28.4513 35.4998 30.0119 34.0803 30.1905 31.5984L31.61 11.7904C31.6758 10.9538 30.9237 10.2675 30.0871 10.2675H23.0175C22.8013 7.87022 22.1338 5.70798 21.1749 4.0534C19.8963 1.86296 18.1008 0.499817 16.0607 0.499817C14.0207 0.499817 12.2157 1.85356 10.9466 4.0534C9.98767 5.71738 9.3202 7.87022 9.10398 10.2675ZM21.2313 10.2675H10.8714C11.0876 8.19925 11.6517 6.34725 12.4695 4.9465C13.4284 3.29192 14.6976 2.26721 16.0607 2.26721C17.4145 2.26721 18.693 3.29192 19.6331 4.9371C20.451 6.34725 21.0245 8.18985 21.2313 10.2675ZM10.7304 27.5557C10.5048 27.8847 10.5894 28.3266 10.9185 28.5522C11.1723 28.7308 11.4167 28.8812 11.6517 29.0128C13.5319 30.1598 15.3181 30.7238 16.8505 30.7238C18.4863 30.7144 19.8306 30.0752 20.7049 28.7872C20.7102 28.7785 20.7157 28.7691 20.7217 28.7591C20.7477 28.7151 20.7812 28.6587 20.8271 28.5898C21.0715 28.195 21.2502 27.7907 21.363 27.3865C21.6168 26.484 21.5698 25.5627 21.1938 24.6884C20.8271 23.8423 20.1409 23.062 19.1161 22.4415C18.4957 22.0655 17.7436 21.7459 16.8599 21.492C15.2241 21.0314 14.049 20.4391 13.4849 19.6776C12.9961 19.0196 12.9867 18.1547 13.5883 17.0547C13.9456 16.3967 14.7541 15.983 15.8164 15.8984C16.9257 15.8138 18.2606 16.0864 19.6614 16.8009C20.0186 16.9889 20.4417 16.8479 20.6297 16.4907C20.8177 16.1334 20.6767 15.701 20.3195 15.5224C18.6743 14.6857 17.0573 14.3661 15.713 14.4695C14.1524 14.5917 12.9209 15.278 12.3192 16.3779C11.4167 18.0419 11.4825 19.4144 12.3286 20.5519C13.0995 21.586 14.5284 22.3569 16.4651 22.9022C17.2265 23.109 17.8564 23.3816 18.3641 23.6919C19.1255 24.1525 19.6144 24.7072 19.8682 25.2806C20.1032 25.8259 20.1314 26.4276 19.9622 27.0104C19.8776 27.2925 19.7554 27.5839 19.5862 27.8565C19.5814 27.871 19.5691 27.8879 19.5533 27.9098C19.5382 27.9307 19.5199 27.956 19.5016 27.9881C18.9093 28.8624 17.9786 29.2949 16.8317 29.2949C15.5626 29.2949 14.0396 28.7966 12.385 27.7907C12.15 27.6497 11.9338 27.5087 11.7269 27.3677C11.3979 27.142 10.9561 27.2266 10.7304 27.5557Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <p class="text-xl">Shopee</p>
+                    </div>
+                </a>
 
-				<div class="flex justify-start items-start gap-4">
-					<img src="./images/home/jpg/tavi-prod1.jpg" alt="" class="w-24 h-24 md:w-44 md:h-44 object-cover">
-					<div class="space-y-4 text-base md:text-lg">
-						<p class="text-gray-700">Supreme Revitalizing Serum 260ml</p>
-						<p class="text-gray-400">Shade: Love Bites</p>
-						<p class="text-scheme-dusk-blue">WA234567890</p>
-					</div>
-				</div>
+                <a href="#" target="_blank" class="w-full">
+                    <div class="w-full shadow-sm border border-gray-100 rounded-xl py-4 flex flex-col items-center justify-center text-scheme-pink bg-white transition hover:text-white hover:bg-[#3EAC46] gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 36" class="w-12 h-12"
+                             fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M30.3665 7.18958H23.5787C23.3411 5.3406 22.4381 3.6415 21.0384 2.41017C19.6388 1.17883 17.8384 0.499634 15.9743 0.499634C14.1101 0.499634 12.3098 1.17883 10.9101 2.41017C9.51047 3.6415 8.6074 5.3406 8.36986 7.18958H0.500977V35.4996H21.4579C24.1081 35.4937 26.6481 34.4386 28.5224 32.565C30.3968 30.6915 31.453 28.1519 31.46 25.5017V7.18958H30.3665ZM11.9243 4.11273C12.6706 3.36592 13.6086 2.83976 14.635 2.59231C15.6613 2.34487 16.7361 2.38575 17.7406 2.71045C18.7452 3.03514 19.6406 3.63104 20.3279 4.43238C21.0153 5.23372 21.4679 6.20937 21.6359 7.25167C20.7674 7.32548 19.9064 7.47 19.0615 7.68377C17.993 7.95421 16.9592 8.34668 15.9805 8.85342C15.0005 8.34618 13.9653 7.95371 12.8953 7.68377C12.0504 7.47007 11.1894 7.32555 10.3209 7.25167C10.5111 6.06248 11.0723 4.96384 11.9243 4.11273ZM30.3665 25.5017C30.3665 30.4022 26.3575 34.4111 21.4579 34.4111H1.59116V8.38076C1.5918 8.35403 1.60276 8.32859 1.62174 8.30976C1.64072 8.29094 1.66625 8.28019 1.69298 8.27977H8.84914C11.6263 8.27977 14.0517 8.97593 15.978 10.0943C17.9051 8.97428 20.3296 8.27977 23.1077 8.27977H30.2638C30.291 8.27999 30.317 8.29087 30.3362 8.31007C30.3554 8.32927 30.3662 8.35526 30.3665 8.38241V25.5017Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M9.94428 15.1157C10.8046 15.1163 11.6407 15.4006 12.3231 15.9245C13.0054 16.4484 13.496 17.1827 13.7188 18.0136C13.9415 18.8446 13.884 19.7258 13.5552 20.5208C13.2264 21.3158 12.6446 21.9801 11.8999 22.4109C11.1553 22.8418 10.2893 23.015 9.43623 22.9038C8.58314 22.7926 7.79054 22.4031 7.1812 21.7958C6.57187 21.1885 6.17981 20.3972 6.06577 19.5445C5.95172 18.6918 6.12206 17.8253 6.55039 17.0792C6.64238 17.3526 6.79487 17.6016 6.99649 17.8079C7.19811 18.0141 7.44367 18.1722 7.71487 18.2704C7.98606 18.3685 8.27592 18.4043 8.56283 18.3748C8.84975 18.3454 9.12633 18.2517 9.37198 18.1005C9.61763 17.9494 9.82601 17.7448 9.98161 17.502C10.1372 17.2591 10.236 16.9843 10.2706 16.6979C10.3053 16.4116 10.2749 16.1212 10.1817 15.8482C10.0885 15.5753 9.93489 15.3269 9.73237 15.1215C9.8019 15.1182 9.87309 15.1157 9.94428 15.1157Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M21.8769 15.1157C22.7372 15.1163 23.5733 15.4006 24.2557 15.9245C24.9381 16.4484 25.4286 17.1827 25.6514 18.0136C25.8742 18.8446 25.8167 19.7258 25.4878 20.5208C25.159 21.3158 24.5772 21.9801 23.8325 22.4109C23.0879 22.8418 22.2219 23.015 21.3689 22.9038C20.5158 22.7926 19.7232 22.4031 19.1138 21.7958C18.5045 21.1885 18.1124 20.3972 17.9984 19.5445C17.8843 18.6918 18.0547 17.8253 18.483 17.0792C18.5749 17.3528 18.7273 17.602 18.9289 17.8085C19.1305 18.0149 19.3761 18.1732 19.6474 18.2715C19.9187 18.3697 20.2087 18.4055 20.4957 18.3761C20.7828 18.3467 21.0595 18.2529 21.3052 18.1017C21.551 17.9505 21.7594 17.7457 21.915 17.5027C22.0706 17.2597 22.1693 16.9847 22.2038 16.6982C22.2383 16.4117 22.2077 16.1212 22.1143 15.8482C22.0208 15.5752 21.867 15.3268 21.6642 15.1215C21.7354 15.1182 21.8057 15.1157 21.8769 15.1157Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M27.8417 13.8805C26.9967 13.037 25.9573 12.4142 24.8151 12.0668C23.6728 11.7194 22.4627 11.6581 21.2912 11.8882C20.1196 12.1184 19.0227 12.633 18.0967 13.3867C17.1708 14.1405 16.4444 15.1102 15.9813 16.2107C15.4229 14.8818 14.4826 13.7486 13.2794 12.9547C12.0763 12.1609 10.6645 11.7422 9.2231 11.7516C7.78169 11.7611 6.37554 12.1983 5.18292 13.0079C3.99029 13.8174 3.06488 14.9629 2.52402 16.299C1.98315 17.6351 1.85118 19.1017 2.14483 20.5129C2.43848 21.9242 3.14454 23.2164 4.17348 24.2259C5.20243 25.2353 6.50794 25.9166 7.9245 26.1832C9.34107 26.4498 10.8049 26.2898 12.1304 25.7235L12.4508 26.0439L15.3257 28.9187L15.9242 29.5181L16.5235 28.9187L19.3983 26.0439L19.7535 25.6888C21.3072 26.3704 23.0501 26.4883 24.6814 26.0221C26.3127 25.5559 27.7302 24.535 28.6892 23.1354C29.6482 21.7357 30.0885 20.0453 29.9342 18.3557C29.78 16.6661 29.0408 15.0833 27.8442 13.8805H27.8417ZM16.8322 23.3453C16.2763 23.2299 15.7036 23.2212 15.1444 23.3197C15.4799 22.8629 15.7608 22.3683 15.9813 21.8462C16.2046 22.3778 16.4902 22.8811 16.8322 23.3453ZM9.26467 25.2177C8.04022 25.2177 6.84326 24.8547 5.82516 24.1744C4.80706 23.4941 4.01355 22.5272 3.54497 21.396C3.07639 20.2647 2.95379 19.0199 3.19267 17.819C3.43155 16.6181 4.02118 15.5149 4.887 14.6491C5.75282 13.7833 6.85595 13.1937 8.05688 12.9548C9.25781 12.7159 10.5026 12.8385 11.6339 13.3071C12.7651 13.7757 13.732 14.5692 14.4123 15.5873C15.0925 16.6054 15.4556 17.8023 15.4556 19.0268C15.4559 19.8399 15.2959 20.6452 14.9849 21.3965C14.6738 22.1478 14.2178 22.8305 13.6429 23.4055C13.068 23.9806 12.3855 24.4368 11.6342 24.748C10.883 25.0592 10.0778 25.2194 9.26467 25.2194V25.2177ZM15.9217 28.3186L13.0468 25.4437C13.7703 24.616 14.7909 24.0986 15.9217 24.0986C17.0524 24.0986 18.0739 24.6151 18.7974 25.4437L15.9217 28.3186ZM22.6937 25.2177C21.4693 25.2177 20.2723 24.8547 19.2542 24.1744C18.2361 23.4941 17.4426 22.5272 16.974 21.396C16.5055 20.2647 16.3829 19.0199 16.6217 17.819C16.8606 16.6181 17.4502 15.5149 18.3161 14.6491C19.1819 13.7833 20.285 13.1937 21.4859 12.9548C22.6869 12.7159 23.9317 12.8385 25.0629 13.3071C26.1942 13.7757 27.1611 14.5692 27.8413 15.5873C28.5216 16.6054 28.8847 17.8023 28.8847 19.0268C28.885 19.84 28.7251 20.6452 28.4141 21.3966C28.1032 22.148 27.6472 22.8307 27.0722 23.4058C26.4973 23.9809 25.8147 24.437 25.0634 24.7482C24.3122 25.0594 23.5069 25.2195 22.6937 25.2194V25.2177Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <p class="text-xl">Tokopedia</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
-				<form action="" class="space-y-8">
-					<!-- skin type -->
-					<select name="" class="w-full md:w-1/4 rounded-lg">
-						<option selected disabled value="">Skin Type</option>
-						<option value="">Type 1</option>
-						<option value="">Type 2</option>
-						<option value="">Type 3</option>
-					</select>
+    <!-- modal zoom img -->
+    <div id="modal-zoom-img"
+         class="modal fixed opacity-0 hidden top-[15%] md:top-[4rem] 2xl:top-[15%] w-[90%] xl:w-[36rem] 2xl:w-[40rem] h-auto bg-white p-4">
+        <button id="hide-modal-zoom" class="w-full flex justify-end text-scheme-pink mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
 
-					<!-- rating star -->
-					<div class="rating flex items-center justify-end relative gap-2">
-						<input type="radio" id="star1" name="star" class="hidden" value="5">
-						<label for="star1" class="relative w-12 cursor-pointer"></label>
-
-						<input type="radio" id="star2" name="star" class="hidden" value="4">
-						<label for="star2" class="relative w-12 cursor-pointer"></label>
-
-						<input type="radio" id="star3" name="star" class="hidden" value="3">
-						<label for="star3" class="relative w-12 cursor-pointer"></label>
-
-						<input type="radio" id="star4" name="star" class="hidden" value="2">
-						<label for="star4" class="relative w-12 cursor-pointer"></label>
-
-						<input type="radio" id="star5" name="star" class="hidden" value="1">
-						<label for="star5" class="relative w-12 cursor-pointer"></label>
-					</div>
-
-
-					<div class="flex items-center gap-4">
-						<div class="flex gap-4 items-center justify-start">
-
-							<label class="inline-block">
-								<img id="review-file-img1" src="./images/content/IcUpload.svg" alt=""
-								     class="w-auto h-auto cursor-pointer">
-								<input id="review-file1" name="review-file1" class="text-sm cursor-pointer hidden"
-								       type="file">
-								<div id="preview-file1"
-								     class="flex flex-row relative inline-block cursor-pointer"></div>
-							</label>
-
-							<label class="inline-block">
-								<img id="review-file-img2" src="./images/content/IcUpload.svg" alt=""
-								     class="w-auto h-auto cursor-pointer">
-								<input id="review-file2" name="review-file2" class="text-sm cursor-pointer hidden"
-								       type="file">
-								<div id="preview-file2"
-								     class="flex flex-row relative inline-block cursor-pointer"></div>
-							</label>
-
-							<label class="inline-block">
-								<img id="review-file-img3" src="./images/content/IcUpload.svg" alt=""
-								     class="w-auto h-auto cursor-pointer">
-								<input id="review-file3" name="review-file3" class="text-sm cursor-pointer hidden"
-								       type="file">
-								<div id="preview-file3"
-								     class="flex flex-row relative inline-block cursor-pointer"></div>
-							</label>
-
-						</div>
-						<p class="text-scheme-dusk-blue font-bold">Upload Up To 3 Photos or Videos</p>
-					</div>
-
-					<!-- submit -->
-					<div class="space-y-2">
-						<textarea name="text-review" id="" rows="5"
-						          class="w-full rounded-lg border border-gray-300 shadow">Write your review here...</textarea>
-						<button class="w-full py-2 text-base text-white bg-scheme-dusk-blue rounded-lg">
-							SUBMIT REVIEW
-						</button>
-					</div>
-				</form>
-			</div>
-
-		</div>
-	</div>
+        <div class="w-full h-auto overflow-hidden">
+            <img id="zoom-img" src="" alt="zoom-img" class="w-full h-auto">
+        </div>
+    </div>
 
 </div>
 
-<div id="modal-file"
-     class="modals hidden opacity-0 main-modals bg-black w-full h-full min-h-screen z-[60] absolute top-0 left-0 bg-black bg-opacity-70 absolute backdrop-opacity-70 px-4">
-	<!-- modal -->
-	<div id="modal-file-review" class="modals w-full h-auto sticky top-32 md:top-1/4 font-walsh">
-		<div class="bg-white w-full xl:w-2/3 2xl:w-1/2 h-auto md:h-[32rem] md:h-auto mx-auto relative p-4 md:p-8 space-y-4">
+<!-- header -->
+<div class="header fixed top-0 left-0 w-full z-50">
+    <!-- main header -->
+    <div class="main-header h-[60px] md:h-[100px] container mx-auto flex items-center justify-between px-4 md:px-0 z-50 relative">
+        <div class="w-full flex justify-between items-center relative">
+            <!-- logo site -->
+            <div>
+                <img src="./images/content/pucelle-logo-black.png"
+                     class="h-[16px] md:h-[30px] object-contain" alt="">
+            </div>
 
-			<div class="flex justify-end">
-				<button id="hide-modal-review" class="text-scheme-base-pink">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-					</svg>
-				</button>
-			</div>
+            <!-- small nav btn -->
+            <div class="block md:hidden">
+                <button id="btn-sm-nav">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
 
-			<div id="target-review-img"
-			     class="w-full h-auto md:h-96 bg-gray-100 rounded-lg flex overflow-hidden items-center justify-center">
-			</div>
+            <!-- large nav -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center space-x-[60px] text-scheme-grey">
+                    <li><a href="./product.html">Our Products</a></li>
+                    <li><a href="./article.html">Pucelleclopedia</a></li>
+                    <li><a href="#">Pucelle Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
-		</div>
-	</div>
+    <!-- small nav content -->
+    <div id="sm-nav"
+         class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[60px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+        <div class="space-y-8 text-right text-lg">
+            <nav>
+                <ul class="text-scheme-grey space-y-8">
+                    <li><a href="./product.html">Our Products</a></li>
+                    <li><a href="./article.html">Pucelleclopedia</a></li>
+                    <li><a href="#">Pucelle Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
 </div>
 
-<div id="modal-sm"
-     class="modal-sm-ing opacity-0 hidden w-full h-full min-h-screen bg-gray-900 bg-opacity-50 absolute top-0 z-50 backdrop-opacity-50">
-	<div class="w-full h-auto p-4 sticky top-1/4 font-walsh">
-		<!-- ingredients -->
-		<div id="modal-ingredients" class="bg-scheme-pirus w-11/12 md:w-2/3 mx-auto px-3 py-2 md:px-6 md:py-6">
-			<div class="flex justify-end">
-				<button id="hide-modal-ing-sm" class="text-scheme-base-pink">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-					</svg>
-				</button>
-			</div>
-			<div class="text-center space-y-4 md:space-y-4 xl:space-y-8 md:p-4 xl:py-8 px-2">
-				<p class="text-lg md:text-2xl xl:text-4xl font-brice text-scheme-dusk-blue">Full Ingredients</p>
-				<p class="text-base md:text-sm xl:text-2xl">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet error et facilis impedit inventore
-					ipsum nesciunt nobis non odit officia quibusdam quos reiciendis, sint totam vero voluptates
-					voluptatum? Amet consectetur distinctio dolorum natus necessitatibus nihil nisi reiciendis,
-					repudiandae. A adipisci amet architecto culpa debitis dolor ducimus eaque earum excepturi impedit
-					iure maxime molestias neque nulla numquam porro quae quia quisquam, recusandae repellendus sequi
-					sint tempora temporibus veritatis voluptatum. Maxime quidem quos, ratione recusandae rem sed.
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-
-<header id="header" class="header fixed top-0 z-50 w-full shadow-lg md:shadow-none font-walsh">
-	<div class="py-3 bg-scheme-dusk-blue px-4">
-		<p class="font-walsh text-white text-center text-sm 2xl:text-base">
-			Free shipping on orders for over IDR 500.000
-			<a href="" class="underline">Read More</a>
-		</p>
-	</div>
-
-	<div class="w-full bg-white">
-		<div class="w-full h-auto container mx-auto py-4 px-4 lg:px-4 xl:px-0 flex justify-between items-center">
-			<!-- logo -->
-			<div class="w-16 md:w-20 h-auto">
-				<a href="index.html">
-					<img src="./images/home/png/tavi-logo.png" alt="" class="w-full h-full">
-				</a>
-			</div>
-
-			<!-- hamburger -->
-			<div class="xl:hidden flex gap-2 text-scheme-dusk-blue">
-				<!-- SEARCH BOX -->
-				<div class="relative flex items-center" emk-dropdown-trigger="click" emk-dropdown
-				     emk-dropdown-position="bottom-right">
-					<!-- DROPDOWN BUTTON [ event - click ] -->
-					<button>
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-						     stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-						</svg>
-					</button>
-
-					<!-- DROPDOWN CONTENT -->
-					<div class="hidden w-80  bg-white shadow border absolute top-full translate-y-4 -translate-x-2/4 block p-3">
-						<div class="h-full block space-y-4">
-							<!-- heading dropdown -->
-							<div class="w-full flex flex-col border-b border-gray-300 pb-2 font-walsh">
-								<p class="text-sm">Search Box</p>
-							</div>
-
-							<!-- search field -->
-							<form action="search.html">
-								<div class="space-y-4 py-2">
-									<label>
-										<input type="text" name="q"
-										       class="border border-black rounded-md py-2 w-full font-walsh font-sm"
-										       placeholder="input here...">
-									</label>
-
-									<button type="submit"
-									        class="w-full font-semibold text-sm font-walsh py-2 border border-scheme-dusk-blue bg-scheme-dusk-blue text-white rounded-md transition duration-200 hover:shadow-lg">
-										Search
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
-				<button id="btn-show-nav">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-					     stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						      d="M4 6h16M4 12h16M4 18h16"/>
-					</svg>
-				</button>
-			</div>
-
-			<!-- lg menu -->
-			<div class="hidden xl:block">
-				<nav class="flex items-center justify-center 2xl:gap-24 xl:gap-16 font-walsh xl:text-base 2xl:text-lg">
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink ">
-						<a href="about.html">About Us</a>
-					</p>
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink ">
-						<a href="product.html">Product</a>
-					</p>
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink">
-						<a href="./news.html">News</a>
-					</p>
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink">
-						<a href="#">Skin Scholar</a>
-					</p>
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink">
-						<a href="#">Promo</a>
-					</p>
-					<p class="text-black transition duration-200 hover:text-scheme-base-pink ">
-						<a href="faq.html">Skin Quiz</a>
-					</p>
-				</nav>
-			</div>
-
-			<!-- user nav -->
-			<div class="hidden xl:block relative w-64">
-				<div class="flex gap-4 justify-end">
-
-					<div class="items-user-nav flex gap-4">
-						<!-- PROFILE -->
-						<div class="relative cursor-pointer flex items-center" emk-dropdown-trigger="click"
-						     emk-dropdown
-						     emk-dropdown-position="bottom-right">
-							<!-- DROPDOWN BUTTON [ event - click ] -->
-							<button class="flex gap-2 items-center">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-								     stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round"
-									      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-								</svg>
-								<span>Hai, Jessica</span>
-							</button>
-
-							<!-- DROPDOWN CONTENT -->
-							<div class="hidden w-44  bg-white shadow border absolute top-full translate-y-4 -translate-x-2/4 block p-3">
-								<div class="space-y-2 text-center">
-									<div class="text-center border-b border-gray-600 pb-1">
-										<a href="profile.html"
-										   class="transition duration-200 hover:text-scheme-dusk-blue">My
-											Profile</a>
-									</div>
-									<div>
-										<button class="transition duration-200 hover:text-scheme-base-pink">Logout
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- CART -->
-						<div class="relative cursor-pointer flex items-center" emk-dropdown-trigger="click"
-						     emk-dropdown
-						     emk-dropdown-position="bottom-right">
-							<!-- DROPDOWN BUTTON [ event - click ] -->
-							<button>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 25" fill="none" class="h-6">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-									      d="M21.5774 7.20617V24.4342H0V7.20617H2.87698V5.01091C2.87698 2.24789 5.13556 0 7.91171 0C8.98065 0 9.97263 0.333536 10.7887 0.901153C11.6047 0.333536 12.5967 0 13.6657 0C16.4418 0 18.7004 2.24789 18.7004 5.01091V7.20617H21.5774ZM17.2619 8.63786H15.8234V21.9901L17.2619 20.5584V8.63786ZM17.9812 21.8673L19.1217 23.0025H16.8406L17.9812 21.8673ZM20.1389 21.9901V8.63786H18.7004V20.5584L20.1389 21.9901ZM17.2619 5.01091V7.20617H12.9464V5.01091C12.9464 3.84275 12.5426 2.76669 11.8668 1.91364C12.3963 1.60779 13.0106 1.43169 13.6657 1.43169C15.6486 1.43169 17.2619 3.03733 17.2619 5.01091ZM11.5079 5.01091C11.5079 4.20687 11.2401 3.46407 10.7887 2.86586C10.3373 3.46407 10.0694 4.20692 10.0694 5.01091V7.20617H11.5079V5.01091ZM4.31548 5.01091C4.31548 3.03733 5.92875 1.43169 7.91171 1.43169C8.5668 1.43169 9.18103 1.60779 9.71059 1.91364C9.03474 2.76669 8.63095 3.84275 8.63095 5.01091V7.20617H4.31548V5.01091ZM2.87698 8.63786H1.43849V23.0025H14.3849V8.63786H12.9464V11.5012H11.5079V8.63786H4.31548V11.5012H2.87698V8.63786Z"
-									      fill="#212121"/>
-									<rect x="2.39746" y="19.5474" width="4.79497" height="1.22171" fill="#212121"/>
-									<rect x="2.39746" y="17.104" width="4.79497" height="1.22171" fill="#212121"/>
-								</svg>
-							</button>
-
-							<!-- DROPDOWN CONTENT -->
-							<div class="hidden w-64  bg-white shadow border absolute top-full translate-y-4 -translate-x-2/4 block p-3">
-								<div class="h-full block">
-									<!-- heading dropdown -->
-									<div class=" w-full flex flex-col border-b border-gray-300 pb-2">
-										<p class="text-sm">Product(s)</p>
-									</div>
-
-									<br>
-
-									<!-- cart items -->
-									<div class="h-60 overflow-y-auto space-y-4">
-										<!-- card -->
-										<div class="grid grid-cols-12">
-											<div class="col-span-5 w-full h-auto">
-												<div class="w-20 h-20">
-													<img src="./images/products/jpg/serum.jpg" alt=""
-													     class="w-full h-full object-cover">
-												</div>
-											</div>
-											<div class="col-span-7 font-walsh space-y-1">
-												<p class="text-[0.65rem]">SUPREME DOUBLE ACTION MICELLAR GEL</p>
-												<p class="text-xs">Rp 75.000</p>
-												<div class="text-sm font-walsh border border-black inline-block rounded-sm">
-													<button class="px-2">-</button>
-													<span class="px-2">1</span>
-													<button class="px-2">+</button>
-												</div>
-											</div>
-										</div>
-
-										<!-- card -->
-										<div class="grid grid-cols-12">
-											<div class="col-span-5 w-full h-auto">
-												<div class="w-20 h-20">
-													<img src="./images/products/jpg/serum.jpg" alt=""
-													     class="w-full h-full object-cover">
-												</div>
-											</div>
-											<div class="col-span-7 font-walsh space-y-1">
-												<p class="text-[0.65rem]">SUPREME DOUBLE ACTION MICELLAR GEL</p>
-												<p class="text-xs">Rp 75.000</p>
-												<div class="text-sm font-walsh border border-black inline-block rounded-sm">
-													<button class="px-2">-</button>
-													<span class="px-2">1</span>
-													<button class="px-2">+</button>
-												</div>
-											</div>
-										</div>
-
-										<!-- card -->
-										<div class="grid grid-cols-12">
-											<div class="col-span-5 w-full h-auto">
-												<div class="w-20 h-20">
-													<img src="./images/products/jpg/serum.jpg" alt=""
-													     class="w-full h-full object-cover">
-												</div>
-											</div>
-											<div class="col-span-7 font-walsh space-y-1">
-												<p class="text-[0.65rem]">SUPREME DOUBLE ACTION MICELLAR GEL</p>
-												<p class="text-xs">Rp 75.000</p>
-												<div class="text-sm font-walsh border border-black inline-block rounded-sm">
-													<button class="px-2">-</button>
-													<span class="px-2">1</span>
-													<button class="px-2">+</button>
-												</div>
-											</div>
-										</div>
-
-										<!-- card -->
-										<div class="grid grid-cols-12">
-											<div class="col-span-5 w-full h-auto">
-												<div class="w-20 h-20">
-													<img src="./images/products/jpg/serum.jpg" alt=""
-													     class="w-full h-full object-cover">
-												</div>
-											</div>
-											<div class="col-span-7 font-walsh space-y-1">
-												<p class="text-[0.65rem]">SUPREME DOUBLE ACTION MICELLAR GEL</p>
-												<p class="text-xs">Rp 75.000</p>
-												<div class="text-sm font-walsh border border-black inline-block rounded-sm">
-													<button class="px-2">-</button>
-													<span class="px-2">1</span>
-													<button class="px-2">+</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<br>
-
-									<div class="border-t border-gray-300 py-4 space-y-4">
-										<div class="flex flex-row justify-between font-walsh text-sm font-bold">
-											<p>Total</p>
-											<p>Rp 255.000</p>
-										</div>
-										<div>
-											<a href="cart.html">
-												<button class="py-2 text-white font-walsh w-full rounded-lg text-center bg-scheme-dusk-blue">
-													CHECKOUT
-												</button>
-											</a>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-						<!-- NOTIFICATIONS -->
-						<div class="relative flex items-center" emk-dropdown-trigger="click" emk-dropdown
-						     emk-dropdown-position="bottom-right">
-							<!-- DROPDOWN BUTTON [ event - click ] -->
-							<button>
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-								     stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-								</svg>
-							</button>
-
-							<!-- DROPDOWN CONTENT -->
-							<div class="hidden w-64  bg-white shadow border absolute top-full translate-y-4 -translate-x-2/4 block p-3">
-								<div class="h-full block">
-									<!-- heading dropdown -->
-									<div class=" w-full flex flex-col border-b border-gray-300 pb-2">
-										<p class="text-sm">Notification(s)</p>
-									</div>
-
-									<div class="py-2 space-y-4">
-										<div class="flex justify-between font-walsh text-sm">
-											<p>Your Purchase</p>
-											<p>
-												<a href="">View All</a>
-											</p>
-										</div>
-
-										<!-- status order -->
-										<div class="grid grid-cols-12 gap-2">
-											<div class="col-span-3 flex flex-col justify-start items-center text-center gap-1">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-												     viewBox="0 0 24 24" stroke="currentColor">
-													<path stroke-linecap="round" stroke-linejoin="round"
-													      stroke-width="2"
-													      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-												</svg>
-												<p class="text-walsh text-[10px]">waiting for confirmation</p>
-											</div>
-
-											<div class="col-span-3 flex flex-col justify-start items-center text-center gap-1">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-												     viewBox="0 0 24 24" stroke="currentColor">
-													<path stroke-linecap="round" stroke-linejoin="round"
-													      stroke-width="2"
-													      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-												</svg>
-												<p class="text-walsh text-[10px]">Proceed Order</p>
-											</div>
-
-											<div class="col-span-3 flex flex-col justify-start items-center text-center gap-1">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-												     viewBox="0 0 24 24" stroke="currentColor">
-													<path stroke-linecap="round" stroke-linejoin="round"
-													      stroke-width="2"
-													      d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
-												</svg>
-												<p class="text-walsh text-[10px]">On Shipping</p>
-											</div>
-
-											<div class="col-span-3 flex flex-col justify-start items-center text-center gap-1">
-												<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7"
-												     viewBox="0 0 20 20"
-												     fill="currentColor">
-													<path fill-rule="evenodd"
-													      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-													      clip-rule="evenodd"/>
-												</svg>
-												<p class="text-walsh text-[10px]">Arriving</p>
-											</div>
-										</div>
-
-									</div>
-
-									<br>
-
-									<!-- cart items -->
-									<div class="h-60 overflow-y-auto space-y-4">
-										<!-- card -->
-										<div class="font-walsh border-b border-gray-600 pb-2">
-											<p class="pl-6 text-gray-400 text-[12px]">Wed, Apr 13 10:20</p>
-											<div class="flex gap-2 items-center justify-start">
-												<div class="w-4 h-4 rounded-full bg-scheme-dusk-blue"></div>
-												<p class="text-scheme-dusk-blue text-lg">Your order is arriving</p>
-											</div>
-											<p class="pl-6 text-gray-600 text-[14px]">Supreme Revitalizing Serum 260ml
-												is
-												arriving</p>
-										</div>
-
-										<!-- card -->
-										<div class="font-walsh border-b border-gray-600 pb-2">
-											<p class="pl-6 text-gray-400 text-[12px]">Wed, Apr 13 10:20</p>
-											<div class="flex gap-2 items-center justify-start">
-												<div class="w-4 h-4 rounded-full bg-scheme-dusk-blue"></div>
-												<p class="text-scheme-dusk-blue text-lg">Your order is arriving</p>
-											</div>
-											<p class="pl-6 text-gray-600 text-[14px]">Supreme Revitalizing Serum 260ml
-												is
-												arriving</p>
-										</div>
-
-										<!-- card -->
-										<div class="font-walsh border-b border-gray-600 pb-2">
-											<p class="pl-6 text-gray-400 text-[12px]">Wed, Apr 13 10:20</p>
-											<div class="flex gap-2 items-center justify-start">
-												<div class="w-4 h-4 rounded-full bg-scheme-dusk-blue"></div>
-												<p class="text-scheme-dusk-blue text-lg">Your order is arriving</p>
-											</div>
-											<p class="pl-6 text-gray-600 text-[14px]">Supreme Revitalizing Serum 260ml
-												is
-												arriving</p>
-										</div>
-
-										<!-- card -->
-										<div class="font-walsh border-b border-gray-600 pb-2">
-											<p class="pl-6 text-gray-400 text-[12px]">Wed, Apr 13 10:20</p>
-											<div class="flex gap-2 items-center justify-start">
-												<div class="w-4 h-4 rounded-full bg-scheme-dusk-blue"></div>
-												<p class="text-scheme-dusk-blue text-lg">Your order is arriving</p>
-											</div>
-											<p class="pl-6 text-gray-600 text-[14px]">Supreme Revitalizing Serum 260ml
-												is
-												arriving</p>
-										</div>
-									</div>
-
-									<br>
-
-									<div class="border-t border-gray-300 py-4">
-										<button class="py-2 text-white font-walsh w-full rounded-lg text-center bg-scheme-dusk-blue">
-											READ MORE
-										</button>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="content-search w-auto relative flex items-center justify-between gap-2">
-						<label class="w-full input-search-bar hidden">
-							<input type="text"
-							       class="w-full border-t-0 border-x-0 border-b py-0  bg-transparent outline-none focus:outline-none focus:ring-0">
-						</label>
-
-						<button class="btn-search-bar">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round"
-								      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-							</svg>
-						</button>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div id="nav-sm"
-	     class="xl:hidden block nav-sm bg-white w-full h-screen absolute px-6 py-4 space-y-4 left-[-1024px] space-y-12">
-		<nav>
-			<ul class="list-none space-y-4 font-walsh text-lg">
-				<li>
-					<a href="about.html">About Us</a>
-				</li>
-				<li>
-					<a href="product.html">Product</a>
-				</li>
-				<li>
-					<a href="./news.html">News</a>
-				</li>
-				<li class="">
-					<a href="#">Skin Scholar</a>
-				</li>
-				<li class="">
-					<a href="#">Limited Offers</a>
-				</li>
-				<li>
-					<a href="faq.html">Skin Quiz</a>
-				</li>
-			</ul>
-		</nav>
-
-		<div class="flex items-center gap-4">
-			<button class="flex items-center justify-center gap-2">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-				     stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-					      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-				</svg>
-				<span>
-					Hi, Jessica
-				</span>
-			</button>
-
-			<button>
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 25" fill="none" class="h-6">
-					<path fill-rule="evenodd" clip-rule="evenodd"
-					      d="M21.5774 7.20617V24.4342H0V7.20617H2.87698V5.01091C2.87698 2.24789 5.13556 0 7.91171 0C8.98065 0 9.97263 0.333536 10.7887 0.901153C11.6047 0.333536 12.5967 0 13.6657 0C16.4418 0 18.7004 2.24789 18.7004 5.01091V7.20617H21.5774ZM17.2619 8.63786H15.8234V21.9901L17.2619 20.5584V8.63786ZM17.9812 21.8673L19.1217 23.0025H16.8406L17.9812 21.8673ZM20.1389 21.9901V8.63786H18.7004V20.5584L20.1389 21.9901ZM17.2619 5.01091V7.20617H12.9464V5.01091C12.9464 3.84275 12.5426 2.76669 11.8668 1.91364C12.3963 1.60779 13.0106 1.43169 13.6657 1.43169C15.6486 1.43169 17.2619 3.03733 17.2619 5.01091ZM11.5079 5.01091C11.5079 4.20687 11.2401 3.46407 10.7887 2.86586C10.3373 3.46407 10.0694 4.20692 10.0694 5.01091V7.20617H11.5079V5.01091ZM4.31548 5.01091C4.31548 3.03733 5.92875 1.43169 7.91171 1.43169C8.5668 1.43169 9.18103 1.60779 9.71059 1.91364C9.03474 2.76669 8.63095 3.84275 8.63095 5.01091V7.20617H4.31548V5.01091ZM2.87698 8.63786H1.43849V23.0025H14.3849V8.63786H12.9464V11.5012H11.5079V8.63786H4.31548V11.5012H2.87698V8.63786Z"
-					      fill="#212121"/>
-					<rect x="2.39746" y="19.5474" width="4.79497" height="1.22171" fill="#212121"/>
-					<rect x="2.39746" y="17.104" width="4.79497" height="1.22171" fill="#212121"/>
-				</svg>
-			</button>
-
-			<button>
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-				     stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round"
-					      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-				</svg>
-			</button>
-		</div>
-	</div>
-</header>
-
-<div class="w-full h-auto mx-auto container relative pt-[105px] md:pt-[115px]">
-
-	<!-- breadcrumbs -->
-	<div class="px-4 pb-8 pt-12 md:pt-8">
-		<p class="text-base md:text-base font-walsh font-medium break-all"><a href="">HOME</a> / <a href="">PRODUCT</a>
-			/
-			<a href="">Encapsulated</a>
-		</p>
-	</div>
-
-	<!-- content -->
-	<div class="grid grid-cols-1 md:grid-cols-12 gap-6 xl:gap-12 px-4 xl:px-0">
-
-		<!-- content left md -->
-		<div class="col-span-5 hidden md:block">
-			<div class="w-650 md:h-[500px] xl:h-[650px] relative overflow-hidden">
-
-				<div class="grid grid-cols-12">
-					<div class="catalog-img-product col-span-2 flex flex-col py-4 items-center justify-end gap-4">
-						<img src="./images/products/jpg/serum.jpg" alt="img-product"
-						     class="catalog-img flex-none lg:w-12 xl:w-16 lg:h-12 xl:h-16 rounded-full cursor-pointer active-img-catalog">
-
-						<img src="./images/products/jpg/girl1.jpg" alt="img-product"
-						     class="catalog-img flex-none lg:w-12 xl:w-16 lg:h-12 xl:h-16 rounded-full cursor-pointer">
-
-						<img src="./images/products/jpg/girl2.jpg" alt="img-product"
-						     class="catalog-img flex-none lg:w-12 xl:w-16 lg:h-12 xl:h-16 rounded-full cursor-pointer">
-
-						<img src="./images/products/jpg/girl3.jpg" alt="img-product"
-						     class="catalog-img flex-none lg:w-12 xl:w-16 lg:h-12 xl:h-16 rounded-full cursor-pointer">
-					</div>
-
-					<div class="col-span-10">
-						<div class="w-full h-full flex items-center justify-center">
-							<div class="main-img-product overflow-hidden lg:w-[20rem] lg:h-[20rem] xl:w-[26rem] xl:h-[26rem] 2xl:w-[32rem] 2xl:h-[32rem]">
-								<img id="target-img" src="./images/products/jpg/serum.jpg" alt=""
-								     class="main-show-catalog object-contain w-full h-full">
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- content left sm -->
-		<div class="col-span-1 w-full h-auto block md:hidden overflow-x-auto">
-			<div class="w-full h-auto relative flex flex-row gap-6 block pb-6 overflow-x-auto snap-x">
-
-				<div>
-					<div class="ss:w-72 ss:h-72 xs:w-80 xs:h-80 snap-center">
-						<img src="./images/products/jpg/serum.jpg" alt="" class="w-full h-full object-contain">
-					</div>
-				</div>
-
-				<div>
-					<div class="ss:w-72 ss:h-72 xs:w-80 xs:h-80 snap-center">
-						<img src="./images/products/jpg/girl1.jpg" alt="" class="w-full h-full object-contain">
-					</div>
-				</div>
-
-				<div>
-					<div class="ss:w-72 ss:h-72 xs:w-80 xs:h-80 snap-center">
-						<img src="./images/products/jpg/girl2.jpg" alt="" class="w-full h-full object-contain">
-					</div>
-				</div>
-
-				<div>
-					<div class="ss:w-72 ss:h-72 xs:w-80 xs:h-80 snap-center">
-						<img src="./images/products/jpg/girl3.jpg" alt="" class="w-full h-full object-contain">
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-		<!-- content right -->
-		<div class="col-span-1 md:col-span-7 w-full py-0 pb-8 md:pb-0 pr-0 xl:pr-40 2xl:pr-60">
-			<div class="w-full h-auto flex flex-col xl:space-y-4 space-y-8 2xl:space-y-8 px-4 md:px-0">
-
-				<!-- title & price -->
-				<div class="order-1 md:order-1 text-center md:text-left space-y-4 md:space-y-2">
-					<h1 class="text-2xl font-brice-bold text-scheme-dusk-blue">Plant-Based Squalane + Ceramide</h1>
-					<p class="text-lg text-gray-500 font-walsh block">Slow Aging Serum</p>
-					<p class="text-3xl font-walsh font-bold">Rp 159.000</p>
-				</div>
-
-				<!-- desc product  -->
-				<div class="order-4 md:order-2 space-y-4 md:space-y-2">
-					<p class="text-2xl md:text-3xl font-brice font-bold text-scheme-dusk-blue text-center md:text-left">
-						WHY IT’S GOOD</p>
-					<p class="font-walsh text-lg md:text-base text-center md:text-justify leading-6 hidden md:block">
-						Encapsulated Retinol + Bakuchiol Slow-Age Serum prevents premature signs of aging (wrinkle,
-						saggy skin, hyperpigmentation) on your skin gently with minimum irritation. Our Encapsulated
-						Retinol diffuses on your skin throughout the day and combined with Bakuchiol, a proven
-						natural Retinol, will give you visible results in 2 weeks!
-					</p>
-
-					<div class="block md:hidden text-center">
-						<span id="main-desc">
-							Encapsulated Retinol + Bakuchiol Slow-Age Serum prevents premature signs of aging (wrinkle,
-							saggy skin, hyperpigmentation) on your skin gently with minimum irritation. Our Encapsulated
-							Retinol diffuses on your skin throughout the day and combined with Bakuchiol, a proven
-							natural Retinol, will give you visible results in 2 weeks!
-						</span>
-						<span id="show-readmore" class="text-scheme-dusk-blue font-bold">
-							READ MORE...
-						</span>
-					</div>
-
-
-				</div>
-
-				<!-- strength point -->
-				<div class="order-5 md:order-3 grid grid-cols-12">
-					<div class="col-span-3 flex flex-col justify-center items-center gap-4">
-						<div class="w-12">
-							<img src="./images/products/png/icP1.png" alt=""
-							     class="transition duration-300 hover:scale-105">
-						</div>
-						<div class="text-scheme-dusk-blue text-sm text-center font-walsh">
-							<p>Sulfate &</p>
-							<p>Paraben Free</p>
-						</div>
-					</div>
-
-					<div class="col-span-3 flex flex-col justify-center items-center gap-4">
-						<div class="w-12">
-							<img src="./images/products/png/icP3.png" alt=""
-							     class="transition duration-300 hover:scale-105">
-						</div>
-						<div class="text-scheme-dusk-blue text-sm text-center font-walsh">
-							<p>Dermatologist</p>
-							<p>Tested</p>
-						</div>
-					</div>
-
-					<div class="col-span-3 flex flex-col justify-center items-center gap-4">
-						<div class="w-12">
-							<img src="./images/products/png/icP4.png" alt=""
-							     class="transition duration-300 hover:scale-105">
-						</div>
-						<div class="text-scheme-dusk-blue text-sm text-center font-walsh">
-							<p>Certified</p>
-							<p>Halal</p>
-						</div>
-					</div>
-					<div class="col-span-3 flex flex-col justify-center items-center gap-4">
-						<div class="w-12">
-							<img src="./images/products/png/icP5.png" alt=""
-							     class="transition duration-300 hover:scale-105">
-						</div>
-						<div class="text-scheme-dusk-blue text-sm text-center font-walsh">
-							<p>For All</p>
-							<p>Skin Type</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- order button -->
-				<div class="order-2 md:order-4 space-y-4">
-					<div class="flex flex-row gap-2">
-						<div class="hidden p-0.5 rounded-md bg-scheme-pale-purple flex">
-							<button class="font-xl text-center font-walsh w-12 bg-white" type="button"
-							        id="minus-button">-
-							</button>
-							<label for="quantity">
-								<input class="font-xl w-12 border-none outline-none text-center font-walsh"
-								       type="number" id="quantity" value="1" min="0">
-							</label>
-							<button class="font-xl text-center font-walsh w-12 bg-white" type="button" id="plus-button">
-								+
-							</button>
-						</div>
-
-						<!--						<div class="md:w-auto w-full flex gap-4 font-walsh">-->
-						<!--							<button class="text-white text-xl bg-scheme-pale-purple w-full py-2 rounded-md px-0 md:px-24 hover:bg-scheme-dusk-blue transition">-->
-						<!--								Add To Bag-->
-						<!--							</button>-->
-						<!--						</div>-->
-
-						<div class="md:w-auto w-full flex gap-4 font-walsh">
-							<a href="https://shopee.co.id/" target="_blank"
-							   class="text-white text-center text-xl bg-scheme-pale-purple w-full py-2 rounded-md px-0 md:px-24 hover:bg-scheme-dusk-blue transition">
-								Buy Now
-							</a>
-						</div>
-
-					</div>
-				</div>
-
-				<!-- wishlist  -->
-				<div class="order-3 md:order-5 flex flex-col md:flex-row items-center md:justify-start justify-center gap-4 md:gap-8 py-0 md:py-4">
-					<button class="flex gap-4 items-center">
-						<div class="w-8 h-8">
-							<img src="./images/products/png/icMask.png" alt="" class="w-full h-auto">
-						</div>
-						<span class="text-xl text-scheme-dusk-blue font-walsh">Skin Discovery</span>
-					</button>
-
-					<button class="flex gap-4 items-center">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-scheme-red" fill="none"
-						     viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-						</svg>
-						<span class="text-xl text-scheme-dusk-blue font-walsh">add to wishlist</span>
-					</button>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="py-8 hidden md:block">
-	<!-- button tab -->
-	<div id="tabs" class="grid grid-cols-12 font-walsh">
-		<button id="tab-benefits" data-tab="tab1"
-		        class="btn-tab col-span-4 w-full bg-scheme-dusk-blue text-white py-4 font-semibold xl:text-xl 2xl:text-2xl h-full text-center">
-			Benefits
-		</button>
-		<button id="tab-ingredients" data-tab="tab2"
-		        class="btn-tab col-span-4 w-full bg-scheme-darkish-pink-two text-white py-4 font-semibold xl:text-xl 2xl:text-2xl h-full text-center">
-			Ingredients
-		</button>
-		<button id="tab-tutorial" data-tab="tab3"
-		        class="btn-tab col-span-4 w-full bg-scheme-darkish-pink-two text-white py-4 font-semibold xl:text-xl 2xl:text-2xl h-full text-center">
-			How To Use
-		</button>
-	</div>
-
-	<!-- section tab content -->
-	<div id="tab-content" class="w-full h-full">
-
-		<!-- tab benefit -->
-		<div id="tab1" class="default-tab content-tab h-full bg-scheme-pirus">
-			<div class="container mx-auto md:py-8 2xl:py-16">
-				<div class="flex flex-row justify-center items-center md:gap-20 xl:gap-24 2xl:gap-32">
-					<!-- content left -->
-					<div class="space-y-4">
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Skin feels mousturized for longer period
-							</p>
-							<p class="minus-number border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="93.3">0</span> <span>%</span>
-							</p>
-						</div>
-
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Skin feels more healthy and dewy
-							</p>
-							<p class="border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="83.3">0</span> <span>%</span>
-							</p>
-						</div>
-
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Makeup feels more dewy after using cream
-							</p>
-							<p class="border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="93.3">0</span> <span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<!-- content center -->
-					<div id="serum-benefit" class="flex justify-center items-center">
-						<img src="./images/products/png/opened-serum.png" alt="" class="w-auto md:h-350 2xl:h-400">
-					</div>
-
-					<!-- content right -->
-					<div class="space-y-4">
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Skin does not get flaky after use
-							</p>
-							<p class="border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="100">0</span> <span>%</span>
-							</p>
-						</div>
-
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Skin dryness feels relieved
-							</p>
-							<p class="border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="90">0</span> <span>%</span>
-							</p>
-						</div>
-
-						<div data-aos="fade-up" class="md:w-64 2xl:w-72 border-2 border-black bg-white font-walsh">
-							<p class="xl:text-lg 3xl:text-xl p-4">
-								Skin feels Soft When Applied for 6 hours
-							</p>
-							<p class="border-t border-black py-3 lg:text-2xl xl:text-4xl 2xl:text-6xl text-center font-bold text-scheme-dusk-blue">
-								<span class="value" data-number="80">0</span> <span>%</span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div>
-				<img src="./images/products/jpg/banner-benefit.jpg" alt="" class="object-cover w-full">
-			</div>
-		</div>
-
-		<!-- tab ingredients -->
-		<div id="tab2" class="content-tab h-full hidden bg-scheme-pirus relative overflow-hidden">
-			<img src="./images/content/ornament-1.png" alt="" class="absolute -top-16 -left-16 w-300">
-			<img src="./images/content/ornament-1.png" alt="" class="absolute -bottom-16 -right-16 w-300">
-
-			<div class="container mx-auto md:py-20 xl:py-24">
-				<!-- main content -->
-				<div class="relative flex flex-row justify-center items-start gap-16 lg:min-h-[350px] xl:min-h-[437px] md:px-4 xl:px-0">
-
-					<!-- item left  -->
-					<div class="ingredients-left w-auto max-h-[300px] min-w-[320px] overflow-hidden flex flex-col items-end">
-						<!-- item sm -->
-
-						<div class="ingleft-sm">
-							<div class="w-auto h-auto inline-block min-w-[10rem]">
-								<div class="border-2 border-black bg-white p-4">
-									<p class="text-7xl font-brice-extralight font-bold text-center">A</p>
-									<p class="font-walsh text-lg w-40 break-world">
-										Encapsulated Retinol 1%
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<!-- item lg -->
-						<div class="ingleft-lg border-2 border-black w-80 bg-white">
-							<div class="py-4 px-8 flex flex-row items-center">
-								<div class="w-full h-auto">
-									<p class="text-7xl font-brice-extralight font-bold">A</p>
-									<p class="font-walsh text-lg">
-										Encapsulated
-										Retinol 1%
-									</p>
-								</div>
-								<div class="w-full h-auto">
-									<img src="./images/products/png/circle.png" alt="" class="w-28 h-auto mx-auto">
-								</div>
-							</div>
-							<div class="border-t border-black p-4">
-								<p class="leading-5 text-sm font-walsh">
-									Retinol is a type of retinoid — a class of drugs that come from vitamin A.
-									Retinoids include both over-the-counter (OTC) retinoid products and prescription
-									retinoid
-									medication.
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- item center -->
-					<div class="relative">
-						<div class="">
-							<img src="./images/products/png/icSample.png" alt="" class="w-96 h-auto">
-						</div>
-
-						<div id="btn-show-a" emk-toggle="false" class="pointer-events-auto cursor-pointer">
-							<img id="img-btn-a" src="./images/products/png/icplus.png" alt=""
-							     class="ing-toggle w-12  absolute -left-6 top-16">
-						</div>
-
-						<div id="btn-show-b" emk-toggle="false" class="pointer-events-auto cursor-pointer">
-							<img id="img-btn-b" src="./images/products/png/icplus.png" alt=""
-							     class="ing-toggle w-12  absolute right-0 -top-4">
-						</div>
-					</div>
-
-					<!-- item right -->
-					<div class="ingredients-right w-auto max-h-auto min-w-[320px] overflow-hidden">
-						<!-- item sm -->
-						<div class="flex-none">
-							<div class="ingright-sm">
-								<div class="w-auto h-auto inline-block min-w-[10rem]">
-									<div class="border-2 border-black bg-white p-4">
-										<p class="text-7xl font-brice-extralight font-bold text-center">P</p>
-										<p class="font-walsh text-lg">
-											Peptide
-										</p>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<!-- item lg -->
-						<div class="ingright-lg border-2 border-black w-80 bg-white">
-							<div class="py-4 px-8 flex flex-row items-center">
-								<div class="w-full h-auto">
-									<p class="text-7xl font-brice-extralight font-bold">P</p>
-									<p class="font-walsh text-lg">
-										Peptide
-									</p>
-								</div>
-								<div class="w-full h-auto">
-									<img src="./images/products/png/bakuchiol-circle.png" alt=""
-									     class="w-28 h-auto mx-auto">
-								</div>
-							</div>
-							<div class="border-t border-black p-4">
-								<p class="leading-5 text-sm font-walsh">
-									A peptide is a short chain of amino acids. The amino acids in a peptide are
-									connected to one another in a sequence by bonds called peptide bonds. Typically,
-									peptides are distinguished from proteins by their shorter length
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- modal -->
-				<div class="flex justify-center">
-					<button id="btn-show-modal-lg"
-					        class="flex bg-white rounded-full px-16 py-2 items-center gap-12 border-2 border-black duartion-200 transition hover:bg-scheme-base-pink hover:text-white">
-						<p class="text-xl font-walsh">See Our Full Ingredients</p>
-						<img src="./images/home/png/btn-arrow.png" alt="" class="w-16 h-auto">
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<!-- tab how to use -->
-		<div id="tab3" class="content-tab hidden md:py-12 xl:py-16 bg-scheme-pirus md:px-4 xl:px-0">
-			<div class="container h-full mx-auto">
-				<div class="w-full h-auto">
-
-					<div class="grid grid-cols-12 md:gap-4 xl:gap-0">
-						<!-- left -->
-						<div id="tab-content-tut-img" class="col-span-6 m-auto">
-
-							<!-- tab img 1 -->
-							<div data-img="tutorial-tab1" id="tutorial-tab-img1" class="tab-img ">
-								<div class="w-auto md:h-[400px] xl:h-525 overflow-hidden rounded-xl">
-									<img src="./images/products/jpg/use-serum1.jpg" alt="" class="w-auto h-full">
-								</div>
-							</div>
-
-							<!-- tab img 2 -->
-							<div data-img="tutorial-tab2" id="tutorial-tab-img2" class="tab-img hidden">
-								<div class="w-auto md:h-[400px] xl:h-525 overflow-hidden rounded-xl">
-									<img src="./images/products/jpg/use-serum2.jpg" alt="" class="w-auto h-full">
-								</div>
-							</div>
-
-							<!-- tab img 3 -->
-							<div data-img="tutorial-tab3" id="tutorial-tab-img3" class="tab-img hidden">
-								<div class="w-auto md:h-[400px] xl:h-525 overflow-hidden rounded-xl">
-									<img src="./images/products/jpg/use-serum3.jpg" alt="" class="w-auto h-full">
-								</div>
-							</div>
-
-							<!-- tab img 4 -->
-							<div data-img="tutorial-tab4" id="tutorial-tab-img4" class="tab-img hidden">
-								<div class="w-auto md:h-[400px] xl:h-525 overflow-hidden rounded-xl">
-									<img src="./images/products/jpg/use-serum4.jpg" alt="" class="w-auto h-full">
-								</div>
-							</div>
-
-						</div>
-
-						<!-- right -->
-						<div class="col-span-6 space-y-8 py-24">
-							<!-- indicator tab  -->
-							<div id="tabs-tutorial" class="flex gap-4 font-walsh js-tab-header">
-								<button id="tutorial-step1" data-tab="tutorial-tab1"
-								        class="btn-tab-tut w-12 h-12 rounded-full bg-scheme-darkish-pink-two text-white text-lg font-bold">
-									1
-								</button>
-								<button data-tab="tutorial-tab2"
-								        class="btn-tab-tut w-12 h-12 rounded-full bg-scheme-dusk-blue text-white text-lg font-bold">
-									2
-								</button>
-								<button data-tab="tutorial-tab3"
-								        class="btn-tab-tut w-12 h-12 rounded-full bg-scheme-dusk-blue text-white text-lg font-bold">
-									3
-								</button>
-
-								<button data-tab="tutorial-tab4"
-								        class="btn-tab-tut w-12 h-12 rounded-full bg-scheme-dusk-blue text-white text-lg font-bold">
-									4
-								</button>
-							</div>
-
-							<!-- content tab -->
-							<div id="tab-content-tutorial" class="w-3/4 space-y-4 js-tab-content-text">
-								<!-- tab -->
-								<div id="tutorial-tab1" class="tab-text default-tab-tutorial space-y-4">
-									<h1 class="text-scheme-dusk-blue font-brice-bold text-5xl">Step One</h1>
-									<p class="text-scheme-dusk-blue text-2xl font-walsh">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque hic
-										labore molestiae quia quibusdam reiciendis, repellat vero voluptate voluptatem.
-									</p>
-								</div>
-
-								<!-- tab -->
-								<div id="tutorial-tab2" class="tab-text hidden space-y-4">
-									<h1 class="text-scheme-dusk-blue font-brice-bold text-5xl">Step Two</h1>
-									<p class="text-scheme-dusk-blue text-2xl font-walsh">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem deserunt
-										eveniet, nisi nostrum velit!
-									</p>
-								</div>
-
-								<!-- tab -->
-								<div id="tutorial-tab3" class="tab-text hidden space-y-4">
-									<h1 class="text-scheme-dusk-blue font-brice-bold text-5xl">Step Three</h1>
-									<p class="text-scheme-dusk-blue text-2xl font-walsh">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam beatae
-										consectetur cum dolore excepturi, expedita ipsam minima numquam pariatur, porro
-										quibusdam quod, sint temporibus!
-									</p>
-								</div>
-
-								<!-- tab -->
-								<div id="tutorial-tab4" class="tab-text hidden space-y-4">
-									<h1 class="text-scheme-dusk-blue font-brice-bold text-5xl">Step Four</h1>
-									<p class="text-scheme-dusk-blue text-2xl font-walsh">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at atque
-										commodi corporis distinctio est, fugit laudantium maxime molestiae officiis rem
-										sapiente veritatis vero! Sequi!
-									</p>
-								</div>
-
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="block md:hidden">
-	<div class="accordion font-walsh">
-
-		<!-- accordion-benefit -->
-		<div id="benefits-sm">
-			<div class="acc-head-sm bg-scheme-dusk-blue p-4 text-center text-white flex justify-center gap-4">
-				<p class="text-lg">Benefit</p>
-				<svg xmlns="http://www.w3.org/2000/svg" class="ic-head-acc h-6 w-6" fill="none" viewBox="0 0 24 24"
-				     stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-				</svg>
-			</div>
-
-			<div class="acc-body-sm bg-gray-200 hidden opacity-0">
-				<div class="accordion-item-body-content font-walsh text-base py-8 space-y-4 bg-scheme-pirus px-4">
-					<div>
-						<img src="./images/products/png/product-tavi.png" alt="" class="w-36 mx-auto object-contain">
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Skin feels more healthy and dewy</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="90">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Skin dryness feels relieved</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="80">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Makeup feels more deweafter using cream</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="88.2">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Skin feels Soft When Applied for 6 hours</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="87">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Skin feels mousturized folonger period</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="93">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="border-2 border-black bg-white">
-						<div class="border-b border-black text-center p-2">
-							<p>Skin does not get flaky after use</p>
-						</div>
-						<div class="p-1">
-							<p class="text-scheme-dusk-blue text-2xl text-center font-bold">
-								<span class="count-sm" data-number="78">0</span>
-								<span>%</span>
-							</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<!-- accordion-ingredients -->
-		<div>
-			<div
-					class="acc-head-sm bg-scheme-dusk-blue p-4 text-center text-white flex justify-center gap-4">
-				<p class="text-lg">Ingredients</p>
-				<svg xmlns="http://www.w3.org/2000/svg" class="ic-head-acc h-6 w-6" fill="none" viewBox="0 0 24 24"
-				     stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-				</svg>
-			</div>
-
-			<div class="acc-body-sm bg-gray-200 hidden opacity-0">
-				<div class="accordion-item-body-content font-walsh text-base py-8 space-y-8 bg-scheme-pirus px-4 h-full min-h-[20rem]">
-					<!-- content ing -->
-					<div id="head-ing-sm" class="sm-modal-ing w-4/5 mx-auto relative">
-						<img id="btn-ing-a" src="./images/products/png/icplus.png" alt=""
-						     class="absolute top-4 left-0 w-10 h-10">
-						<img src="./images/products/png/icSample.png" alt="" class="w-full h-auto">
-						<img id="btn-ing-b" src="./images/products/png/icplus.png" alt=""
-						     class="absolute top-0 right-4 w-10 h-10">
-					</div>
-
-					<!-- modal ing a -->
-					<div id="content-sm-ing-a"
-					     class="sm-modal-ing opacity-0 w-4/5 mx-auto bg-white border-2 border-black relative hidden">
-						<button id="hide-ing-a" class="absolute -right-4 -top-4">
-							<img src="./images/products/png/icplus.png" alt="" class="w-12">
-						</button>
-
-						<div class="w-full h-full grid grid-cols-12 border-b border-black p-4">
-							<div class="col-span-6 w-full h-full">
-								<p class="font-brice-extralight text-8xl font-bold">A</p>
-								<p class="text-lg 2xs:text-xl">Encapsulated</p>
-								<p class="text-lg 2xs:text-xl">Retinol 1%</p>
-							</div>
-							<div class="col-span-6 w-full h-full flex justify-center items-center">
-								<img src="./images/products/png/img-texture-a.png" alt=""
-								     class="h-28 2xs:h-32 rounded-full">
-							</div>
-						</div>
-
-						<div class="p-4">
-							<p>
-								Retinol is a type of retinoid — a class of drugs that come from vitamin A. Retinoids
-								include both over-the-counter (OTC) retinoid products and prescription retinoid
-								medication.
-							</p>
-						</div>
-					</div>
-
-					<!-- modal ing b -->
-					<div id="content-sm-ing-b"
-					     class="sm-modal-ing opacity-0 w-4/5 mx-auto bg-white border-2 border-black relative hidden">
-						<button id="hide-ing-b" class="absolute -right-4 -top-4">
-							<img src="./images/products/png/icplus.png" alt="" class="w-12">
-						</button>
-
-						<div class="w-full h-full grid grid-cols-12 border-b border-black p-4">
-							<div class="col-span-6 w-full h-full">
-								<p class="font-brice-extralight text-8xl font-bold">P</p>
-								<p class="text-lg 2xs:text-xl">Peptide</p>
-							</div>
-							<div class="col-span-6 w-full h-full flex justify-center items-center">
-								<img src="./images/products/png/img-texture-b.png" alt=""
-								     class="h-28 2xs:h-32 rounded-full">
-							</div>
-						</div>
-
-						<div class="p-4">
-							<p>
-								A peptide is a short chain of amino acids. The amino acids in a peptide are connected to
-								one another in a sequence by bonds called peptide bonds. Typically, peptides are
-								distinguished from proteins by their shorter length, although the cut-off number of
-								amino acids for defining a peptide and protein can be arbitrary.
-							</p>
-						</div>
-					</div>
-
-					<div class="flex justify-center">
-						<button id="show-modal-ing-sm"
-						        class="bg-white px-8 py-2 text-base bg-white border border-black rounded-full flex items-center gap-2 transition duration-200 hover:bg-scheme-base-pink hover:text-white">
-							<span>See Our Full Ingredients</span>
-							<img src="./images/home/png/btn-arrow.png" alt="" class="w-8 h-auto">
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- accordion-how-to-use-->
-		<div>
-			<div id="acc-ing-sm"
-			     class="acc-head-sm bg-scheme-dusk-blue p-4 text-center text-white flex justify-center gap-4">
-				<p class="text-lg">How To Use</p>
-				<svg xmlns="http://www.w3.org/2000/svg" class="ic-head-acc h-6 w-6" fill="none" viewBox="0 0 24 24"
-				     stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-				</svg>
-			</div>
-
-			<div class="acc-body-sm bg-gray-200 hidden opacity-0">
-				<div class="accordion-item-body-content font-walsh text-base py-8 space-y-4 bg-scheme-pirus">
-
-					<div class="w-4/5 mx-auto h-60">
-						<img src="./images/products/gif-model.gif" alt=""
-						     class="w-full h-full object-cover rounded-xl">
-					</div>
-
-					<!-- TAB IMG -->
-					<div id="img-section-tab-tut" class="font-brice-bold text-center text-scheme-dusk-blue">
-						<!-- tab -->
-						<div id="tab-img-1" data-img-sm="content-tab-1" class="space-y-4">
-							<p class="text-3xl font-brice-bold">Step One</p>
-						</div>
-
-						<!-- tab -->
-						<div id="tab-img-2" data-img-sm="content-tab-2" class="hidden space-y-4">
-							<p class="text-3xl font-brice-bold">Step Two</p>
-						</div>
-
-						<!-- tab -->
-						<div id="tab-img-3" data-img-sm="content-tab-3" class="hidden space-y-4">
-							<p class="text-3xl font-brice-bold">Step Three</p>
-						</div>
-
-						<!-- tab -->
-						<div id="tab-img-4" data-img-sm="content-tab-4" class="hidden space-y-4">
-							<p class="text-3xl font-brice-bold">Step Four</p>
-						</div>
-					</div>
-
-					<!-- TAB INDICATOR -->
-					<div id="indicator-section-sm" class="font-walsh flex flex-row items-center justify-center gap-x-4">
-						<button id="tutorial-step1-sm" data-tab-sm="content-tab-1"
-						        class="btn-indicator-tut w-12 h-12 text-center rounded-full bg-scheme-darkish-pink-two text-white text-lg">
-							1
-						</button>
-						<button data-tab-sm="content-tab-2"
-						        class="btn-indicator-tut w-12 h-12 text-center rounded-full bg-scheme-dusk-blue text-white text-lg">
-							2
-						</button>
-						<button data-tab-sm="content-tab-3"
-						        class="btn-indicator-tut w-12 h-12 text-center rounded-full bg-scheme-dusk-blue text-white text-lg">
-							3
-						</button>
-						<button data-tab-sm="content-tab-4"
-						        class="btn-indicator-tut w-12 h-12 text-center rounded-full bg-scheme-dusk-blue text-white text-lg">
-							4
-						</button>
-					</div>
-
-					<!-- TAB TEXT -->
-					<div id="text-section-tab-tut" class="text-lg text-center text-scheme-dusk-blue font-walsh">
-						<!-- tab text -->
-						<div id="content-tab-1" class="default-tab-tutorial w-4/5 mx-auto tab-text">
-							<p>
-								One - Donec eleifend mi ut mauris sodales, vel maximus leo finibus. Quisque eget ipsum
-								nec leo
-								commodo porta. Morbi lobortis eget mi nec efficitur.
-							</p>
-						</div>
-
-						<!-- tab text -->
-						<div id="content-tab-2" class="hidden w-4/5 mx-auto tab-text">
-							<p>
-								Two - Donec eleifend mi ut mauris sodales, vel maximus leo finibus. Quisque eget ipsum
-								nec leo
-								commodo porta. Morbi lobortis eget mi nec efficitur.
-							</p>
-						</div>
-
-						<!-- tab text -->
-						<div id="content-tab-3" class="hidden w-4/5 mx-auto tab-text">
-							<p>
-								Three - Donec eleifend mi ut mauris sodales, vel maximus leo finibus. Quisque eget ipsum
-								nec leo
-								commodo porta. Morbi lobortis eget mi nec efficitur.
-							</p>
-						</div>
-
-						<!-- tab text -->
-						<div id="content-tab-4" class="hidden w-4/5 mx-auto tab-text">
-							<p>
-								Four - Donec eleifend mi ut mauris sodales, vel maximus leo finibus. Quisque eget ipsum
-								nec leo
-								commodo porta. Morbi lobortis eget mi nec efficitur.
-							</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="container mx-auto py-8 md:py-16 space-y-8 px-4">
-	<h1 class="text-2xl md:text-5xl font-brice text-center">
-		Might As Well Buy This Too
-	</h1>
-
-	<div data-aos="fade-up" class="container mx-auto pb-0 md:pb-8 md:pb-0 py-0 md:py-16">
-		<div class="product-homepage overflow-x-auto  pb-4 md:pb-16 gap-4 flex flex-row justify-start md:justify-center">
-			<!-- card -->
-			<div class="bg-gray-100 w-52 xl:w-52 xl:w-72 2xl:w-full h-full">
-				<a href="">
-					<div class="w-52 md:w-auto h-52 md:h-auto overflow-hidden relative">
-						<img src="./images/home/jpg/tavi-prod3.jpg" alt="" class="object-cover w-full h-full">
-						<img src="./images/home/jpg/hover-img.jpg" alt=""
-						     class="hover-image upper-image object-cover w-full h-full">
-					</div>
-				</a>
-
-				<div class="p-4 font-walsh space-y-2">
-					<div class="space-y-1">
-						<a href="">
-							<p class="text-base md:text-base xl:text-lg font-bold line-clamp-2 h-[48px]">
-								Natural PHA + BHA
-							</p>
-						</a>
-						<p class="text-sm md:text-sm xl:text-lg text-gray-400 text-ellipsis overflow-hidden truncate">
-							Retexture Toner
-						</p>
-						<div class="flex justify-between items-center justify-center">
-							<p class="text-sm md:text-sm xl:text-lg font-bold text-ellipsis overflow-hidden truncate">
-								Rp 100.0000
-							</p>
-							<p class="text-sm md:text-sm xl:text-lg font-bold text-ellipsis overflow-hidden truncate line-through
-							decoration-scheme-base-pink decoration-2">
-								Rp 159.0000
-							</p>
-						</div>
-					</div>
-
-					<div>
-						<a href="" class="w-full py-1 md:py-2 bg-white text-xs md:text-sm border border-black text-black transition
-					   duration-200 hover:bg-scheme-dusk-blue hover:text-white hover:border-scheme-dusk-blue flex flex-row
-					   justify-center items-center gap-2">
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 md:w-5" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-							</svg>
-							<span>Buy Now</span>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- card -->
-			<div class="bg-gray-100 w-52 xl:w-52 xl:w-72 2xl:w-full h-full">
-				<a href="">
-					<div class="w-52 md:w-auto h-52 md:h-auto overflow-hidden relative">
-						<img src="./images/home/jpg/tavi-prod4.jpg" alt="" class="object-cover w-full h-full">
-						<img src="./images/home/jpg/hover-img.jpg" alt=""
-						     class="hover-image upper-image object-cover w-full h-full">
-					</div>
-				</a>
-
-				<div class="p-4 font-walsh space-y-2">
-					<div class="space-y-1">
-						<a href="">
-							<p class="text-base md:text-base xl:text-lg font-bold line-clamp-2 h-[48px]">
-								10 % Niacinamide + Zinc
-							</p>
-						</a>
-						<p class="text-sm md:text-sm xl:text-lg text-gray-400 text-ellipsis overflow-hidden truncate">
-							Acne Solution Serum
-						</p>
-						<p class="text-sm md:text-sm xl:text-lg font-bold text-ellipsis overflow-hidden truncate">Rp
-							159.000</p>
-					</div>
-
-					<div>
-						<a href="" class="w-full py-1 md:py-2 bg-white text-xs md:text-sm border border-black text-black transition
-					   duration-200 hover:bg-scheme-dusk-blue hover:text-white hover:border-scheme-dusk-blue flex flex-row
-					   justify-center items-center gap-2">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-							</svg>
-							<span>Buy Now</span>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- card -->
-			<div class="bg-gray-100 w-52 xl:w-52 xl:w-72 2xl:w-full h-full">
-				<a href="">
-					<div class="w-52 md:w-auto h-52 md:h-auto overflow-hidden relative">
-						<!-- badge -->
-						<img src="./images/products/png/icNewArrival.png" alt=""
-						     class="absolute w-12 md:w-20 top-4 left-4">
-						<img src="./images/products/png/icFemaleDaily.png" alt=""
-						     class="absolute w-12 md:w-20 top-4 right-4">
-
-						<!-- main image -->
-						<img src="./images/home/jpg/tavi-prod2.jpg" alt="" class="object-cover w-full h-full">
-						<img src="./images/home/jpg/hover-img.jpg" alt=""
-						     class="hover-image upper-image object-cover w-full h-full">
-					</div>
-				</a>
-
-				<div class="p-4 font-walsh space-y-2">
-					<div class="space-y-1">
-						<a href="">
-							<p class="text-base md:text-base xl:text-lg font-bold line-clamp-2 h-[48px]">
-								Encapsulated Retinol 1% + Peptide
-							</p>
-						</a>
-						<p class="text-sm md:text-sm xl:text-lg text-gray-400 text-ellipsis overflow-hidden truncate">
-							Slow Aging Signs Serum
-						</p>
-						<p class="text-sm md:text-sm xl:text-lg font-bold text-ellipsis overflow-hidden truncate">Rp
-							159.000</p>
-					</div>
-
-					<div>
-						<a href="" class="w-full py-1 md:py-2 bg-white text-xs md:text-sm border border-black text-black transition
-					   duration-200 hover:bg-scheme-dusk-blue hover:text-white hover:border-scheme-dusk-blue flex flex-row
-					   justify-center items-center gap-2">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-							</svg>
-							<span>Buy Now</span>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- card -->
-			<div class="bg-gray-100 w-52 xl:w-52 xl:w-72 2xl:w-full h-full">
-				<a href="">
-					<div class="w-52 md:w-auto h-52 md:h-auto overflow-hidden relative">
-						<img src="./images/home/jpg/tavi-prod1.jpg" alt="" class="object-cover w-full h-full">
-						<img src="./images/home/jpg/hover-img.jpg" alt=""
-						     class="hover-image upper-image object-cover w-full h-full">
-					</div>
-				</a>
-
-				<div class="p-4 font-walsh space-y-2">
-					<div class="space-y-1">
-						<a href="">
-							<p class="text-base md:text-base xl:text-lg font-bold line-clamp-2 h-[48px]">
-								Urban Shield 3 in 1 Serum Spray
-							</p>
-						</a>
-						<p class="text-sm md:text-sm xl:text-lg text-gray-400 text-ellipsis overflow-hidden truncate">
-							Super Berries +Amino Acid Complex
-						</p>
-						<p class="text-sm md:text-sm xl:text-lg font-bold text-ellipsis overflow-hidden truncate">Rp
-							159.000</p>
-					</div>
-
-					<div>
-						<a href="" class="w-full py-1 md:py-2 bg-white text-xs md:text-sm border border-black text-black transition
-					   duration-200 hover:bg-scheme-dusk-blue hover:text-white hover:border-scheme-dusk-blue flex flex-row
-					   justify-center items-center gap-2">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-							     stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-							</svg>
-							<span>Buy Now</span>
-						</a>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-</div>
-
-<div class="py-8">
-
-	<div class="bg-scheme-dusk-blue py-4 md:py-4 md:px-6">
-		<div class="container mx-auto">
-			<h1 class="text-white text-lg md:text-2xl text-center md:text-left font-bold font-walsh font-medium">
-				Reviews (339)
-			</h1>
-		</div>
-	</div>
-
-	<div class="py-8 md:py-12">
-		<!-- start -->
-		<div class="flex items-center justify-center gap-4">
-			<div>
-				<p id="rating-count" class="font-walsh text-4xl md:text-5xl text-scheme-base-pink">4.3</p>
-			</div>
-
-			<div id="icon-star" class="flex items-center justify-start">
-				<!--				<svg xmlns="http://www.w3.org/2000/svg"-->
-				<!--				     class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two cursor-pointer" viewBox="0 0 20 20"-->
-				<!--				     fill="currentColor">-->
-				<!--					<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>-->
-				<!--				</svg>-->
-
-				<!--				<svg xmlns="http://www.w3.org/2000/svg"-->
-				<!--				     class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two"-->
-				<!--				     viewBox="0 0 20 20"-->
-				<!--				     fill="currentColor">-->
-				<!--					<path-->
-				<!--							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>-->
-				<!--				</svg>-->
-
-				<!--				<svg xmlns="http://www.w3.org/2000/svg"-->
-				<!--				     class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two"-->
-				<!--				     viewBox="0 0 20 20"-->
-				<!--				     fill="currentColor">-->
-				<!--					<path-->
-				<!--							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>-->
-				<!--				</svg>-->
-
-				<!--				<svg xmlns="http://www.w3.org/2000/svg"-->
-				<!--				     class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two"-->
-				<!--				     viewBox="0 0 20 20"-->
-				<!--				     fill="currentColor">-->
-				<!--					<path-->
-				<!--							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>-->
-				<!--				</svg>-->
-
-				<!--				<svg xmlns="http://www.w3.org/2000/svg"-->
-				<!--				     class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two"-->
-				<!--				     viewBox="0 0 20 20"-->
-				<!--				     fill="currentColor">-->
-				<!--					<path-->
-				<!--							d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>-->
-				<!--				</svg>-->
-			</div>
-		</div>
-
-		<!-- all count  -->
-		<div>
-			<p class="text-lg text-center font-walsh font-medium text-gray-400">Based on <span>1000</span> Review</p>
-		</div>
-
-		<div class="flex justify-center md:hidden py-4 gap-2">
-			<button id="write-review-sm"
-			        class="font-walsh text-base py-2 px-6 rounded-lg text-white bg-scheme-dusk-blue">
-				Write a Review
-			</button>
-			<button id="ask-question-sm"
-			        class="font-walsh text-base py-2 px-6 rounded-lg text-white bg-scheme-base-pink">
-				Ask Questions
-			</button>
-		</div>
-	</div>
-
-	<div class="border-b border-gray-700 px-4">
-		<div class="container mx-auto">
-			<div class="block md:flex flex-row items-center justify-between">
-				<div id="tab-head-reviews"
-				     class="text-walsh space-x-4 md:space-x-12 flex justify-center md:justify-start">
-					<button id="btn-tab-reviews" data-tab="tab-reviews-product"
-					        class="btn-tab-reviews text-sm md:text-lg px-4 text-center md:text-2xl py-[12px] font-bold border-b-4 border-scheme-dusk-blue">
-						Reviews
-					</button>
-					<button id="btn-tab-questions" data-tab="tab-questions-product"
-					        class="btn-tab-reviews text-sm md:text-lg px-4 text-center md:text-2xl py-[12px] font-bold border-b-4 border-white">
-						Questions
-					</button>
-					<button id="btn-tab-filter" data-tab="tab-filter-reviews"
-					        class="btn-tab-reviews text-sm md:text-lg px-4 text-center md:text-2xl py-2 font-bold block md:hidden border-b-4 border-white">
-						Filter
-					</button>
-				</div>
-
-				<div class="pb-4 hidden md:block space-x-4">
-					<button id="write-review-lg"
-					        class="text-lg font-walsh bg-scheme-dusk-blue py-1 px-12 rounded-lg text-white">
-						Write a Review
-					</button>
-
-					<button id="ask-question-lg"
-					        class="text-lg font-walsh bg-scheme-base-pink py-1 px-12 rounded-lg text-white">
-						Ask Questions
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="tab-content-reviews" class="container mx-auto">
-		<!-- tab review -->
-		<div id="tab-reviews-product" class="w-full h-auto px-0 md:px-4 xl:px-0">
-			<!-- filter reviews -->
-			<div class="hidden md:block border-b border-gray-700">
-				<div class="container mx-auto py-8 space-y-4">
-					<p class="font-walsh text-lg">Filter Review</p>
-					<div class="w-2/3 space-y-4">
-						<div class="flex justify-start gap-4 font-walsh">
-							<select name="" class="border-2 text-black font-medium border-gray-400 w-52 rounded-lg p-3">
-								<option selected disabled value="">Ratings</option>
-								<option value="">1 Star</option>
-								<option value="">2 Star</option>
-								<option value="">3 Star</option>
-								<option value="">4 Star</option>
-								<option value="">5 Star</option>
-							</select>
-
-							<select name=""
-							        class="border-2 text-black 4 font-walsh font-medium border-gray-400 w-52 rounded-lg p-3">
-								<option selected disabled value="">Type Reviews</option>
-								<option value="">Image</option>
-								<option value="">Video</option>
-								<option value="">Image & Video</option>
-							</select>
-
-							<select name=""
-							        class="border-2 text-black 4 font-walsh font-medium border-gray-400 w-52 rounded-lg p-3">
-								<option selected disabled value="">Type Reviews</option>
-								<option value="">Image</option>
-								<option value="">Video</option>
-								<option value="">Image & Video</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- count review -->
-			<div class="container mx-auto py-4 px-6 md:px-0 border-b md:border-none border-scheme-dusk-blue">
-				<!-- heading -->
-				<div class="flex justify-between items-center">
-					<p class="text-xl md:text-2xl font-walsh font-bold text-indigo-900">339 Reviews</p>
-				</div>
-			</div>
-
-			<br>
-
-
-			<div class="container grid grid-cols-2 md:grid-cols-12 gap-6 px-4">
-				<div class="col-span-1 md:col-span-12 space-y-4">
-					<!-- card review -->
-					<div class="flex flex-col md:flex-row gap-2 border-b py-4 border-gray-400">
-						<!-- review left -->
-						<div class="w-auto h-auto md:basis-12 basis-full flex items-center md:items-start gap-2">
-							<div class="w-12 h-12 flex items-center justify-center bg-red-300 rounded-full flex-none">
-								<span class="text-walsh text-2xl text-white">X</span>
-							</div>
-							<p class="text-lg font-semibold block md:hidden line-clamp-2">Lawrance</p>
-						</div>
-
-						<!-- review mid -->
-						<div class="w-full h-full md:basis-3/5 basis-full">
-							<div class="font-walsh space-y-1">
-								<!-- name & product -->
-								<p class="text-lg font-semibold md:block hidden">Lawrance</p>
-								<p class="text-base text-gray-400">Skin Type Oily</p>
-
-								<!-- start -->
-								<div class="flex gap-1">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-								</div>
-							</div>
-
-							<!-- text review -->
-							<p class="text-sm md:text-base font-walsh text-base py-2 break-words">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti
-							</p>
-
-							<!-- image preview -->
-							<div class="flex flex-col md:flex-row gap-2">
-								<div class="w-full md:w-32 h-36">
-									<img src="./images/products/jpg/review%20(1).jpg"
-									     class="review-file w-full h-full object-cover cursor-pointer"
-									     alt="">
-								</div>
-
-								<div class="w-full md:w-32 h-36">
-									<img src="./images/products/jpg/review%20(2).jpg"
-									     class="review-file w-full h-full object-cover cursor-pointer"
-									     alt="">
-								</div>
-
-								<div class="w-full md:w-44 h-36">
-									<video controls class="w-full h-36 md:w-44 md:h-36 object-cover">
-										<source src="./videos/IndonesiaRaya.mp4" type="video/mp4"/>
-										Browsermu tidak mendukung tag ini, upgrade donk!
-									</video>
-								</div>
-							</div>
-
-							<div class="flex flex-col md:flex-row gap-2 text-base font-walsh py-2">
-								<a href="">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
-									</svg>
-								</a>
-
-								<p class="font-base">
-									<span class="text-sm md:text-base break-words">Share i Reviewed on :</span>
-									<span class="text-sm md:text-base font-semibold break-words">Encapsulated Retinol 1% + Bakuchiol</span>
-								</p>
-							</div>
-						</div>
-
-						<!-- review right -->
-						<div class="w-full h-full md:basis-2/5 basis-full flex flex-col justify-between">
-							<div class="text-right font-medium text-pink-700 font-walsh font-base hidden md:block">
-								<p>9/10/2021</p>
-								<p>Jakarta, Indonesia</p>
-							</div>
-
-							<div class="text-left md:text-right w-full flex flex-col md:flex-row justify-end gap-2 font-walsh font-base">
-								<p class="text-sm md:text-base">Was This Review Helpful ?</p>
-
-								<div class="flex gap-2 justify-end">
-									<!-- thumb-up -->
-									<div class="flex gap-1 items-center">
-										<button>
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-											     fill="currentColor">
-												<path
-														d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-											</svg>
-										</button>
-										<span>10</span>
-									</div>
-
-									<!-- thumb-down -->
-									<div class="flex gap-1 items-center">
-										<button>
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-											     fill="currentColor">
-												<path
-														d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z"/>
-											</svg>
-										</button>
-										<span>0</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-span-1 md:col-span-12 space-y-4">
-					<!-- card review -->
-					<div class="flex flex-col md:flex-row gap-2 border-b py-4 border-gray-400">
-						<!-- review left -->
-						<div class="w-auto h-auto md:basis-12 basis-full flex items-center md:items-start gap-2">
-							<div class="w-12 h-12 flex items-center justify-center bg-red-300 rounded-full flex-none">
-								<span class="text-walsh text-2xl text-white">X</span>
-							</div>
-							<p class="text-lg font-semibold block md:hidden line-clamp-2">Lisa</p>
-						</div>
-
-						<!-- review mid -->
-						<div class="w-full h-full md:basis-3/5 basis-full">
-							<div class="font-walsh space-y-1">
-								<!-- name & product -->
-								<p class="text-lg font-semibold md:block hidden">Liza</p>
-								<p class="text-base text-gray-400">Skin Type Oily</p>
-
-								<!-- start -->
-								<div class="flex gap-1">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-medium-pink"
-									     viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-									</svg>
-								</div>
-							</div>
-
-							<!-- text review -->
-							<p class="text-sm md:text-base font-walsh text-base py-2 break-words">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, fugit libero!
-								Aliquid
-								consectetur
-							</p>
-
-							<!-- image preview -->
-							<div class="flex flex-col md:flex-row gap-2">
-								<div class="w-full md:w-32 h-32">
-									<img src="./images/products/jpg/review%20(2).jpg" class="w-full h-full object-cover"
-									     alt="">
-								</div>
-
-								<div class="w-full md:w-32 h-32">
-									<img src="./images/products/jpg/review%20(3).jpg" class="w-full h-full object-cover"
-									     alt="">
-								</div>
-							</div>
-
-							<div class="flex flex-col md:flex-row gap-2 text-base font-walsh py-2">
-								<a href="">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-									     fill="currentColor">
-										<path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
-									</svg>
-								</a>
-
-								<p class="font-base">
-									<span class="text-sm md:text-base break-words">Share i Reviewed on :</span>
-									<span class="text-sm md:text-base font-semibold break-words">Encapsulated Retinol 1% + Bakuchiol</span>
-								</p>
-							</div>
-						</div>
-
-						<!-- review right -->
-						<div class="w-full h-full md:basis-2/5 basis-full flex flex-col justify-between">
-							<div class="text-right font-medium text-pink-700 font-walsh font-base hidden md:block">
-								<p>9/10/2021</p>
-								<p>Jakarta, Indonesia</p>
-							</div>
-
-							<div class="text-left md:text-right w-full flex flex-col md:flex-row justify-end gap-2 font-walsh font-base">
-								<p class="text-sm md:text-base">Was This Review Helpful ?</p>
-
-								<div class="flex gap-2 justify-end">
-									<!-- thumb-up -->
-									<div class="flex gap-1 items-center">
-										<button>
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-											     fill="currentColor">
-												<path
-														d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-											</svg>
-										</button>
-										<span>10</span>
-									</div>
-
-									<!-- thumb-down -->
-									<div class="flex gap-1 items-center">
-										<button>
-											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-											     fill="currentColor">
-												<path
-														d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z"/>
-											</svg>
-										</button>
-										<span>0</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<br>
-
-			<!-- pagination -->
-			<div class="container mx-auto pt-8 pb-32">
-				<div class="flex gap-8 justify-center items-center">
-					<button class="font-brice font-bold text-xl">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd"
-							      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-							      clip-rule="evenodd"/>
-						</svg>
-					</button>
-					<button class="font-brice font-bold text-xl text-scheme-darkish-pink">1</button>
-					<button class="font-brice font-bold text-xl">2</button>
-					<button class="font-brice font-bold text-xl">3</button>
-					<button class="font-brice font-bold text-xl">4</button>
-					<button class="font-brice font-bold text-xl">5</button>
-					<button class="font-brice font-bold text-xl">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd"
-							      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-							      clip-rule="evenodd"/>
-						</svg>
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<!-- tab question -->
-		<div id="tab-questions-product" class="w-full h-auto hidden font-walsh py-8 md:py-12 px-0 md:px-4 xl:px-0">
-			<div class="md:px-0 grid grid-cols-1 px-4 gap-3">
-
-				<div>
-					<select name="" class="border-2 text-black font-medium border-gray-400 w-52 rounded-lg p-3">
-						<option selected disabled value="">Order by</option>
-						<option value="">Order 1</option>
-						<option value="">Order 2</option>
-						<option value="">Order 3</option>
-					</select>
-				</div>
-
-				<!-- question card  -->
-				<div class="flex flex-col md:flex-row gap-2 border-b py-6 border-gray-400">
-					<!-- review left -->
-					<div class="w-auto h-auto md:basis-12 basis-full flex gap-4">
-						<div class="w-12 h-12 flex justify-center items-center bg-red-300 rounded-full flex-none">
-							<span class="text-walsh text-2xl text-white">L</span>
-						</div>
-						<div class="md:hidden block">
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-					</div>
-
-					<!-- review right -->
-					<div class="w-full h-full md:basis-2/3 basis-full">
-						<div class="font-walsh space-y-1 hidden md:block">
-							<!-- name & product -->
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-
-						<!-- text review -->
-						<p class="font-walsh text-base py-2 break-words">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci
-							at consectetur cum cupiditate deleniti deserunt doloremque ducimus eligendi error et, eum
-							fugit hic impedit in iure molestiae necessitatibus nemo, obcaecati perspiciatis praesentium
-							rem sunt suscipit, tempore tenetur voluptas! Cupiditate deserunt eligendi explicabo ipsam ?
-						</p>
-
-						<div class="grid grid-cols-12">
-							<div class="col-span-1 md:block hidden">
-								<img src="./images/content/arrow.png" alt="" class="h-20 mx-auto">
-							</div>
-							<div class="col-span-12 md:col-span-11 pt-4 space-y-12">
-								<div class="space-y-2">
-									<p class="text-xl font-bold text-scheme-dusk-blue">Answer</p>
-									<div class="shadow-md border border-gray-200 p-8 space-y-2">
-										<div class="flex justify-start items-start md:items-center gap-4">
-											<div class="flex-none w-12 h-12 flex justify-center items-center bg-scheme-dusk-blue rounded-full">
-												<span class="text-walsh text-2xl text-white">T</span>
-											</div>
-											<p class="text-scheme-dusk-blue font-semibold">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut
-												nobis
-												officia quae quidem quo rerum, tempora voluptatibus. Ad aperiam
-												blanditiis,
-												commodi cupiditate dolores eaque magni modi nam officiis provident vero
-												voluptatem. Dignissimos, fuga neque
-											</p>
-										</div>
-
-										<div class="flex items-center gap-4">
-											<p>Was This Helpful </p>
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-													</svg>
-												</button>
-												<p>10</p>
-											</div>
-
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z"/>
-													</svg>
-												</button>
-												<p>0</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- question card  -->
-				<div class="flex flex-col md:flex-row gap-2 border-b py-6 border-gray-400">
-					<!-- review left -->
-					<div class="w-auto h-auto md:basis-12 basis-full flex gap-4">
-						<div class="w-12 h-12 flex justify-center items-center bg-red-300 rounded-full">
-							<span class="text-walsh text-2xl text-white">L</span>
-						</div>
-						<div class="md:hidden block">
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-					</div>
-
-					<!-- review right -->
-					<div class="w-full h-full md:basis-2/3 basis-full">
-						<div class="font-walsh space-y-1 hidden md:block">
-							<!-- name & product -->
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-
-						<!-- text review -->
-						<p class="font-walsh text-base py-2 break-words">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci
-							at consectetur cum cupiditate deleniti deserunt doloremque ducimus eligendi error et, eum
-							fugit hic impedit in iure molestiae necessitatibus nemo, obcaecati perspiciatis praesentium
-							rem sunt suscipit, tempore tenetur voluptas! Cupiditate deserunt eligendi explicabo ipsam ?
-						</p>
-
-						<div class="grid grid-cols-12">
-							<div class="col-span-1 md:block hidden">
-								<img src="./images/content/arrow.png" alt="" class="h-20 mx-auto">
-							</div>
-							<div class="col-span-12 md:col-span-11 pt-4 space-y-12">
-								<div class="space-y-2">
-									<p class="text-xl font-bold text-scheme-dusk-blue">Answer</p>
-									<div class="shadow-md border border-gray-200 p-8 space-y-2">
-										<div class="flex justify-start items-start md:items-center gap-4">
-											<div class="flex-none w-12 h-12 flex justify-center items-center bg-scheme-dusk-blue rounded-full">
-												<span class="text-walsh text-2xl text-white">T</span>
-											</div>
-											<p class="text-scheme-dusk-blue font-semibold">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut
-												nobis
-												officia quae quidem quo rerum, tempora voluptatibus. Ad aperiam
-												blanditiis,
-												commodi cupiditate dolores eaque magni modi nam officiis provident vero
-												voluptatem. Dignissimos, fuga neque
-											</p>
-										</div>
-
-										<div class="flex items-center gap-4">
-											<p>Was This Helpful </p>
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-													</svg>
-												</button>
-												<p>10</p>
-											</div>
-
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z"/>
-													</svg>
-												</button>
-												<p>0</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- question card  -->
-				<div class="flex flex-col md:flex-row gap-2 border-b py-6 border-gray-400">
-					<!-- review left -->
-					<div class="w-auto h-auto md:basis-12 basis-full flex gap-4">
-						<div class="w-12 h-12 flex justify-center items-center bg-red-300 rounded-full">
-							<span class="text-walsh text-2xl text-white">L</span>
-						</div>
-						<div class="md:hidden block">
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-					</div>
-
-					<!-- review right -->
-					<div class="w-full h-full md:basis-2/3 basis-full">
-						<div class="font-walsh space-y-1 hidden md:block">
-							<!-- name & product -->
-							<p class="text-lg font-semibold">Liza Black Pink</p>
-							<p class="text-base text-gray-400">21/12/2021</p>
-						</div>
-
-						<!-- text review -->
-						<p class="font-walsh text-base py-2 break-words">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus accusantium adipisci
-							at consectetur cum cupiditate deleniti deserunt doloremque ducimus eligendi error et, eum
-							fugit hic impedit in iure molestiae necessitatibus nemo, obcaecati perspiciatis praesentium
-							rem sunt suscipit, tempore tenetur voluptas! Cupiditate deserunt eligendi explicabo ipsam ?
-						</p>
-
-						<div class="grid grid-cols-12">
-							<div class="col-span-1 md:block hidden">
-								<img src="./images/content/arrow.png" alt="" class="h-20 mx-auto">
-							</div>
-							<div class="col-span-12 md:col-span-11 pt-4 space-y-12">
-								<div class="space-y-2">
-									<p class="text-xl font-bold text-scheme-dusk-blue">Answer</p>
-									<div class="shadow-md border border-gray-200 p-8 space-y-2">
-										<div class="flex justify-start items-start md:items-center gap-4">
-											<div class="flex-none w-12 h-12 flex justify-center items-center bg-scheme-dusk-blue rounded-full">
-												<span class="text-walsh text-2xl text-white">T</span>
-											</div>
-											<p class="text-scheme-dusk-blue font-semibold">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut
-												nobis
-												officia quae quidem quo rerum, tempora voluptatibus. Ad aperiam
-												blanditiis,
-												commodi cupiditate dolores eaque magni modi nam officiis provident vero
-												voluptatem. Dignissimos, fuga neque
-											</p>
-										</div>
-
-										<div class="flex items-center gap-4">
-											<p>Was This Helpful </p>
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-													</svg>
-												</button>
-												<p>10</p>
-											</div>
-
-											<div class="flex items-center">
-												<button>
-													<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-													     viewBox="0 0 20 20" fill="currentColor">
-														<path d="M18 9.5a1.5 1.5 0 11-3 0v-6a1.5 1.5 0 013 0v6zM14 9.667v-5.43a2 2 0 00-1.105-1.79l-.05-.025A4 4 0 0011.055 2H5.64a2 2 0 00-1.962 1.608l-1.2 6A2 2 0 004.44 12H8v4a2 2 0 002 2 1 1 0 001-1v-.667a4 4 0 01.8-2.4l1.4-1.866a4 4 0 00.8-2.4z"/>
-													</svg>
-												</button>
-												<p>0</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- tab filter -->
-		<div id="tab-filter-reviews" class="w-full bg-indigo-200 h-96 hidden">
-			Filter
-		</div>
-	</div>
-
-</div>
-
-<footer class="px-4 py-8 lg:px4 xl:px-20 2xl:px-24 bg-pink-100">
-	<div class="flex flex-col md:flex-row space-y-8 md:space-y-0">
-
-		<div class="w-full md:w-2/3 text-indigo-900 space-y-12 md:space-y-8">
-
-			<!-- footer nav -->
-			<div class="space-y-4 font-walsh text-center md:text-left">
-				<div class="flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-16">
-					<a href="about.html">
-						<span class="font-normal text-lg md:text-base xl:text-lg transition duration-200 hover:text-scheme-darkish-pink">ABOUT US</span>
-					</a>
-					<a href="faq.html">
-						<span class="font-normal text-lg md:text-base xl:text-lg transition duration-200 hover:text-scheme-darkish-pink">FAQ</span>
-					</a>
-					<a href="privacy.html">
-						<span class="font-normal text-lg md:text-base xl:text-lg transition duration-200 hover:text-scheme-darkish-pink">PRIVACY POLICY</span>
-					</a>
-					<a href="contact.html">
-						<span class="font-normal text-lg md:text-base xl:text-lg transition duration-200 hover:text-scheme-base-pink">CONTACT US</span>
-					</a>
-				</div>
-			</div>
-
-			<!-- footer social lg -->
-			<div class="hidden md:block space-y-4">
-				<div class="flex gap-4 items-center">
-
-					<a href="">
-						<div class="w-10 h-10">
-							<img src="./images/content/icIg.png" alt=""
-							     class="w-full h-full transition ease-out hover:scale-110 duration-300">
-						</div>
-					</a>
-
-					<a href="">
-						<div class="w-10 h-10">
-							<img src="./images/content/icYt.png" alt=""
-							     class="w-full h-full transition ease-out hover:scale-110 duration-300">
-						</div>
-					</a>
-
-					<a href="">
-						<div class="w-10 h-10">
-							<img src="./images/content/icTik.png" alt=""
-							     class="w-full h-full transition ease-out hover:scale-110 duration-300">
-						</div>
-					</a>
-
-				</div>
-				<p class="text-sm font-walsh">Hak Cipta &copy; Tavi 2022</p>
-			</div>
-
-		</div>
-
-		<div class="w-full md:w-1/3 space-y-8">
-			<div class="font-mohol text-3xl md:text-xl xl:text-4xl 2xl:text-5xl text-center md:text-left">
-				<p class="text-indigo-900">
-					Join Our Community.
-				</p>
-			</div>
-
-			<div class="flex lg:flex-row flex-col gap-4 font-walsh">
-				<label class="w-full">
-					<input type="text"
-					       class="w-full rounded-full text-indigo-900 bg-blue-200 py-2 px-6 text-base placeholder-indigo-900 ring-0 border-0 focus:ring-0 focus:border-0"
-					       placeholder="Your Email...">
-				</label>
-
-				<button type="button"
-				        class="bg-scheme-base-pink text-white px-6 py-2 rounded-full transition duration-200 hover:bg-scheme-medium-pink">
-					SUBMIT
-				</button>
-			</div>
-		</div>
-
-		<!-- footer social sm -->
-		<div class="block md:hidden space-y-2">
-			<div class="flex justify-center gap-4">
-				<a href="">
-					<div class="w-10 h-10">
-						<img src="./images/home/svg/icIg.svg" alt="" class="w-full h-full">
-					</div>
-				</a>
-
-				<a href="">
-					<div class="w-10 h-10">
-						<img src="./images/home/svg/icYt.svg" alt="" class="w-full h-full">
-					</div>
-				</a>
-
-				<a href="">
-					<div class="w-10 h-10">
-						<img src="./images/home/svg/icTiktok2.svg" alt="" class="w-full h-full">
-					</div>
-				</a>
-			</div>
-			<p class="text-sm font-walsh text-center">Hak Cipta &copy; Tavi 2022</p>
-		</div>
-
-	</div>
+<!-- main content -->
+<main id="main-content" class="min-h-screen relative text-scheme-grey">
+
+    <!--btn to top -->
+    <div class="fixed right-8 bottom-20 z-50">
+        <a href="#main-content" id="btn-go-top" type="button">
+            <img src=./images/content/btn-go-top.svg alt="" class="w-20 md:w-24">
+        </a>
+    </div>
+
+    <div class="w-full h-full text-scheme-grey relative">
+        <!-- bg-lilac -->
+        <div class="w-[65%] h-auto md:h-[50rem] absolute right-0 top-0 bg-scheme-lilac/50 z-10"></div>
+
+        <!-- content detail product -->
+        <div class="relative z-20 w-full h-auto md:h-[50rem] container mx-auto  pt-[60px] md:pt-[100px] md:mb-16">
+
+            <!-- breadcrumb -->
+            <div class="w-full h-20 flex items-center justify-start gap-2 px-4 md:px-0">
+                <p class="parent-breadcrumb text-scheme-pink">Home</p>
+                <p class="parent-breadcrumb text-scheme-pink">Our Products</p>
+                <p>Sweet Angel</p>
+            </div>
+
+            <!-- main content -->
+            <div class="w-full h-full flex flex-wrap items-center overflow-hidden">
+                <!-- left - thumbnail img -->
+                <div class="flex-none order-2 md:order-1 w-full  h-full md:w-[15%] h-full relative">
+                    <div class="bg-scheme-lilac/50 absolute border bottom-0 w-full h-1/2 absolute z-10 block md:hidden"></div>
+
+                    <div class="w-full flex flex-row md:flex-col items-center md:items-start justify-center md:justify-start gap-4 md:pt-12 relative z-20">
+                        <div class="thumbs-img w-24 md:w-32 cursor-pointer">
+                            <img src="./images/content/product/index-product-1.png" alt="">
+                        </div>
+
+                        <div class="thumbs-img w-24 md:w-32 cursor-pointer">
+                            <img src="./images/content/product/index-product-2.png" alt="">
+                        </div>
+
+                        <div class="thumbs-img w-24 md:w-32 cursor-pointer">
+                            <img src="./images/content/product/index-product-3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- center - main show img -->
+                <div class="flex-none  order-1 md:order-2 w-full md:w-[35%] h-full mb-12 md:mb-0">
+                    <div class="w-full flex items-center justify-center">
+                        <div class="large-img w-full h-auto cursor-pointer relative overflow-hidden">
+                            <div class="absolute w-full h-full bg-scheme-pink/70 opacity-0 transition hover:opacity-100 flex items-center justify-center">
+                                <button id="btn-zoom-img" class="flex items-center gap-2 text-white text-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none"
+                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                                    </svg>
+                                    <span>CLICK TO ZOOM</span>
+                                </button>
+                            </div>
+                            <img id="large-img" src="./images/content/product/index-product-1.png" alt="large -img"
+                                 class="w-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right - desc product -->
+                <div class="flex-none  order-3 md:order-3 w-full md:w-[50%] h-full md:pl-24 px-4 md:px-0 bg-scheme-lilac/50 md:bg-transparent py-12 md:py-0">
+                    <div class="text-scheme-grey space-y-6 md:space-y-8">
+                        <p class=" text-xl md:text-4xl">
+                            Pucelle Mist Cologne Pink Me
+                        </p>
+
+                        <p class="text-4xl md:text-5xl text-scheme-text-grey">
+                            Sweet Angel
+                        </p>
+
+                        <div class="2xl:w-1/2 text-lg md:text-xl border-b border-gray-300 pb-8 line-clamp-4">
+                            <p class="line-clamp-4">
+                                Wangi floral fruity dengan wangi grapefruit, raspberry, sandalwood, vanilla, musk untuk
+                                kamu yang punya karakter feminin, sweet & calm.
+                            </p>
+                        </div>
+
+                        <div class="text-lg md:text-xl space-y-6">
+                            <p>Bottle Size:</p>
+                            <p>120 ml</p>
+                            <button id="btn-buy"
+                                    class="bg-white md:bg-scheme-pink text-scheme-pink md:text-white border  border-white md:border-scheme-pink rounded-full flex items-center justify-center gap-2 py-4 w-full md:w-96">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                                </svg>
+                                <span>
+                                    BUY NOW
+                                </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- review product -->
+        <div class="container mx-auto text-scheme-text-grey space-y-12 mb-28 hidden md:block">
+            <!-- heading -->
+            <div class="text-center space-y-4">
+                <p class="2xl:text-base">PRODUCT REVIEWS</p>
+                <p class="2xl:text-4xl">WHAT THEY SAY</p>
+            </div>
+
+            <!-- card review -->
+            <div class="grid grid-cols-12 gap-12">
+                <div data-aos="fade-up"
+                     class="col-span-4 bg-gray-50 px-12 py-6 flex flex-col items-center justify-between text-center space-y-8">
+                    <p class="text-lg">“Fruity tapi tetap calm – I love it!”</p>
+                    <p class="uppercase tracking-widest">CITRA ANINDYA, 24</p>
+                </div>
+                <div data-aos="fade-up"
+                     class="col-span-4 bg-gray-50 px-12 py-6 flex flex-col items-center justify-between text-center space-y-8">
+                    <p class="text-lg">“Enak banget untuk fragrance sehari-hari. Wanginya tahan lama.”</p>
+                    <p class="uppercase tracking-widest">nicola putri, 27 </p>
+                </div>
+                <div data-aos="fade-up"
+                     class="col-span-4 bg-gray-50 px-12 py-6 flex flex-col items-center justify-between text-center space-y-8">
+                    <p class="text-lg">“My favorite everyday fragrance!”</p>
+                    <p class="uppercase tracking-widest">cinta laura, 28</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-gray-600">
+    <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center py-8 gap-10 md:gap-0">
+        <div>
+            <p class="">
+                Pucelle.id Copyright © 2022. All Rights Reserved.
+            </p>
+        </div>
+
+        <div class="flex items-center space-x-10">
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icFacebook.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icInstagram.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icYoutube.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icShopee.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icTokopedia.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script>
-	let myHeader = document.getElementById("header")
-	window.onscroll = () => {
-		if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
-			myHeader.classList.add("header-active")
-		} else {
-			myHeader.classList.remove("header-active")
-		}
-	}
-
-	let btn_sm_nav = document.getElementById("btn-show-nav")
-	btn_sm_nav.onclick = mobileMenu
-
-	function mobileMenu() {
-		let element = document.getElementById("nav-sm");
-		element.classList.toggle("sm-menu-active");
-	}
-
-	let showSearchBar = false
-	document.querySelector(".btn-search-bar").onclick = (e) => {
-		let itemUserNav = document.querySelectorAll(".items-user-nav")
-		if (showSearchBar === false) {
-			for (let i = 0; i < itemUserNav.length; i++) {
-				itemUserNav[i].style.display = "none"
-			}
-			document.querySelector(".input-search-bar").style.display = "block"
-			document.querySelector(".content-search").style.width = "100%"
-
-			showSearchBar = true
-
-		} else {
-			for (let i = 0; i < itemUserNav.length; i++) {
-				itemUserNav[i].style.display = "flex"
-			}
-			document.querySelector(".input-search-bar").style.display = "none"
-			document.querySelector(".content-search").style.width = "auto"
-			showSearchBar = false
-		}
-	}
-</script>
-
-<script>
-	function previewFile(inputFile, previewFile, icUpload) {
-		document.querySelector(inputFile).addEventListener("change", function (e) {
-			let preview = document.querySelector(previewFile);
-			preview.innerHTML = ''
-
-			if (e.target.files.length < 4) {
-
-				if (this.files) {
-					[].forEach.call(this.files, readAndPreview);
-				}
-
-				function readAndPreview(file) {
-					if (!/\.(jpe?g|png|gif|mp4)$/i.test(file.name)) {
-						return alert(file.name + " not allowed");
-					}
-
-					let reader = new FileReader();
-					reader.addEventListener("load", function () {
-						if (file.type.match('image')) {
-							let image = new Image();
-							image.height = 100;
-							image.title = file.name;
-							image.src = this.result;
-							image.classList = "w-24 h-24 object-cover border border-gray-400"
-							preview.appendChild(image);
-						} else {
-							const video = document.createElement('video');
-							video.src = this.result;
-							video.autoplay = false;
-							video.controls = false;
-							video.classList = "w-36 h-24 object-cover"
-							const box = document.getElementById('box');
-							preview.appendChild(video);
-						}
-					}, false);
-					document.getElementById(icUpload).style.display = "none"
-					reader.readAsDataURL(file);
-				}
-			}
-		});
-	}
-
-	previewFile("#review-file1", "#preview-file1", "review-file-img1");
-	previewFile("#review-file2", "#preview-file2", "review-file-img2");
-	previewFile("#review-file3", "#preview-file3", "review-file-img3");
-
-</script>
-
-<script>
-	let modalReview = document.getElementById("modal-file")
-	let targetModalFile = document.getElementById("target-review-img")
-	let fileReview = document.querySelectorAll(".review-file")
-	let btnHideModalReview = document.getElementById("hide-modal-review")
-
-	/**
-	 * ON CLICK FILE REVIEW
-	 */
-	for (let i = 0; i < fileReview.length; i++) {
-		fileReview[i].onclick = () => {
-			modalReview.style.display = "block"
-			setTimeout(() => {
-				modalReview.style.opacity = "1"
-			}, 200)
-			funcAppendImg(fileReview[i].src, "file-review-user", "w-full h-auto md:h-96 object-contain rounded-lg", targetModalFile)
-			console.log(fileReview[i].src)
-		}
-	}
-
-	/**
-	 * HIDE MODAL SHOW IMAGE REVIEW
-	 */
-	btnHideModalReview.onclick = () => {
-		modalReview.style.opacity = "0"
-		setTimeout(() => {
-			modalReview.style.display = "none"
-			targetModalFile.innerHTML = ''
-		}, 200)
-	}
-
-	/**
-	 * APPEND IMAGE
-	 * @param imgSrc
-	 * @param imgAlt
-	 * @param imgClass
-	 * @param targetAppend
-	 */
-	function funcAppendImg(imgSrc, imgAlt, imgClass, targetAppend) {
-		const img = document.createElement("img");
-		img.src = imgSrc;
-		img.alt = imgSrc;
-		img.classList = imgClass;
-		targetAppend.appendChild(img);
-	}
-
-	let ratingCount = document.getElementById("rating-count")
-	let ratingStar = document.getElementById("icon-star")
-	let svgStar = `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 md:h-14 w-10 md:w-14 text-scheme-darkish-pink-two cursor-pointer" viewBox="0 0 20 20" fill="currentColor"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
-
-	window.onload = () => {
-		if (Number(ratingCount.innerText) >= 4.6) {
-			for (let i = 0; i < 5; i++) {
-				ratingStar.innerHTML += svgStar
-			}
-		} else if (Number(ratingCount.innerText) >= 3.6 && Number(ratingCount.innerText) < 4.5) {
-			for (let i = 0; i < 4; i++) {
-				ratingStar.innerHTML += svgStar
-			}
-		} else if (Number(ratingCount.innerText) > 2.6 && Number(ratingCount.innerText) < 3.5) {
-			for (let i = 0; i < 3; i++) {
-				ratingStar.innerHTML += svgStar
-			}
-		} else if (Number(ratingCount.innerText) > 1.6 && Number(ratingCount.innerText) < 2.5) {
-			for (let i = 0; i < 2; i++) {
-				ratingStar.innerHTML += svgStar
-			}
-		} else if (Number(ratingCount.innerText) > 0 && Number(ratingCount.innerText) < 1.5) {
-			for (let i = 0; i < 1; i++) {
-				ratingStar.innerHTML += svgStar
-			}
-		} else {
-			ratingStar.innerHTML += "no rating"
-		}
-	}
-
-</script>
-
-<script>
-	/**
-	 * counter number
-	 */
-	let plus_btns = document.querySelectorAll('#plus-button');
-	let minus_btns = document.querySelectorAll('#minus-button');
-
-	plus_btns.forEach(btn => {
-		btn.addEventListener('click', () => {
-			btn.previousElementSibling.value++;
-		})
-	})
-
-	minus_btns.forEach(btn => {
-		btn.addEventListener('click', () => {
-			btn.nextElementSibling.value = (btn.nextElementSibling.value === 0) ? 0 : btn.nextElementSibling.value - 1;
-		})
-	})
-
-	/**
-	 * active viewport - animate number
-	 */
-	window.addEventListener("scroll", function () {
-		if (window.scrollY >= 700) {
-			let counters = document.querySelectorAll('.value');
-			let speed = 1000;
-
-			counters.forEach(counter => {
-				let animate = () => {
-					let value = +counter.getAttribute('data-number');
-					let data = +counter.innerText;
-
-					let time = value / speed;
-					if (data < value) {
-						counter.innerText = Math.ceil(data + time);
-						setTimeout(animate, 5);
-					} else {
-						counter.innerText = value;
-					}
-				}
-				animate();
-			});
-		}
-	});
-
-	document.getElementById("benefits-sm").addEventListener("click", function () {
-
-		setTimeout(() => {
-			let countsSm = document.querySelectorAll(".count-sm");
-			let speedSm = 1000;
-
-			countsSm.forEach(countsSm => {
-				let animateSm = () => {
-					let value = +countsSm.getAttribute('data-number');
-					let data = +countsSm.innerText;
-
-					let time = value / speedSm;
-					if (data < value) {
-						countsSm.innerText = Math.ceil(data + time);
-						setTimeout(animateSm, 5);
-					} else {
-						countsSm.innerText = value;
-					}
-				}
-				animateSm();
-			})
-		}, 600)
-	})
-
-
-	/**
-	 * accordion mobile view
-	 * @type {Element | any}
-	 */
-	const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
-	accordionItemHeaders.forEach(accordionItemHeader => {
-		accordionItemHeader.addEventListener("click", event => {
-
-			const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.acc-product-active");
-			if (currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader !== accordionItemHeader) {
-				currentlyActiveAccordionItemHeader.classList.toggle("acc-product-active");
-				currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
-			}
-
-			accordionItemHeader.classList.toggle("acc-product-active");
-			const accordionItemBody = accordionItemHeader.nextElementSibling;
-			if (accordionItemHeader.classList.contains("acc-product-active")) {
-				accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
-			} else {
-				accordionItemBody.style.maxHeight = 0;
-			}
-		});
-	});
-
-
-	/**
-	 * CHANGE IMAGE CATALOG PRODUCT
-	 */
-	let catImgProduct = document.querySelectorAll('.catalog-img')
-	let mainImgCatalog = document.getElementById('target-img')
-	if (catImgProduct !== null) {
-		catImgProduct.forEach(btn => {
-			btn.addEventListener("click", function () {
-				setTimeout(() => {
-					mainImgCatalog.style.opacity = '0'
-				}, 200)
-
-				setTimeout(() => {
-					mainImgCatalog.src = btn.src
-					mainImgCatalog.style.opacity = '1'
-				}, 400)
-			})
-		})
-
-		for (let i = 0; i < catImgProduct.length; i++) {
-			catImgProduct[i].addEventListener('click', function () {
-				catImgProduct.forEach(btn => {
-					btn.classList.remove('active-img-catalog')
-				})
-
-				catImgProduct[i].classList.add('active-img-catalog')
-			})
-		}
-	}
-
-	/**
-	 * main tab
-	 * @type {Element | any}
-	 */
-	let tabContainer = document.querySelector("#tabs");
-	let tabToggle = tabContainer.querySelectorAll(".btn-tab");
-
-	tabToggle.forEach(function (toggler) {
-		toggler.addEventListener("click", function (e) {
-			e.preventDefault();
-
-			let tabName = this.getAttribute("data-tab");
-			let tabContent = document.querySelector("#tab-content");
-
-			for (let i = 0; i < tabContent.children.length; i++) {
-				tabToggle[i].classList.remove("bg-scheme-dusk-blue");
-				tabToggle[i].classList.add("bg-scheme-darkish-pink-two");
-				tabContent.children[i].classList.remove("hidden");
-
-				if (tabContent.children[i].id === tabName) {
-					continue;
-				}
-
-				tabContent.children[i].classList.add("hidden");
-			}
-			e.target.classList.remove("bg-scheme-darkish-pink-two");
-			e.target.classList.add("bg-scheme-dusk-blue")
-			new Emkalab.AOS()
-		});
-	});
-	document.querySelector(".default-tab").click();
-
-
-	/**
-	 * tutorial tab
-	 * @type {Element | any}
-	 */
-	// let tabContainerTut = document.querySelector("#tabs-tutorial");
-	// let tabToggleTut = tabContainerTut.querySelectorAll(".btn-tab-tut");
-	//
-	// tabToggleTut.forEach(function (toggler) {
-	// 	toggler.addEventListener("click", function (e) {
-	// 		e.preventDefault();
-	//
-	// 		let tabNameTut = this.getAttribute("data-tab");
-	// 		let tabContentTut = document.querySelector("#tab-content-tutorial");
-	// 		let tabContentImgTut = document.querySelector("#tab-content-tut-img");
-	//
-	// 		// change content text
-	// 		for (let i = 0; i < tabContentTut.children.length; i++) {
-	// 			tabToggleTut[i].classList.remove("bg-scheme-darkish-pink-two");
-	// 			tabToggleTut[i].classList.add("bg-scheme-dusk-blue");
-	//
-	// 			tabContentTut.children[i].classList.remove("hidden");
-	// 			setTimeout(() => {
-	// 				tabContentTut.children[i].style.opacity = 100;
-	// 			}, 300)
-	//
-	// 			if (tabContentTut.children[i].id === tabNameTut) {
-	// 				continue;
-	// 			}
-	//
-	// 			setTimeout(() => {
-	// 				tabContentTut.children[i].style.opacity = 0
-	// 			}, 300)
-	// 			tabContentTut.children[i].classList.add("hidden");
-	// 		}
-
-	// change content image
-	// for (let i = 0; i < tabContentImgTut.children.length; i++) {
-	// 	tabContentImgTut.children[i].classList.remove("hidden");
-	// 	setTimeout(() => {
-	// 		tabContentImgTut.children[i].style.opacity = 100;
-	// 	}, 300)
-	//
-	// 	if (tabContentImgTut.children[i].getAttribute("data-img") === tabNameTut) {
-	// 		continue;
-	// 	}
-	// 	setTimeout(() => {
-	// 		tabContentImgTut.children[i].style.opacity = 0;
-	// 	}, 300)
-	// 	tabContentImgTut.children[i].classList.add("hidden");
-	// }
-
-	// 		e.target.classList.add("bg-scheme-darkish-pink-two");
-	// 		e.target.classList.remove("bg-scheme-dusk-blue");
-	// 	});
-	// });
-
-
-	function funSlideTab(varContTut, varTabToggle, varTabName, VarContText, VarContImg, varDataImg) {
-		let tabContainerTut = document.querySelector(varContTut);
-		let tabToggleTut = tabContainerTut.querySelectorAll(varTabToggle);
-
-		tabToggleTut.forEach(function (toggler) {
-			toggler.addEventListener("click", function (e) {
-				e.preventDefault();
-
-				let tabNameTut = this.getAttribute(varTabName);
-				let tabContentTut = document.querySelector(VarContText);
-				let tabContentImgTut = document.querySelector(VarContImg);
-
-				// change content text
-				for (let i = 0; i < tabContentTut.children.length; i++) {
-					tabToggleTut[i].classList.remove("bg-scheme-darkish-pink-two");
-					tabToggleTut[i].classList.add("bg-scheme-dusk-blue");
-
-					tabContentTut.children[i].classList.remove("hidden");
-					setTimeout(() => {
-						tabContentTut.children[i].style.opacity = 100;
-					}, 300)
-
-					if (tabContentTut.children[i].id === tabNameTut) {
-						continue;
-					}
-
-					setTimeout(() => {
-						tabContentTut.children[i].style.opacity = 0
-					}, 300)
-					tabContentTut.children[i].classList.add("hidden");
-				}
-
-				// change content image
-				for (let i = 0; i < tabContentImgTut.children.length; i++) {
-					tabContentImgTut.children[i].classList.remove("hidden");
-					setTimeout(() => {
-						tabContentImgTut.children[i].style.opacity = 100;
-					}, 300)
-
-					if (tabContentImgTut.children[i].getAttribute(varDataImg) === tabNameTut) {
-						continue;
-					}
-					setTimeout(() => {
-						tabContentImgTut.children[i].style.opacity = 0;
-					}, 300)
-					tabContentImgTut.children[i].classList.add("hidden");
-				}
-
-				e.target.classList.add("bg-scheme-darkish-pink-two");
-				e.target.classList.remove("bg-scheme-dusk-blue");
-			});
-		});
-	}
-
-	funSlideTab("#tabs-tutorial", ".btn-tab-tut", "data-tab", "#tab-content-tutorial", "#tab-content-tut-img", "data-img")
-	funSlideTab("#indicator-section-sm", ".btn-indicator-tut", "data-tab-sm", "#text-section-tab-tut", "#img-section-tab-tut", "data-img-sm")
-
-
-	/**
-	 * autoplay tab tutorial
-	 */
-	function autoPlay(trigger, btnsCLicked, time) {
-		document.getElementById(trigger).click()
-
-		let btnTab = document.getElementsByClassName(btnsCLicked);
-		let index = 0;
-		setInterval(() => {
-			checkedIndex('get')
-			for (let i = 0; i < btnTab.length; i++) {
-				if (index === i) {
-					btnTab[i].click()
-				}
-			}
-
-			if (index === btnTab.length) {
-				checkedIndex('set', 0)
-			} else {
-				checkedIndex('set', index + 1)
-			}
-		}, time);
-
-		const checkedIndex = (type = 'get', val) => {
-			if (type === "get") {
-				return index;
-			}
-			return index = val
-		}
-
-		for (let x = 0; x < btnTab.length; x++) {
-			btnTab[x].addEventListener('click', function (e) {
-				checkedIndex('set', x)
-			})
-		}
-	}
-
-	document.getElementById('tab-tutorial').addEventListener("click", (e) => {
-		autoPlay("tutorial-step1", "btn-tab-tut", 3000)
-	})
-
-	document.getElementById('acc-ing-sm').addEventListener("click", (e) => {
-		document.getElementById("tutorial-step1-sm").click()
-	})
-	autoPlay("tutorial-step1-sm", "btn-indicator-tut", 2000);
-
-
-	/**
-	 * toggle ingredients
-	 * @type {HTMLElement}
-	 */
-	let img_btn_a = document.getElementById("img-btn-a")
-	let img_btn_b = document.getElementById("img-btn-b")
-
-	let ingleftSm = document.querySelector(".ingleft-sm")
-	let ingleftLg = document.querySelector(".ingleft-lg")
-
-	let ingrightSm = document.querySelector(".ingright-sm")
-	let ingrightLg = document.querySelector(".ingright-lg")
-
-	let btn_a = document.getElementById("btn-show-a")
-	let btn_b = document.getElementById("btn-show-b")
-
-	btn_a.onclick = show_content_a
-	btn_b.onclick = show_content_b
-
-	function show_content_a() {
-		const checkedL = document.getElementById('btn-show-a').getAttribute('emk-toggle');
-		btn_a.classList.toggle("open");
-		if (checkedL === "false") {
-			document.getElementById('btn-show-a').setAttribute('emk-toggle', 'true');
-			ingleftSm.style.opacity = 0;
-			setTimeout(function () {
-				ingleftSm.style.display = "none";
-			}, 200)
-			ingleftLg.style.display = "block";
-			setTimeout(function () {
-				ingleftLg.style.opacity = 1;
-			}, 250)
-
-		} else {
-			document.getElementById('btn-show-a').setAttribute('emk-toggle', 'false');
-			ingleftSm.style.opacity = 1;
-			setTimeout(function () {
-				ingleftSm.style.display = "block";
-			}, 200)
-
-			ingleftLg.style.opacity = 0;
-			setTimeout(function () {
-				ingleftLg.style.display = "none";
-			}, 250)
-		}
-	}
-
-	function show_content_b() {
-		/**
-		 * button toggle left
-		 */
-		img_btn_b.classList.toggle("open");
-
-		/**
-		 * toggle content right
-		 */
-		const checkedR = document.getElementById('btn-show-b').getAttribute('emk-toggle');
-		if (checkedR === "false") {
-			document.getElementById('btn-show-b').setAttribute('emk-toggle', 'true');
-			ingrightSm.style.opacity = 0;
-			setTimeout(function () {
-				ingrightSm.style.display = "none";
-			}, 200)
-			ingrightLg.style.display = "block";
-			setTimeout(function () {
-				ingrightLg.style.opacity = 100;
-			}, 250)
-
-		} else {
-			document.getElementById('btn-show-b').setAttribute('emk-toggle', 'false');
-			ingrightSm.style.opacity = 100;
-			setTimeout(function () {
-				ingrightSm.style.display = "block";
-			}, 200)
-
-			ingrightLg.style.opacity = 0;
-			setTimeout(function () {
-				ingrightLg.style.display = "none";
-			}, 250)
-		}
-
-	}
-
-	/**
-	 * SM Ingredients
-	 */
-	let showSmallIngA = document.getElementById("btn-ing-a");
-	let HideSmallIngA = document.getElementById("hide-ing-a");
-
-	let showSmallIngB = document.getElementById("btn-ing-b");
-	let HideSmallIngB = document.getElementById("hide-ing-b");
-
-	let headIngSm = document.getElementById("head-ing-sm")
-
-	let ingSmA = document.getElementById("content-sm-ing-a")
-	let ingSmB = document.getElementById("content-sm-ing-b")
-
-	showSmallIngA.addEventListener("click", () => {
-		headIngSm.style.display = "none"
-		ingSmA.style.display = "block"
-		setTimeout(() => {
-			ingSmA.style.opacity = "1"
-		}, 300)
-	});
-
-	HideSmallIngA.addEventListener("click", () => {
-		ingSmA.style.opacity = "0"
-		setTimeout(() => {
-			headIngSm.style.display = "block"
-			ingSmA.style.display = "none"
-		}, 300)
-	});
-
-	showSmallIngB.addEventListener("click", () => {
-		headIngSm.style.display = "none"
-		ingSmB.style.display = "block"
-		setTimeout(() => {
-			ingSmB.style.opacity = "1"
-		}, 300)
-	});
-
-	HideSmallIngB.addEventListener("click", () => {
-		ingSmB.style.opacity = "0"
-		setTimeout(() => {
-			headIngSm.style.display = "block"
-			ingSmB.style.display = "none"
-		}, 300)
-	});
-
-
-	/**
-	 * accordion sm
-	 * @type {HTMLCollectionOf<Element>}
-	 */
-	let accHeadSm = document.getElementsByClassName("acc-head-sm");
-	for (let i = 0; i < accHeadSm.length; i++) {
-		accHeadSm[i].addEventListener("click", function () {
-			let icc = this.children[1];
-
-			let panel = this.nextElementSibling;
-			if (panel.style.display === "block") {
-				if (icc !== null) {
-					icc.style.transform = "rotate(0deg)"
-				}
-				panel.style.opacity = "0";
-				setTimeout(() => {
-					panel.style.display = "none";
-				}, 300)
-			} else {
-				if (icc !== null) {
-					icc.style.transform = "rotate(180deg)"
-				}
-				panel.style.display = "block";
-				setTimeout(() => {
-					panel.style.opacity = "1";
-				}, 300)
-			}
-		});
-	}
-
-	/**
-	 * full ingredient modal
-	 * @type {HTMLElement}
-	 */
-	function showModal(btnId) {
-		let modalSmIng = document.getElementById("modal-sm");
-		let btn = document.getElementById(btnId)
-
-		btn.addEventListener("click", function () {
-			modalSmIng.style.display = "block"
-			setTimeout(() => {
-				modalSmIng.style.opacity = "1"
-			}, 200)
-			document.getElementById("main-body").style.overflow = "hidden"
-		})
-	}
-
-	function hideModal(btnId) {
-		let modalSmIng = document.getElementById("modal-sm");
-		let btn = document.getElementById(btnId)
-
-		btn.addEventListener("click", function () {
-			modalSmIng.style.opacity = "0"
-			setTimeout(() => {
-				modalSmIng.style.display = "none"
-				document.getElementById("main-body").style.overflow = "auto"
-			}, 200)
-		})
-	}
-
-	showModal('show-modal-ing-sm')
-	showModal('btn-show-modal-lg')
-	hideModal('hide-modal-ing-sm')
-
-	/**
-	 * Read more
-	 */
-	let mainText = document.getElementById("main-desc")
-	let originText = mainText.innerText
-	let limitedText = originText.substr(0, 140);
-	let btnReadmore = document.getElementById("show-readmore")
-
-	mainText.innerText = limitedText
-	btnReadmore.addEventListener("click", function () {
-		mainText.innerText = originText
-		btnReadmore.style.display = "none"
-	})
-
-
-	/**
-	 * Tabbing review & question
-	 */
-	let tabHeadReviews = document.querySelector("#tab-head-reviews");
-	let itemTabHeadReviews = tabHeadReviews.querySelectorAll(".btn-tab-reviews");
-
-	itemTabHeadReviews.forEach(function (toggler) {
-		toggler.addEventListener("click", function (e) {
-			e.preventDefault();
-
-			let tabName = this.getAttribute("data-tab");
-			let tabContent = document.querySelector("#tab-content-reviews");
-
-			for (let i = 0; i < tabContent.children.length; i++) {
-				itemTabHeadReviews[i].classList.remove("border-scheme-dusk-blue");
-				itemTabHeadReviews[i].classList.add("border-white");
-				tabContent.children[i].classList.remove("hidden");
-
-				if (tabContent.children[i].id === tabName) {
-					continue;
-				}
-
-				tabContent.children[i].classList.add("hidden");
-			}
-
-			e.target.classList.remove("border-white");
-			e.target.classList.add("border-scheme-dusk-blue")
-		});
-	});
-
-
-	let btnWriteLg = document.getElementById("write-review-lg")
-	let btnAskLg = document.getElementById("ask-question-lg")
-	let btnWriteSm = document.getElementById("write-review-sm")
-	let btnAskSm = document.getElementById("ask-question-sm")
-	let hideQuestion = document.getElementById("hide-question")
-	let hideReview = document.getElementById("hide-review")
-
-	btnAskLg.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalQuestion = document.getElementById("modal-question")
-
-		document.getElementById("main-body").style.overflow = "hidden"
-
-		mainModal.style.display = "block"
-		modalQuestion.style.display = "block"
-		setTimeout(() => {
-			mainModal.style.opacity = "1"
-			modalQuestion.style.opacity = "1"
-		}, 200)
-	})
-
-	btnWriteLg.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalReview = document.getElementById("modal-review")
-
-		document.getElementById("main-body").style.overflow = "hidden"
-
-		mainModal.style.display = "block"
-		modalReview.style.display = "block"
-		setTimeout(() => {
-			mainModal.style.opacity = "1"
-			modalReview.style.opacity = "1"
-		}, 200)
-	})
-
-	btnWriteSm.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalReview = document.getElementById("modal-review")
-
-		document.getElementById("main-body").style.overflow = "hidden"
-
-		mainModal.style.display = "block"
-		modalReview.style.display = "block"
-		setTimeout(() => {
-			mainModal.style.opacity = "1"
-			modalReview.style.opacity = "1"
-		}, 200)
-	})
-
-	btnAskSm.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalQuestion = document.getElementById("modal-question")
-
-		document.getElementById("main-body").style.overflow = "hidden"
-
-		mainModal.style.display = "block"
-		modalQuestion.style.display = "block"
-		setTimeout(() => {
-			mainModal.style.opacity = "1"
-			modalQuestion.style.opacity = "1"
-		}, 200)
-	})
-
-	hideQuestion.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalQuestion = document.getElementById("modal-question")
-
-		document.getElementById("main-body").style.overflow = "auto"
-
-		mainModal.style.opacity = "0"
-		modalQuestion.style.opacity = "0"
-		setTimeout(() => {
-			mainModal.style.display = "none"
-			modalQuestion.style.display = "none"
-		}, 200)
-	})
-
-	hideReview.addEventListener("click", () => {
-		let mainModal = document.getElementById("modal-review-question")
-		let modalReview = document.getElementById("modal-review")
-
-		document.getElementById("main-body").style.overflow = "auto"
-
-		mainModal.style.opacity = "0"
-		modalReview.style.opacity = "0"
-		setTimeout(() => {
-			mainModal.style.display = "none"
-			modalReview.style.display = "none"
-		}, 200)
-	})
+    <!-- scroll header -->
+    let myHeader = document.querySelector('.header')
+    window.onscroll = () => {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            myHeader.classList.add("scrolled-header")
+        } else {
+            myHeader.classList.remove("scrolled-header")
+        }
+    }
+
+    let boxNavSm = document.getElementById('sm-nav')
+    let btnSmNav = document.getElementById('btn-sm-nav')
+
+    if (typeof (btnSmNav) !== "undefined") {
+        btnSmNav.addEventListener('click', function () {
+
+            if (boxNavSm.classList.contains('hidden')) {
+                btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+                boxNavSm.classList.remove('hidden');
+                setTimeout(function () {
+                    boxNavSm.classList.remove('visually-hidden');
+                }, 20);
+            } else {
+                btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+                boxNavSm.classList.add('visually-hidden');
+                boxNavSm.addEventListener('transitionend', function (e) {
+                    boxNavSm.classList.add('hidden');
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                });
+            }
+
+        }, false);
+    }
+
+
+    /**
+     * change image preview
+     */
+    let listThumbs = document.querySelectorAll('.thumbs-img')
+    listThumbs.forEach(function (el) {
+        el.addEventListener('click', function () {
+            let parentImg = document.querySelector('.large-img')
+            parentImg.style.opacity = 0
+
+            setTimeout(() => {
+                parentImg.style.opacity = 1
+            }, 400)
+
+            setTimeout(() => {
+                let mainImg = document.getElementById('large-img')
+                mainImg.style.opacity = 0
+                mainImg.src = this.firstElementChild.getAttribute('src')
+                mainImg.style.opacity = 1
+            }, 300)
+        })
+    });
+
+
+    /**
+     * MODAL BUY NOW
+     * @type {HTMLElement}
+     */
+    let btnBuy = document.getElementById('btn-buy')
+    let btnZoomImg = document.getElementById('btn-zoom-img')
+    let mainModal = document.getElementById('main-modal')
+    let modalBuy = document.getElementById('modal-buy')
+    let modalZoom = document.getElementById('modal-zoom-img')
+    let hideModalBuy = document.getElementById('hide-modal-buy')
+    let hideModalZoom = document.getElementById('hide-modal-zoom')
+
+    btnBuy.addEventListener('click', function () {
+        mainModal.style.display = 'flex'
+        modalBuy.style.display = 'block'
+        setTimeout(() => {
+            mainModal.style.opacity = '1'
+            modalBuy.style.opacity = '1'
+        }, 200)
+    })
+
+    hideModalBuy.addEventListener('click', function () {
+        mainModal.style.opacity = ''
+        modalBuy.style.opacity = ''
+        setTimeout(() => {
+            mainModal.style.display = 'none'
+            modalBuy.style.display = 'none'
+        }, 200)
+    })
+
+    btnZoomImg.addEventListener('click', function () {
+        mainModal.style.display = 'flex'
+        modalZoom.style.display = 'block'
+        document.getElementById('zoom-img').src = document.getElementById('large-img').getAttribute('src')
+
+        setTimeout(() => {
+            mainModal.style.opacity = '1'
+            modalZoom.style.opacity = '1'
+        }, 200)
+    })
+
+    hideModalZoom.addEventListener('click', function () {
+        mainModal.style.opacity = '0'
+        modalZoom.style.opacity = '0'
+        setTimeout(() => {
+            mainModal.style.display = 'none'
+            modalZoom.style.display = 'none'
+            document.getElementById('zoom-img').src = ""
+        }, 200)
+    })
 
 
 </script>

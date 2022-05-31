@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>pucelle</title>
+    <meta name="description"
+          content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+    <meta name="keywords"
+          content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Plamen Nikolov, WeAreAthlon">
+    <script src="./js/custome.js"></script>
+</head>
+
+<body class="relative">
+
+<!-- modal -->
+<div id="main-modal"
+     class="modal absolute opacity-0 hidden w-full h-full min-h-screen bg-black/50 z-[100] flex items-center justify-center text-scheme-grey px-4 md:px-0">
+
+    <!-- modal buy -->
+    <div id="modal-buy"
+         class="fixed hidden modal opacity-0 top-[15%] md:top-1/4 w-[90%] md:w-[40%] h-auto bg-white p-4">
+        <button id="hide-modal-buy" class="w-full flex justify-end text-scheme-pink mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <div class="pb-12 px-8 space-y-12">
+            <p class="text-center text-3xl">BUY NOW</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+
+                <a href="" target="_blank" class="w-full">
+                    <div class="w-full shadow-sm border border-gray-100 rounded-xl py-4 flex flex-col items-center justify-center text-scheme-pink bg-white transition hover:text-white hover:bg-orange-400 gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 36" class="w-12 h-12"
+                             fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M9.10398 10.2675H2.02501C1.18832 10.2675 0.445635 10.9632 0.502041 11.7998L1.931 31.5984C2.08141 33.7418 3.41636 35.4998 5.93583 35.4998H26.1856C28.4513 35.4998 30.0119 34.0803 30.1905 31.5984L31.61 11.7904C31.6758 10.9538 30.9237 10.2675 30.0871 10.2675H23.0175C22.8013 7.87022 22.1338 5.70798 21.1749 4.0534C19.8963 1.86296 18.1008 0.499817 16.0607 0.499817C14.0207 0.499817 12.2157 1.85356 10.9466 4.0534C9.98767 5.71738 9.3202 7.87022 9.10398 10.2675ZM21.2313 10.2675H10.8714C11.0876 8.19925 11.6517 6.34725 12.4695 4.9465C13.4284 3.29192 14.6976 2.26721 16.0607 2.26721C17.4145 2.26721 18.693 3.29192 19.6331 4.9371C20.451 6.34725 21.0245 8.18985 21.2313 10.2675ZM10.7304 27.5557C10.5048 27.8847 10.5894 28.3266 10.9185 28.5522C11.1723 28.7308 11.4167 28.8812 11.6517 29.0128C13.5319 30.1598 15.3181 30.7238 16.8505 30.7238C18.4863 30.7144 19.8306 30.0752 20.7049 28.7872C20.7102 28.7785 20.7157 28.7691 20.7217 28.7591C20.7477 28.7151 20.7812 28.6587 20.8271 28.5898C21.0715 28.195 21.2502 27.7907 21.363 27.3865C21.6168 26.484 21.5698 25.5627 21.1938 24.6884C20.8271 23.8423 20.1409 23.062 19.1161 22.4415C18.4957 22.0655 17.7436 21.7459 16.8599 21.492C15.2241 21.0314 14.049 20.4391 13.4849 19.6776C12.9961 19.0196 12.9867 18.1547 13.5883 17.0547C13.9456 16.3967 14.7541 15.983 15.8164 15.8984C16.9257 15.8138 18.2606 16.0864 19.6614 16.8009C20.0186 16.9889 20.4417 16.8479 20.6297 16.4907C20.8177 16.1334 20.6767 15.701 20.3195 15.5224C18.6743 14.6857 17.0573 14.3661 15.713 14.4695C14.1524 14.5917 12.9209 15.278 12.3192 16.3779C11.4167 18.0419 11.4825 19.4144 12.3286 20.5519C13.0995 21.586 14.5284 22.3569 16.4651 22.9022C17.2265 23.109 17.8564 23.3816 18.3641 23.6919C19.1255 24.1525 19.6144 24.7072 19.8682 25.2806C20.1032 25.8259 20.1314 26.4276 19.9622 27.0104C19.8776 27.2925 19.7554 27.5839 19.5862 27.8565C19.5814 27.871 19.5691 27.8879 19.5533 27.9098C19.5382 27.9307 19.5199 27.956 19.5016 27.9881C18.9093 28.8624 17.9786 29.2949 16.8317 29.2949C15.5626 29.2949 14.0396 28.7966 12.385 27.7907C12.15 27.6497 11.9338 27.5087 11.7269 27.3677C11.3979 27.142 10.9561 27.2266 10.7304 27.5557Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <p class="text-xl">Shopee</p>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="w-full">
+                    <div class="w-full shadow-sm border border-gray-100 rounded-xl py-4 flex flex-col items-center justify-center text-scheme-pink bg-white transition hover:text-white hover:bg-[#3EAC46] gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 36" class="w-12 h-12"
+                             fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M30.3665 7.18958H23.5787C23.3411 5.3406 22.4381 3.6415 21.0384 2.41017C19.6388 1.17883 17.8384 0.499634 15.9743 0.499634C14.1101 0.499634 12.3098 1.17883 10.9101 2.41017C9.51047 3.6415 8.6074 5.3406 8.36986 7.18958H0.500977V35.4996H21.4579C24.1081 35.4937 26.6481 34.4386 28.5224 32.565C30.3968 30.6915 31.453 28.1519 31.46 25.5017V7.18958H30.3665ZM11.9243 4.11273C12.6706 3.36592 13.6086 2.83976 14.635 2.59231C15.6613 2.34487 16.7361 2.38575 17.7406 2.71045C18.7452 3.03514 19.6406 3.63104 20.3279 4.43238C21.0153 5.23372 21.4679 6.20937 21.6359 7.25167C20.7674 7.32548 19.9064 7.47 19.0615 7.68377C17.993 7.95421 16.9592 8.34668 15.9805 8.85342C15.0005 8.34618 13.9653 7.95371 12.8953 7.68377C12.0504 7.47007 11.1894 7.32555 10.3209 7.25167C10.5111 6.06248 11.0723 4.96384 11.9243 4.11273ZM30.3665 25.5017C30.3665 30.4022 26.3575 34.4111 21.4579 34.4111H1.59116V8.38076C1.5918 8.35403 1.60276 8.32859 1.62174 8.30976C1.64072 8.29094 1.66625 8.28019 1.69298 8.27977H8.84914C11.6263 8.27977 14.0517 8.97593 15.978 10.0943C17.9051 8.97428 20.3296 8.27977 23.1077 8.27977H30.2638C30.291 8.27999 30.317 8.29087 30.3362 8.31007C30.3554 8.32927 30.3662 8.35526 30.3665 8.38241V25.5017Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M9.94428 15.1157C10.8046 15.1163 11.6407 15.4006 12.3231 15.9245C13.0054 16.4484 13.496 17.1827 13.7188 18.0136C13.9415 18.8446 13.884 19.7258 13.5552 20.5208C13.2264 21.3158 12.6446 21.9801 11.8999 22.4109C11.1553 22.8418 10.2893 23.015 9.43623 22.9038C8.58314 22.7926 7.79054 22.4031 7.1812 21.7958C6.57187 21.1885 6.17981 20.3972 6.06577 19.5445C5.95172 18.6918 6.12206 17.8253 6.55039 17.0792C6.64238 17.3526 6.79487 17.6016 6.99649 17.8079C7.19811 18.0141 7.44367 18.1722 7.71487 18.2704C7.98606 18.3685 8.27592 18.4043 8.56283 18.3748C8.84975 18.3454 9.12633 18.2517 9.37198 18.1005C9.61763 17.9494 9.82601 17.7448 9.98161 17.502C10.1372 17.2591 10.236 16.9843 10.2706 16.6979C10.3053 16.4116 10.2749 16.1212 10.1817 15.8482C10.0885 15.5753 9.93489 15.3269 9.73237 15.1215C9.8019 15.1182 9.87309 15.1157 9.94428 15.1157Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M21.8769 15.1157C22.7372 15.1163 23.5733 15.4006 24.2557 15.9245C24.9381 16.4484 25.4286 17.1827 25.6514 18.0136C25.8742 18.8446 25.8167 19.7258 25.4878 20.5208C25.159 21.3158 24.5772 21.9801 23.8325 22.4109C23.0879 22.8418 22.2219 23.015 21.3689 22.9038C20.5158 22.7926 19.7232 22.4031 19.1138 21.7958C18.5045 21.1885 18.1124 20.3972 17.9984 19.5445C17.8843 18.6918 18.0547 17.8253 18.483 17.0792C18.5749 17.3528 18.7273 17.602 18.9289 17.8085C19.1305 18.0149 19.3761 18.1732 19.6474 18.2715C19.9187 18.3697 20.2087 18.4055 20.4957 18.3761C20.7828 18.3467 21.0595 18.2529 21.3052 18.1017C21.551 17.9505 21.7594 17.7457 21.915 17.5027C22.0706 17.2597 22.1693 16.9847 22.2038 16.6982C22.2383 16.4117 22.2077 16.1212 22.1143 15.8482C22.0208 15.5752 21.867 15.3268 21.6642 15.1215C21.7354 15.1182 21.8057 15.1157 21.8769 15.1157Z"
+                                  fill="currentColor"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M27.8417 13.8805C26.9967 13.037 25.9573 12.4142 24.8151 12.0668C23.6728 11.7194 22.4627 11.6581 21.2912 11.8882C20.1196 12.1184 19.0227 12.633 18.0967 13.3867C17.1708 14.1405 16.4444 15.1102 15.9813 16.2107C15.4229 14.8818 14.4826 13.7486 13.2794 12.9547C12.0763 12.1609 10.6645 11.7422 9.2231 11.7516C7.78169 11.7611 6.37554 12.1983 5.18292 13.0079C3.99029 13.8174 3.06488 14.9629 2.52402 16.299C1.98315 17.6351 1.85118 19.1017 2.14483 20.5129C2.43848 21.9242 3.14454 23.2164 4.17348 24.2259C5.20243 25.2353 6.50794 25.9166 7.9245 26.1832C9.34107 26.4498 10.8049 26.2898 12.1304 25.7235L12.4508 26.0439L15.3257 28.9187L15.9242 29.5181L16.5235 28.9187L19.3983 26.0439L19.7535 25.6888C21.3072 26.3704 23.0501 26.4883 24.6814 26.0221C26.3127 25.5559 27.7302 24.535 28.6892 23.1354C29.6482 21.7357 30.0885 20.0453 29.9342 18.3557C29.78 16.6661 29.0408 15.0833 27.8442 13.8805H27.8417ZM16.8322 23.3453C16.2763 23.2299 15.7036 23.2212 15.1444 23.3197C15.4799 22.8629 15.7608 22.3683 15.9813 21.8462C16.2046 22.3778 16.4902 22.8811 16.8322 23.3453ZM9.26467 25.2177C8.04022 25.2177 6.84326 24.8547 5.82516 24.1744C4.80706 23.4941 4.01355 22.5272 3.54497 21.396C3.07639 20.2647 2.95379 19.0199 3.19267 17.819C3.43155 16.6181 4.02118 15.5149 4.887 14.6491C5.75282 13.7833 6.85595 13.1937 8.05688 12.9548C9.25781 12.7159 10.5026 12.8385 11.6339 13.3071C12.7651 13.7757 13.732 14.5692 14.4123 15.5873C15.0925 16.6054 15.4556 17.8023 15.4556 19.0268C15.4559 19.8399 15.2959 20.6452 14.9849 21.3965C14.6738 22.1478 14.2178 22.8305 13.6429 23.4055C13.068 23.9806 12.3855 24.4368 11.6342 24.748C10.883 25.0592 10.0778 25.2194 9.26467 25.2194V25.2177ZM15.9217 28.3186L13.0468 25.4437C13.7703 24.616 14.7909 24.0986 15.9217 24.0986C17.0524 24.0986 18.0739 24.6151 18.7974 25.4437L15.9217 28.3186ZM22.6937 25.2177C21.4693 25.2177 20.2723 24.8547 19.2542 24.1744C18.2361 23.4941 17.4426 22.5272 16.974 21.396C16.5055 20.2647 16.3829 19.0199 16.6217 17.819C16.8606 16.6181 17.4502 15.5149 18.3161 14.6491C19.1819 13.7833 20.285 13.1937 21.4859 12.9548C22.6869 12.7159 23.9317 12.8385 25.0629 13.3071C26.1942 13.7757 27.1611 14.5692 27.8413 15.5873C28.5216 16.6054 28.8847 17.8023 28.8847 19.0268C28.885 19.84 28.7251 20.6452 28.4141 21.3966C28.1032 22.148 27.6472 22.8307 27.0722 23.4058C26.4973 23.9809 25.8147 24.437 25.0634 24.7482C24.3122 25.0594 23.5069 25.2195 22.6937 25.2194V25.2177Z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <p class="text-xl">Tokopedia</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal zoom img -->
+    <div id="modal-zoom-img"
+         class="modal fixed opacity-0 hidden top-[15%] md:top-[4rem] 2xl:top-[15%] w-[90%] xl:w-[36rem] 2xl:w-[40rem] h-auto bg-white p-4">
+        <button id="hide-modal-zoom" class="w-full flex justify-end text-scheme-pink mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <div class="w-full h-auto overflow-hidden">
+            <img id="zoom-img" src="" alt="zoom-img" class="w-full h-auto">
+        </div>
+    </div>
+
+</div>
+
+<!-- header -->
+<div class="header fixed top-0 left-0 w-full z-50">
+    <!-- main header -->
+    <div class="main-header h-[60px] md:h-[100px] container mx-auto flex items-center justify-between px-4 md:px-0 z-50 relative">
+        <div class="w-full flex justify-between items-center relative">
+            <!-- logo site -->
+            <div>
+                <img src="./images/content/pucelle-logo-black.png"
+                     class="h-[16px] md:h-[30px] object-contain" alt="">
+            </div>
+
+            <!-- small nav btn -->
+            <div class="block md:hidden">
+                <button id="btn-sm-nav">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- large nav -->
+            <nav class="hidden md:block">
+                <ul class="flex items-center space-x-[60px] text-scheme-grey">
+                    <li><a href="./product.html">Our Products</a></li>
+                    <li><a href="./article.html">Pucelleclopedia</a></li>
+                    <li><a href="#">Pucelle Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- small nav content -->
+    <div id="sm-nav"
+         class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[60px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+        <div class="space-y-8 text-right text-lg">
+            <nav>
+                <ul class="text-scheme-grey space-y-8">
+                    <li><a href="./product.html">Our Products</a></li>
+                    <li><a href="./article.html">Pucelleclopedia</a></li>
+                    <li><a href="#">Pucelle Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>
+
+<!-- main content -->
+<main id="main-content" class="min-h-screen relative text-scheme-grey">
+
+    <!--btn to top -->
+    <div class="fixed right-8 bottom-20 z-50">
+        <a href="#main-content" id="btn-go-top" type="button">
+            <img src=./images/content/btn-go-top.svg alt="" class="w-20 md:w-24">
+        </a>
+    </div>
+
+    <div class="w-full h-full text-scheme-grey relative bg-scheme-pale-pink">
+        <!-- main content article -->
+        <div class="container mx-auto py-0 md:py-24 mb-0 md:mb-0 pt-[60px] md:pt-0">
+            <div class="grid grid-cols-12">
+                <!-- heading -->
+                <div class="col-span-12 md:col-span-1 hidden md:block"></div>
+                <div class="col-span-12 md:col-span-8 space-y-6 xl:space-y-8 2xl:space-y-10 pb-12 md:pb-0 pt-6 xl:pt-36 2xl:pt-40 xl:pb-10 2xl:pb-12 px-6">
+                    <h1 class="text-2xl xl:text-4xl 2xl:text-5xl text-scheme-text-grey">
+                        Cara Gampang Pede Sama Personal Style Kamu
+                    </h1>
+                    <p class="tracking-wider text-base xl:text-xl 2xl:text-2xl uppercase">
+                        28 Apr 2022
+                    </p>
+
+                    <div class="flex md:hidden items-center justify-start gap-12 px-4">
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 32" class="w-6 h-6 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.2267 0H1.77333C1.30409 0.00348891 0.855064 0.191442 0.523253 0.523253C0.191442 0.855064 0.00348891 1.30409 0 1.77333V30.2267C0.00348891 30.6959 0.191442 31.1449 0.523253 31.4767C0.855064 31.8086 1.30409 31.9965 1.77333 32H17.0933V19.6267H12.9333V14.7867H17.0933V11.2267C17.0933 7.09333 19.6133 4.84 23.32 4.84C24.56 4.84 25.8 4.84 27.04 5.02667V9.33333H24.4933C22.48 9.33333 22.0933 10.2933 22.0933 11.6933V14.7733H26.8933L26.2667 19.6133H22.0933V32H30.2267C30.6959 31.9965 31.1449 31.8086 31.4767 31.4767C31.8086 31.1449 31.9965 30.6959 32 30.2267V1.77333C31.9965 1.30409 31.8086 0.855064 31.4767 0.523253C31.1449 0.191442 30.6959 0.00348891 30.2267 0Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 26" class="w-6 h-6 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.052 26.0004C22.128 26.0004 28.734 15.9944 28.734 7.33241C28.734 7.05241 28.734 6.76841 28.722 6.48841C30.0081 5.55738 31.1181 4.40471 32 3.08441C30.7986 3.61411 29.5255 3.96322 28.222 4.12041C29.5951 3.29969 30.6234 2.00835 31.116 0.48641C29.826 1.25066 28.414 1.78716 26.942 2.07241C25.9524 1.01846 24.6428 0.320245 23.2162 0.0859247C21.7895 -0.148396 20.3254 0.0942526 19.0507 0.776284C17.7759 1.45832 16.7616 2.54167 16.1649 3.85853C15.5682 5.17539 15.4224 6.65228 15.75 8.06041C13.1395 7.92951 10.5856 7.25135 8.25409 6.0699C5.92254 4.88844 3.86537 3.2301 2.216 1.20241C1.37868 2.64858 1.12315 4.35921 1.50129 5.98694C1.87944 7.61467 2.86291 9.03747 4.252 9.96641C3.21108 9.93104 2.19304 9.65153 1.28 9.15041V9.24041C1.28179 10.7554 1.80661 12.2233 2.76575 13.3959C3.72488 14.5686 5.0595 15.3742 6.544 15.6764C5.98053 15.8316 5.39846 15.909 4.814 15.9064C4.40197 15.9077 3.99076 15.8695 3.586 15.7924C4.00557 17.0965 4.82255 18.2367 5.92249 19.0534C7.02244 19.87 8.35027 20.3221 9.72 20.3464C7.39311 22.174 4.5188 23.1652 1.56 23.1604C1.03864 23.1626 0.517646 23.1326 0 23.0704C3.00303 24.9849 6.4906 26.0015 10.052 26.0004Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 32" class="w-6 h-6 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_778_1892)">
+                                        <path d="M27.202 4.6521C25.7349 3.17145 23.9879 1.99759 22.0626 1.19891C20.1373 0.40023 18.0723 -0.00728855 15.988 9.86611e-05C7.254 9.86611e-05 0.136 7.1161 0.128 15.8521C0.128 18.6501 0.86 21.3721 2.242 23.7821L0 32.0001L8.408 29.7961C10.734 31.0619 13.3399 31.7254 15.988 31.7261H15.996C24.732 31.7261 31.848 24.6101 31.856 15.8661C31.858 13.7822 31.4476 11.7185 30.6485 9.79386C29.8494 7.86924 28.6774 6.12176 27.2 4.6521H27.202ZM15.988 29.0421C13.626 29.0429 11.3074 28.4073 9.276 27.2021L8.796 26.9141L3.808 28.2221L5.14 23.3561L4.828 22.8541C3.50761 20.7547 2.80929 18.3242 2.814 15.8441C2.814 8.5921 8.728 2.6761 15.996 2.6761C17.7275 2.67299 19.4425 3.01265 21.042 3.67548C22.6416 4.33832 24.0942 5.31122 25.316 6.5381C26.5421 7.7602 27.514 9.21295 28.1758 10.8126C28.8377 12.4122 29.1762 14.127 29.172 15.8581C29.164 23.1361 23.25 29.0421 15.988 29.0421ZM23.218 19.1741C22.824 18.9761 20.878 18.0181 20.512 17.8821C20.148 17.7521 19.882 17.6841 19.622 18.0801C19.356 18.4741 18.596 19.3721 18.368 19.6301C18.14 19.8961 17.904 19.9261 17.508 19.7301C17.114 19.5301 15.836 19.1141 14.324 17.7601C13.144 16.7101 12.354 15.4101 12.118 15.0161C11.89 14.6201 12.096 14.4081 12.294 14.2101C12.468 14.0341 12.688 13.7461 12.886 13.5181C13.086 13.2901 13.152 13.1221 13.282 12.8581C13.412 12.5901 13.35 12.3621 13.252 12.1641C13.152 11.9661 12.362 10.0121 12.028 9.2241C11.708 8.4461 11.382 8.5541 11.138 8.5441C10.91 8.5301 10.644 8.5301 10.378 8.5301C10.1771 8.53509 9.97945 8.58155 9.79739 8.66656C9.61532 8.75157 9.45279 8.8733 9.32 9.0241C8.956 9.4201 7.938 10.3781 7.938 12.3321C7.938 14.2861 9.358 16.1641 9.558 16.4301C9.754 16.6961 12.346 20.6941 16.324 22.4141C17.264 22.8241 18.004 23.0661 18.582 23.2501C19.532 23.5541 20.39 23.5081 21.074 23.4101C21.834 23.2941 23.416 22.4501 23.75 21.5241C24.078 20.5961 24.078 19.8041 23.978 19.6381C23.88 19.4701 23.614 19.3721 23.218 19.1741Z"
+                                              fill="#53565B"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_778_1892">
+                                            <rect width="32" height="32" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-3 hidden md:block"></div>
+
+                <!-- social media -->
+                <div class="col-span-1 hidden md:flex flex-col items-center justify-start py-12 gap-16">
+                    <div>
+                        <a href="">
+                            <svg viewBox="0 0 32 32" class="w-10 h-10 transition duration-300 hover:scale-110"
+                                 fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.2267 0H1.77333C1.30409 0.00348891 0.855064 0.191442 0.523253 0.523253C0.191442 0.855064 0.00348891 1.30409 0 1.77333V30.2267C0.00348891 30.6959 0.191442 31.1449 0.523253 31.4767C0.855064 31.8086 1.30409 31.9965 1.77333 32H17.0933V19.6267H12.9333V14.7867H17.0933V11.2267C17.0933 7.09333 19.6133 4.84 23.32 4.84C24.56 4.84 25.8 4.84 27.04 5.02667V9.33333H24.4933C22.48 9.33333 22.0933 10.2933 22.0933 11.6933V14.7733H26.8933L26.2667 19.6133H22.0933V32H30.2267C30.6959 31.9965 31.1449 31.8086 31.4767 31.4767C31.8086 31.1449 31.9965 30.6959 32 30.2267V1.77333C31.9965 1.30409 31.8086 0.855064 31.4767 0.523253C31.1449 0.191442 30.6959 0.00348891 30.2267 0Z"
+                                      fill="#53565B"/>
+                            </svg>
+
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="">
+                            <svg viewBox="0 0 32 26" class="w-10 h-10 transition duration-300 hover:scale-110"
+                                 fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.052 26.0004C22.128 26.0004 28.734 15.9944 28.734 7.33241C28.734 7.05241 28.734 6.76841 28.722 6.48841C30.0081 5.55738 31.1181 4.40471 32 3.08441C30.7986 3.61411 29.5255 3.96322 28.222 4.12041C29.5951 3.29969 30.6234 2.00835 31.116 0.48641C29.826 1.25066 28.414 1.78716 26.942 2.07241C25.9524 1.01846 24.6428 0.320245 23.2162 0.0859247C21.7895 -0.148396 20.3254 0.0942526 19.0507 0.776284C17.7759 1.45832 16.7616 2.54167 16.1649 3.85853C15.5682 5.17539 15.4224 6.65228 15.75 8.06041C13.1395 7.92951 10.5856 7.25135 8.25409 6.0699C5.92254 4.88844 3.86537 3.2301 2.216 1.20241C1.37868 2.64858 1.12315 4.35921 1.50129 5.98694C1.87944 7.61467 2.86291 9.03747 4.252 9.96641C3.21108 9.93104 2.19304 9.65153 1.28 9.15041V9.24041C1.28179 10.7554 1.80661 12.2233 2.76575 13.3959C3.72488 14.5686 5.0595 15.3742 6.544 15.6764C5.98053 15.8316 5.39846 15.909 4.814 15.9064C4.40197 15.9077 3.99076 15.8695 3.586 15.7924C4.00557 17.0965 4.82255 18.2367 5.92249 19.0534C7.02244 19.87 8.35027 20.3221 9.72 20.3464C7.39311 22.174 4.5188 23.1652 1.56 23.1604C1.03864 23.1626 0.517646 23.1326 0 23.0704C3.00303 24.9849 6.4906 26.0015 10.052 26.0004Z"
+                                      fill="#53565B"/>
+                            </svg>
+
+
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="">
+                            <svg viewBox="0 0 32 32" class="w-10 h-10 transition duration-300 hover:scale-110"
+                                 fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_778_1892)">
+                                    <path d="M27.202 4.6521C25.7349 3.17145 23.9879 1.99759 22.0626 1.19891C20.1373 0.40023 18.0723 -0.00728855 15.988 9.86611e-05C7.254 9.86611e-05 0.136 7.1161 0.128 15.8521C0.128 18.6501 0.86 21.3721 2.242 23.7821L0 32.0001L8.408 29.7961C10.734 31.0619 13.3399 31.7254 15.988 31.7261H15.996C24.732 31.7261 31.848 24.6101 31.856 15.8661C31.858 13.7822 31.4476 11.7185 30.6485 9.79386C29.8494 7.86924 28.6774 6.12176 27.2 4.6521H27.202ZM15.988 29.0421C13.626 29.0429 11.3074 28.4073 9.276 27.2021L8.796 26.9141L3.808 28.2221L5.14 23.3561L4.828 22.8541C3.50761 20.7547 2.80929 18.3242 2.814 15.8441C2.814 8.5921 8.728 2.6761 15.996 2.6761C17.7275 2.67299 19.4425 3.01265 21.042 3.67548C22.6416 4.33832 24.0942 5.31122 25.316 6.5381C26.5421 7.7602 27.514 9.21295 28.1758 10.8126C28.8377 12.4122 29.1762 14.127 29.172 15.8581C29.164 23.1361 23.25 29.0421 15.988 29.0421ZM23.218 19.1741C22.824 18.9761 20.878 18.0181 20.512 17.8821C20.148 17.7521 19.882 17.6841 19.622 18.0801C19.356 18.4741 18.596 19.3721 18.368 19.6301C18.14 19.8961 17.904 19.9261 17.508 19.7301C17.114 19.5301 15.836 19.1141 14.324 17.7601C13.144 16.7101 12.354 15.4101 12.118 15.0161C11.89 14.6201 12.096 14.4081 12.294 14.2101C12.468 14.0341 12.688 13.7461 12.886 13.5181C13.086 13.2901 13.152 13.1221 13.282 12.8581C13.412 12.5901 13.35 12.3621 13.252 12.1641C13.152 11.9661 12.362 10.0121 12.028 9.2241C11.708 8.4461 11.382 8.5541 11.138 8.5441C10.91 8.5301 10.644 8.5301 10.378 8.5301C10.1771 8.53509 9.97945 8.58155 9.79739 8.66656C9.61532 8.75157 9.45279 8.8733 9.32 9.0241C8.956 9.4201 7.938 10.3781 7.938 12.3321C7.938 14.2861 9.358 16.1641 9.558 16.4301C9.754 16.6961 12.346 20.6941 16.324 22.4141C17.264 22.8241 18.004 23.0661 18.582 23.2501C19.532 23.5541 20.39 23.5081 21.074 23.4101C21.834 23.2941 23.416 22.4501 23.75 21.5241C24.078 20.5961 24.078 19.8041 23.978 19.6381C23.88 19.4701 23.614 19.3721 23.218 19.1741Z"
+                                          fill="#53565B"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_778_1892">
+                                        <rect width="32" height="32" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- content article -->
+                <div class="col-span-12 md:col-span-8 space-y-12 px-0 md:px-6">
+
+                    <div class="overflow-hidden px-4 md:px-0">
+                        <img src="./images/content/article/article-index-img.png" alt=""
+                             class="w-full h-auto object-cover">
+                    </div>
+
+                    <div class="bg-white xl:p-10 2xl:p-12 text-base md:text-lg leading-9 p-4">
+                        <div>
+                            <p>
+                                Hai-hai HitsBae! Balik lagi nih bareng MinBae. Jangan bosen-bosen ya, hihi.
+                                Kali ini MinBae mau bahas tentang personal style nih! “Wah, tentang apa tuh MinBae?”.
+                                Nah ini
+                                tentang gaya kamu yang khas banget, pokoknya yang ciri khas kamu banget dan bikin kamu
+                                beda dari
+                                yang lain. Ga mesti yang unik banget tapi yang jelas yang paling bikin kamu nyaman. Nah,
+                                kenapa
+                                sih MinBae mau bahas tentang personal style ini? Simple-nya karena kalo MinBae perhatiin
+                                masih
+                                lumayan banyak banget temen-temen yang ngerasa belum pede sama style mereka sendiri dan
+                                akhirnya
+                                malah ngikutin tren yang sebenenya mungkin kurang cocok sama mereka. Makanya MinBae mau
+                                sharing
+                                tips nih biar kita semua bisa lebih embrace personal style kita. Yuk, diceki-ceki!
+                            </p>
+                        </div>
+                        <br><br>
+
+                        <div>
+                            <p class="text-scheme-text-grey font-bold">
+                                Kenali Tipe Tubuh Kamu
+                            </p>
+                            <p>
+                                Ini dia yang paling penting dan utama, HitsBae! Kenapa sih kamu harus tau tipe tubuh
+                                kamu?
+                                Pastinya supaya kamu bisa pilih outfit yang paling nyaman buat kamu. Selain itu juga
+                                biar kamu
+                                bisa pakai ukuran yang pas, ngga kebesaran atau kekecilan, dan sesuai yang kamu mau.
+                                Misal, kamu
+                                mau kakimu kelihatan lebih jenjang, kamu bisa pakai celana model high-waist atau kamu
+                                mau
+                                kelihatan lebih slim, kamu bisa pakai oversized t-shirt.
+                            </p>
+                        </div>
+                        <br><br>
+
+                        <div>
+                            <p class="text-scheme-text-grey font-bold">
+                                Pilih Warna yang Cocok untuk Skin Tone Kamu
+                            </p>
+                            <p>
+                                Meskipun ini susah-susah gampang, tapi kalo kamu udah tau warna apa yang kelihatan
+                                paling cocok
+                                sama tone kulit kamu, pilih-pilih outfit dan aksesoris auto jadi lebih gampang HitsBae.
+                                Kalo
+                                kamu mau mix & match juga ngga usah galau-galau lagi milihnya.
+                            </p>
+                        </div>
+                        <br><br>
+
+                        <div>
+                            <p class="text-scheme-text-grey font-bold">
+                                Tentukan Style yang Jadi Ciri Khas Kamu
+                            </p>
+                            <p>
+                                Kayak yang MinBae bilang sebelumny tadi, personal style ngga harus yang nyentrik atau
+                                random
+                                banget sampe ngga ada yang nyamain kamu. Tapi yang jelas yang paling kamu banget.
+                                Misalnya nih
+                                MinBae lebih nyaman pakai style kasual yang semi-formal kalo buat sehari-hari. Nah
+                                MinBae
+                                eksplor style MinBae di situ deh. Begitupun kalo kamu suka style yang feminin, chic,
+                                atau apapun
+                                itu, ekspresiin diri kamu dengan pede ya, HitsBae!
+                            </p>
+                        </div>
+                        <br><br>
+
+                        <div>
+                            <p class="text-scheme-text-grey font-bold">
+                                Keluar Rumah dengan PEDE!
+                            </p>
+                            <p>
+                                Nah ini yang terpenting HitsBae! Kalo kamu ngga melakukan tips yang ini, tips-tips
+                                sebelumnya
+                                bisa jadi sia-sia aja. Makanya ketika kamu udah memutuskan mau pakai outfit apa dan
+                                make-up
+                                kayak gimana, kamu harus yakin dan pede sama pilihan kamu. Jangan sampe kamu udah keluar
+                                rumah
+                                tapi masih malu-malu minder di dalam hati. Ga boleh kaya gitu ya, HitsBae! Kalo kamu
+                                udah nyaman
+                                sama penampilan kamu dan overall kamu juga kelihatan sopan, kamu tinggal perlu rasa
+                                percaya diri
+                                aja. Karena yakin deh kalo udah pede, orang-orang pasti ngeliat kamu tuh keren banget.
+                                Sebaliknya, kalo kamu kelihatan risih atau ragu-ragu sama penampilan kamu, orang lain
+                                pasti
+                                sadar kalo kamu ngga nyaman. Nah buat nambah rasa pede sekaligus boosting mood kamu,
+                                jangan lupa
+                                dong pakai Pucelle Eau de Luxe Body Spray atau Cologne dari Pucelle! Buat kamu yang
+                                pingin stay
+                                fresh meskipun aktivitas lagi padet, bisa banget nih pakai Pucelle Eau de Luxe Body
+                                Spray yang
+                                wangi floral dan fruity-nya bikin hepi dan punya Anti-Bacterial agent yang cegah apek
+                                meskipun
+                                kamu aktif bergerak. Kalau mau disemprot-semprot ulang biar wangi seharian juga boleh
+                                banget ya,
+                                HitsBae. Kandungannya dijamin non-allergic ya jadi aman buat disemprot langsung ke kulit
+                                kamu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- share button small -->
+                <div class="col-span-12 my-12 px-8 block md:hidden">
+                    <div class="flex items-center justify-center gap-10">
+                        <div>
+                            <p class="text-scheme-pink text-base">SHARE ARTICLE</p>
+                        </div>
+
+                        <div>
+                            <a href="#">
+                                <svg viewBox="0 0 32 32" class="w-5 h-5 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.2267 0H1.77333C1.30409 0.00348891 0.855064 0.191442 0.523253 0.523253C0.191442 0.855064 0.00348891 1.30409 0 1.77333V30.2267C0.00348891 30.6959 0.191442 31.1449 0.523253 31.4767C0.855064 31.8086 1.30409 31.9965 1.77333 32H17.0933V19.6267H12.9333V14.7867H17.0933V11.2267C17.0933 7.09333 19.6133 4.84 23.32 4.84C24.56 4.84 25.8 4.84 27.04 5.02667V9.33333H24.4933C22.48 9.33333 22.0933 10.2933 22.0933 11.6933V14.7733H26.8933L26.2667 19.6133H22.0933V32H30.2267C30.6959 31.9965 31.1449 31.8086 31.4767 31.4767C31.8086 31.1449 31.9965 30.6959 32 30.2267V1.77333C31.9965 1.30409 31.8086 0.855064 31.4767 0.523253C31.1449 0.191442 30.6959 0.00348891 30.2267 0Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="#">
+                                <svg viewBox="0 0 32 26" class="w-5 h-5 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.052 26.0004C22.128 26.0004 28.734 15.9944 28.734 7.33241C28.734 7.05241 28.734 6.76841 28.722 6.48841C30.0081 5.55738 31.1181 4.40471 32 3.08441C30.7986 3.61411 29.5255 3.96322 28.222 4.12041C29.5951 3.29969 30.6234 2.00835 31.116 0.48641C29.826 1.25066 28.414 1.78716 26.942 2.07241C25.9524 1.01846 24.6428 0.320245 23.2162 0.0859247C21.7895 -0.148396 20.3254 0.0942526 19.0507 0.776284C17.7759 1.45832 16.7616 2.54167 16.1649 3.85853C15.5682 5.17539 15.4224 6.65228 15.75 8.06041C13.1395 7.92951 10.5856 7.25135 8.25409 6.0699C5.92254 4.88844 3.86537 3.2301 2.216 1.20241C1.37868 2.64858 1.12315 4.35921 1.50129 5.98694C1.87944 7.61467 2.86291 9.03747 4.252 9.96641C3.21108 9.93104 2.19304 9.65153 1.28 9.15041V9.24041C1.28179 10.7554 1.80661 12.2233 2.76575 13.3959C3.72488 14.5686 5.0595 15.3742 6.544 15.6764C5.98053 15.8316 5.39846 15.909 4.814 15.9064C4.40197 15.9077 3.99076 15.8695 3.586 15.7924C4.00557 17.0965 4.82255 18.2367 5.92249 19.0534C7.02244 19.87 8.35027 20.3221 9.72 20.3464C7.39311 22.174 4.5188 23.1652 1.56 23.1604C1.03864 23.1626 0.517646 23.1326 0 23.0704C3.00303 24.9849 6.4906 26.0015 10.052 26.0004Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="#">
+                                <svg viewBox="0 0 32 32" class="w-5 h-5 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_778_1892)">
+                                        <path d="M27.202 4.6521C25.7349 3.17145 23.9879 1.99759 22.0626 1.19891C20.1373 0.40023 18.0723 -0.00728855 15.988 9.86611e-05C7.254 9.86611e-05 0.136 7.1161 0.128 15.8521C0.128 18.6501 0.86 21.3721 2.242 23.7821L0 32.0001L8.408 29.7961C10.734 31.0619 13.3399 31.7254 15.988 31.7261H15.996C24.732 31.7261 31.848 24.6101 31.856 15.8661C31.858 13.7822 31.4476 11.7185 30.6485 9.79386C29.8494 7.86924 28.6774 6.12176 27.2 4.6521H27.202ZM15.988 29.0421C13.626 29.0429 11.3074 28.4073 9.276 27.2021L8.796 26.9141L3.808 28.2221L5.14 23.3561L4.828 22.8541C3.50761 20.7547 2.80929 18.3242 2.814 15.8441C2.814 8.5921 8.728 2.6761 15.996 2.6761C17.7275 2.67299 19.4425 3.01265 21.042 3.67548C22.6416 4.33832 24.0942 5.31122 25.316 6.5381C26.5421 7.7602 27.514 9.21295 28.1758 10.8126C28.8377 12.4122 29.1762 14.127 29.172 15.8581C29.164 23.1361 23.25 29.0421 15.988 29.0421ZM23.218 19.1741C22.824 18.9761 20.878 18.0181 20.512 17.8821C20.148 17.7521 19.882 17.6841 19.622 18.0801C19.356 18.4741 18.596 19.3721 18.368 19.6301C18.14 19.8961 17.904 19.9261 17.508 19.7301C17.114 19.5301 15.836 19.1141 14.324 17.7601C13.144 16.7101 12.354 15.4101 12.118 15.0161C11.89 14.6201 12.096 14.4081 12.294 14.2101C12.468 14.0341 12.688 13.7461 12.886 13.5181C13.086 13.2901 13.152 13.1221 13.282 12.8581C13.412 12.5901 13.35 12.3621 13.252 12.1641C13.152 11.9661 12.362 10.0121 12.028 9.2241C11.708 8.4461 11.382 8.5541 11.138 8.5441C10.91 8.5301 10.644 8.5301 10.378 8.5301C10.1771 8.53509 9.97945 8.58155 9.79739 8.66656C9.61532 8.75157 9.45279 8.8733 9.32 9.0241C8.956 9.4201 7.938 10.3781 7.938 12.3321C7.938 14.2861 9.358 16.1641 9.558 16.4301C9.754 16.6961 12.346 20.6941 16.324 22.4141C17.264 22.8241 18.004 23.0661 18.582 23.2501C19.532 23.5541 20.39 23.5081 21.074 23.4101C21.834 23.2941 23.416 22.4501 23.75 21.5241C24.078 20.5961 24.078 19.8041 23.978 19.6381C23.88 19.4701 23.614 19.3721 23.218 19.1741Z"
+                                              fill="#53565B"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_778_1892">
+                                            <rect width="32" height="32" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- latest news -->
+                <div class="col-span-12 md:col-span-3">
+                    <div class="border border-white p-0 md:p-6 space-y-6">
+                        <p class="text-center text-xl md:text-base text-scheme-text-grey tracking-widest pt-6 md:pt-0">
+                            LATEST NEWS
+                        </p>
+
+                        <div class="space-y-6">
+
+                            <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                                <div>
+                                    <img src="./images/content/article/article-img-2.png" alt=""
+                                         class="w-full h-44 object-cover">
+                                </div>
+
+                                <div class="text-base space-y-4 px-4">
+                                    <p class="uppercase text-sm tracking-wider">
+                                        28 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey">
+                                        <a href="">
+                                            Cintai Diri Sendiri di Hari yang Fitri
+                                        </a>
+                                    </p>
+                                    <div class="text-scheme-pink">
+                                        <a href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                                <div>
+                                    <img src="./images/content/article/article-img-3.png" alt=""
+                                         class="w-full h-44 object-cover">
+                                </div>
+
+                                <div class="text-base space-y-4 px-4">
+                                    <p class="uppercase text-sm tracking-wider">
+                                        25 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey">
+                                        <a href="">
+                                            Tunjukkan Kesan yang Baik Lewat Parfum Kesayanganmu!
+                                        </a>
+                                    </p>
+                                    <div class="text-scheme-pink">
+                                        <a href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                                <div>
+                                    <img src="./images/content/article/article-img-4.png" alt=""
+                                         class="w-full h-44 object-cover">
+                                </div>
+
+                                <div class="text-base space-y-4 px-4">
+                                    <p class="uppercase text-sm tracking-wider">
+                                        23 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey">
+                                        <a href="">
+                                            Alasan Buat Jatuh Cinta Sama Sandalwood alias Kayu Cendana
+                                        </a>
+                                    </p>
+                                    <div class="text-scheme-pink">
+                                        <a href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                                <div>
+                                    <img src="./images/content/article/article-img-5.png" alt=""
+                                         class="w-full h-44 object-cover">
+                                </div>
+
+                                <div class="text-base space-y-4 px-4">
+                                    <p class="uppercase text-sm tracking-wider">
+                                        17 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey">
+                                        <a href="">
+                                            Wangi-wangi yang Bikin Kangen Terus! Apa Aja Sih?
+                                        </a>
+                                    </p>
+                                    <div class="text-scheme-pink">
+                                        <a href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 pb-4 px-4 md:px-0">
+                                <div>
+                                    <img src="./images/content/article/article-img-6.png" alt=""
+                                         class="w-full h-44 object-cover">
+                                </div>
+
+                                <div class="text-base space-y-4 px-4">
+                                    <p class="uppercase text-sm tracking-wider">
+                                        28 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey">
+                                        <a href="">
+                                            Cara Gampang Pede Sama Personal Style Kamu
+                                        </a>
+                                    </p>
+                                    <div class="text-scheme-pink">
+                                        <a href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- share news -->
+                <div class="col-span-12 my-12 hidden md:flex items-center justify-start gap-6">
+                    <div>
+                        <p class="text-scheme-pink text-xl">SHARE ARTICLE</p>
+                    </div>
+
+                    <div class="flex items-center justify-start gap-8">
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 32" class="w-7 h-7 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.2267 0H1.77333C1.30409 0.00348891 0.855064 0.191442 0.523253 0.523253C0.191442 0.855064 0.00348891 1.30409 0 1.77333V30.2267C0.00348891 30.6959 0.191442 31.1449 0.523253 31.4767C0.855064 31.8086 1.30409 31.9965 1.77333 32H17.0933V19.6267H12.9333V14.7867H17.0933V11.2267C17.0933 7.09333 19.6133 4.84 23.32 4.84C24.56 4.84 25.8 4.84 27.04 5.02667V9.33333H24.4933C22.48 9.33333 22.0933 10.2933 22.0933 11.6933V14.7733H26.8933L26.2667 19.6133H22.0933V32H30.2267C30.6959 31.9965 31.1449 31.8086 31.4767 31.4767C31.8086 31.1449 31.9965 30.6959 32 30.2267V1.77333C31.9965 1.30409 31.8086 0.855064 31.4767 0.523253C31.1449 0.191442 30.6959 0.00348891 30.2267 0Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 26" class="w-7 h-7 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.052 26.0004C22.128 26.0004 28.734 15.9944 28.734 7.33241C28.734 7.05241 28.734 6.76841 28.722 6.48841C30.0081 5.55738 31.1181 4.40471 32 3.08441C30.7986 3.61411 29.5255 3.96322 28.222 4.12041C29.5951 3.29969 30.6234 2.00835 31.116 0.48641C29.826 1.25066 28.414 1.78716 26.942 2.07241C25.9524 1.01846 24.6428 0.320245 23.2162 0.0859247C21.7895 -0.148396 20.3254 0.0942526 19.0507 0.776284C17.7759 1.45832 16.7616 2.54167 16.1649 3.85853C15.5682 5.17539 15.4224 6.65228 15.75 8.06041C13.1395 7.92951 10.5856 7.25135 8.25409 6.0699C5.92254 4.88844 3.86537 3.2301 2.216 1.20241C1.37868 2.64858 1.12315 4.35921 1.50129 5.98694C1.87944 7.61467 2.86291 9.03747 4.252 9.96641C3.21108 9.93104 2.19304 9.65153 1.28 9.15041V9.24041C1.28179 10.7554 1.80661 12.2233 2.76575 13.3959C3.72488 14.5686 5.0595 15.3742 6.544 15.6764C5.98053 15.8316 5.39846 15.909 4.814 15.9064C4.40197 15.9077 3.99076 15.8695 3.586 15.7924C4.00557 17.0965 4.82255 18.2367 5.92249 19.0534C7.02244 19.87 8.35027 20.3221 9.72 20.3464C7.39311 22.174 4.5188 23.1652 1.56 23.1604C1.03864 23.1626 0.517646 23.1326 0 23.0704C3.00303 24.9849 6.4906 26.0015 10.052 26.0004Z"
+                                          fill="#53565B"/>
+                                </svg>
+
+
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="">
+                                <svg viewBox="0 0 32 32" class="w-7 h-7 transition duration-300 hover:scale-110"
+                                     fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_778_1892)">
+                                        <path d="M27.202 4.6521C25.7349 3.17145 23.9879 1.99759 22.0626 1.19891C20.1373 0.40023 18.0723 -0.00728855 15.988 9.86611e-05C7.254 9.86611e-05 0.136 7.1161 0.128 15.8521C0.128 18.6501 0.86 21.3721 2.242 23.7821L0 32.0001L8.408 29.7961C10.734 31.0619 13.3399 31.7254 15.988 31.7261H15.996C24.732 31.7261 31.848 24.6101 31.856 15.8661C31.858 13.7822 31.4476 11.7185 30.6485 9.79386C29.8494 7.86924 28.6774 6.12176 27.2 4.6521H27.202ZM15.988 29.0421C13.626 29.0429 11.3074 28.4073 9.276 27.2021L8.796 26.9141L3.808 28.2221L5.14 23.3561L4.828 22.8541C3.50761 20.7547 2.80929 18.3242 2.814 15.8441C2.814 8.5921 8.728 2.6761 15.996 2.6761C17.7275 2.67299 19.4425 3.01265 21.042 3.67548C22.6416 4.33832 24.0942 5.31122 25.316 6.5381C26.5421 7.7602 27.514 9.21295 28.1758 10.8126C28.8377 12.4122 29.1762 14.127 29.172 15.8581C29.164 23.1361 23.25 29.0421 15.988 29.0421ZM23.218 19.1741C22.824 18.9761 20.878 18.0181 20.512 17.8821C20.148 17.7521 19.882 17.6841 19.622 18.0801C19.356 18.4741 18.596 19.3721 18.368 19.6301C18.14 19.8961 17.904 19.9261 17.508 19.7301C17.114 19.5301 15.836 19.1141 14.324 17.7601C13.144 16.7101 12.354 15.4101 12.118 15.0161C11.89 14.6201 12.096 14.4081 12.294 14.2101C12.468 14.0341 12.688 13.7461 12.886 13.5181C13.086 13.2901 13.152 13.1221 13.282 12.8581C13.412 12.5901 13.35 12.3621 13.252 12.1641C13.152 11.9661 12.362 10.0121 12.028 9.2241C11.708 8.4461 11.382 8.5541 11.138 8.5441C10.91 8.5301 10.644 8.5301 10.378 8.5301C10.1771 8.53509 9.97945 8.58155 9.79739 8.66656C9.61532 8.75157 9.45279 8.8733 9.32 9.0241C8.956 9.4201 7.938 10.3781 7.938 12.3321C7.938 14.2861 9.358 16.1641 9.558 16.4301C9.754 16.6961 12.346 20.6941 16.324 22.4141C17.264 22.8241 18.004 23.0661 18.582 23.2501C19.532 23.5541 20.39 23.5081 21.074 23.4101C21.834 23.2941 23.416 22.4501 23.75 21.5241C24.078 20.5961 24.078 19.8041 23.978 19.6381C23.88 19.4701 23.614 19.3721 23.218 19.1741Z"
+                                              fill="#53565B"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_778_1892">
+                                            <rect width="32" height="32" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- related news -->
+                <div class="col-span-12 md:space-y-8">
+                    <div class="border-none md:border-b border-gray-300 my-8 md:my-0 pb-0 md:pb-4">
+                        <p class="text-scheme-text-grey text-xl md:text-2xl text-center md:text-left tracking-widest uppercase">
+                            Artikel Terkait</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6">
+
+                        <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+                            <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                                <a href="">
+                                    <img src="./images/content/article/article-img-2.png" alt=""
+                                         class="w-full h-60 xl:h-80 2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                                </a>
+                            </div>
+
+                            <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                                <div class="space-y-4">
+                                    <p class="uppercase text-base tracking-widest">
+                                        28 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey text-base md:text-xl h-auto md:h-16 line-clamp-2  leading-8">
+                                        <a href="">
+                                            Cintai Diri Sendiri di Hari yang Fitri
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="text-scheme-pink text-base md:text-xl">
+                                    <a href="">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+                            <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                                <a href="">
+                                    <img src="./images/content/article/article-img-3.png" alt=""
+                                         class="w-full xl:h-80  2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                                </a>
+                            </div>
+
+                            <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                                <div class="space-y-4">
+                                    <p class="uppercase text-base tracking-widest">
+                                        25 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey text-base md:text-xl h-16 line-clamp-2 leading-8">
+                                        <a href="">
+                                            Tunjukkan Kesan yang Baik Lewat Parfum Kesayanganmu!
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="text-scheme-pink text-base md:text-xl">
+                                    <a href="">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+                            <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                                <a href="">
+                                    <img src="./images/content/article/article-img-4.png" alt=""
+                                         class="w-full xl:h-80  2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                                </a>
+                            </div>
+
+                            <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                                <div class="space-y-4">
+                                    <p class="uppercase text-base tracking-widest">
+                                        23 Apr 2022
+                                    </p>
+                                    <p class="text-scheme-text-grey text-base md:text-xl h-16 line-clamp-2 leading-8">
+                                        <a href="">
+                                            Alasan Buat Jatuh Cinta Sama Sandalwood alias Kayu Cendana
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="text-scheme-pink text-base md:text-xl">
+                                    <a href="">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-gray-600">
+    <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row justify-between items-center py-8 gap-10 md:gap-0">
+        <div>
+            <p class="">
+                Pucelle.id Copyright © 2022. All Rights Reserved.
+            </p>
+        </div>
+
+        <div class="flex items-center space-x-10">
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icFacebook.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icInstagram.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icYoutube.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icShopee.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+
+            <!-- item -->
+            <div>
+                <a href="">
+                    <img src="./images/content/icTokopedia.png" alt=""
+                         class="w-[26px] transition duration-300 ease hover:scale-110">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    /**
+     * scroll header
+     */
+    let myHeader = document.querySelector('.header')
+    window.onscroll = () => {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            myHeader.classList.add("scrolled-header")
+        } else {
+            myHeader.classList.remove("scrolled-header")
+        }
+    }
+
+
+    let boxNavSm = document.getElementById('sm-nav')
+    let btnSmNav = document.getElementById('btn-sm-nav')
+
+    if (typeof (btnSmNav) !== "undefined") {
+        btnSmNav.addEventListener('click', function () {
+
+            if (boxNavSm.classList.contains('hidden')) {
+                btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+                boxNavSm.classList.remove('hidden');
+                setTimeout(function () {
+                    boxNavSm.classList.remove('visually-hidden');
+                }, 20);
+            } else {
+                btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+                boxNavSm.classList.add('visually-hidden');
+                boxNavSm.addEventListener('transitionend', function (e) {
+                    boxNavSm.classList.add('hidden');
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                });
+            }
+
+        }, false);
+    }
+
+
+</script>
+
+</body>
+
+</html>
