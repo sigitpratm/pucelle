@@ -15,6 +15,7 @@ const colors = {
             "baby-blue": "#C7E2FC",
             "pink": "#E89DB9",
             "pale-pink": "#FFF0F6",
+            "pale-blue": "#F2F9FF",
         },
     },
 }

@@ -11,6 +11,31 @@ body {
   color: #53565B;
 }
 
+@media only screen and (max-width: 1980px) {
+  .bg-top {
+    height: 50vh;
+    background: #F2F9FF;
+  }
+
+  .bg-bottom {
+    height: 50vh;
+    background: #ffffff;
+  }
+}
+
+
+@media only screen and (max-width: 1366px) {
+  .bg-top {
+    height: calc(50vh + 60px);
+    background: #F2F9FF;
+  }
+
+  .bg-bottom {
+    height: calc(50vh - 60px);
+    background: #ffffff;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .parent-header {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
@@ -208,4 +233,22 @@ footer {
 
 .modal {
   transition: all 200ms ease-in;
+}
+
+.step-section {
+  animation-name: fade;
+  animation-duration: 600ms;
+  transition: all 600ms ease-in;
+}
+
+.quiz-option input {
+  display: none;
+}
+
+.quiz-option input[type=radio]:checked + label {
+  border: 2px solid #7fa8f5;
+}
+
+.main-footer {
+  box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.05);
 }
