@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>pucelle</title>
+  <meta name="description"
+        content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+  <meta name="keywords"
+        content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Plamen Nikolov, WeAreAthlon">
+  <script src="./js/custome.js"></script>
+  <script src="./js/app.js"></script>
+</head>
+
+<body class="relative">
+
+<!-- modal -->
+<div id="main-modal"
+     class="modal absolute opacity-0 hidden w-full h-full min-h-screen bg-black/50 z-[100] flex items-center justify-center text-scheme-grey px-6 md:px-0">
+
+  <!-- modal buy -->
+  <div id="modal-share"
+       class="modal fixed opacity-0 hidden w-full h-full top-0 left-0 flex items-center justify-center px-6">
+    <div class="w-full md:w-auto h-auto bg-white px-4 py-6">
+      <button id="hide-modal-share" class="w-full flex justify-end text-scheme-pink">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="mb-6">
+        <p class="text-center text-3xl">SHARE ARTICLE</p>
+      </div>
+      <div class="space-y-3">
+        <button class="flex items-center justify-center px-6 w-full shadow-sm  rounded border border-gray-100 py-4 uppercase gap-6 relative">
+          <img src="./images/content/article/icFb.svg" alt="" class="w-5 h-5 absolute top-[100%/4] left-[6%]">
+          <span class="text-sm tracking-wide">
+                        facebook
+                    </span>
+        </button>
+        <button class="flex items-center justify-center px-6 w-full shadow-sm  rounded border border-gray-100 py-4 uppercase gap-4 relative">
+          <img src="./images/content/article/icTw.svg" alt="" class="w-5 h-5 absolute top-[100%/4] left-[6%]">
+          <span class="text-sm tracking-wide">
+                        twitter
+                    </span>
+        </button>
+        <button class="flex items-center justify-center px-6 w-full shadow-sm  rounded border border-gray-100 py-4 uppercase gap-4 relative">
+          <img src="./images/content/article/icWa.svg" alt="" class="w-5 h-5 absolute top-[100%/4] left-[6%]">
+          <span class="text-sm tracking-wide">
+                        whatsapp
+                    </span>
+        </button>
+        <button class="flex items-center justify-center px-6 w-full shadow-sm  rounded border border-gray-100 py-4 uppercase gap-4 relative">
+          <img src="./images/content/article/icChain.svg" alt="" class="w-5 h-5 absolute top-[100%/4] left-[6%]">
+          <span class="text-sm tracking-wide">
+                        copy link
+                    </span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- header -->
+<div class="header fixed top-0 left-0 w-full z-50">
+  <!-- main header -->
+  <div class="main-header h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[100px] container mx-auto flex items-center justify-between px-4 lg:px-4 xl:px-4 2xl:px-0 z-50 relative">
+    <div class="w-full flex justify-between items-center relative">
+      <!-- logo site -->
+      <div>
+        <a href="./index.html">
+          <img src="./images/content/pucelle-logo-black.png"
+               class="h-[16px] xl:h-[24px] 2xl:h-[30px] object-contain" alt="">
+        </a>
+      </div>
+
+      <!-- small nav btn -->
+      <div class="block lg:hidden flex items-center justify-center gap-4">
+        <ul class="flex items-center justify-center gap-2  text-base md:text-sm">
+          <li class="active-lang">ID</li>
+          <div class="w-0.5 h-4 bg-scheme-grey"></div>
+          <li class="">EN</li>
+        </ul>
+
+        <button id="btn-sm-nav">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- large nav -->
+      <nav class="hidden lg:block">
+        <ul class="flex items-center lg:space-x-12 xl:space-x-[60px] text-scheme-grey lg:text-xs xl:text-base">
+          <li><a href="product.html">Our Products</a></li>
+          <li><a href="articles.html">Pucelleclopedia</a></li>
+          <li><a href="quiz.html">Define Your Scent</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+          <li>
+            <div class="flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+              </svg>
+              <button id="id-lang" class="button-lang id-lang">ID</button>
+              <div class="flex-none w-0.5 h-4 bg-scheme-grey"></div>
+              <button id="en-lang" class="button-lang en-lang ">EN</button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- small nav content -->
+  <div id="sm-nav"
+       class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[60px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+    <div class="space-y-8 text-right text-lg">
+      <nav>
+        <ul class="text-scheme-grey space-y-8">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Our Products</a></li>
+          <li><a href="articles.html">Pucelleclopedia</a></li>
+          <li><a href="quiz.html">Define Your Scent</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+<!-- main content -->
+<main id="main-content" class="min-h-screen relative text-scheme-grey relative">
+  <div class="bg-scheme-pale-pink w-full h-[544px] absolute top-0 left-0"></div>
+
+  <!-- share -->
+  <div class="fixed right-4 bottom-[10%] z-50 block md:hidden">
+    <button id="show-share" type="button"
+            class="bg-scheme-pink text-white rounded-full px-6 py-4 flex items-center justify-center gap-2 shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+      </svg>
+      <span>SHARE</span>
+    </button>
+  </div>
+
+  <div class="w-full h-full text-scheme-grey relative">
+    <!-- main content article -->
+    <div class="container mx-auto py-0 md:py-24 mb-0 md:mb-0 pt-[60px] md:pt-0">
+      <div class="grid grid-cols-12 md:pr-4 xl:pr-4 2xl:pr-0">
+        <!-- header -->
+        <div class="col-span-12 md:col-span-1 hidden md:block"></div>
+        <div class="col-span-12 md:col-span-8 space-y-4 xl:space-y-8 2xl:space-y-10 pt-6 md:pt-16 lg:pt-32 xl:pt-36 2xl:pt-40 pb-8 md:pb-8 xl:pb-10 2xl:pb-12 pl-4 2xl:pl-0 pr-4 md:pr-20 2xl:pr-24">
+          <!-- breadcrumbs -->
+          <div class="w-full flex items-center justify-start py-4 gap-1 text-sm xl:text-xl">
+            <a href="index.html" class="inline-block parent-breadcrumb text-scheme-pink">Home</a>
+            <a href="articles.html" class="inline-block parent-breadcrumb text-scheme-pink">Fragrance World</a>
+            <a href="#" class="inline-block ">Fragrance World</a>
+          </div>
+
+          <!-- heading -->
+          <h1 class="text-2xl xl:text-4xl 2xl:text-5xl text-scheme-text-grey leading-normal">
+            Tips Pilih Parfum yang Sesuai Kepribadian Kamu
+          </h1>
+
+          <p class="tracking-wider text-base md:text-sm xl:text-lg 2xl:text-xl uppercase">
+            14 Aug 2017
+          </p>
+        </div>
+        <div class="col-span-12 md:col-span-3 hidden md:block"></div>
+
+        <!-- social media -->
+        <div class=" w-full h-full col-span-1 hidden md:block relative">
+          <div class="sticky top-1/4">
+            <div class="flex flex-col gap-6 items-center justify-center">
+              <button class="w-12 h-12 rounded-full bg-scheme-pink flex items-center justify-center shared-icon">
+                <img src="./images/content/article/icWhiteWa.png" alt="">
+              </button>
+
+              <button class="w-12 h-12 rounded-full bg-scheme-pink flex items-center justify-center shared-icon">
+                <img src="./images/content/article/icWhiteLink.png" alt="">
+              </button>
+
+              <button class="w-12 h-12 rounded-full bg-scheme-pink flex items-center justify-center shared-icon">
+                <img src="./images/content/article/icFbWhite.png" alt="">
+              </button>
+
+              <button class="w-12 h-12 rounded-full bg-scheme-pink flex items-center justify-center shared-icon">
+                <img src="./images/content/article/icWhiteTw.png" alt="">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content article -->
+        <div class="col-span-12 md:col-span-8 space-y-12 pr-0 md:pr-16 xl:pr-20 2xl:pr-24">
+          <!-- img article -->
+          <div class="overflow-hidden px-4 md:px-0">
+            <img src="./images/content/article/new-img-article-3.png" alt=""
+                 class="w-full h-auto object-cover">
+          </div>
+
+          <!-- post -->
+          <div class="bg-white p-4 xl:p-10 2xl:p-12">
+            <p>
+              Hai, hai, HitsBae! Biasanya kalau kamu pakai parfum kamu pilih wanginya simply karena suka aja atau
+              ada
+              alasan tertentu nih? Meanwhile sah-sah aja pilih parfum yang kamu paling suka aromanya, kamu bisa
+              juga lo
+              pilih parfum yang sesuai sama personality kamu. MinBae kasih tipsnya di sini, ya!
+            </p>
+
+            <div>
+              <p>
+                Aroma Fresh
+              </p>
+              <p>
+                Sesuai namanya, aroma ini paling cocok buat kamu yang punya kepribadian ceria, enerjik, dan
+                penuh ide.
+                Aroma natural seperti floral dan fruity bakalan melengkapi banget karakter kamu dan pastinya
+                bikin
+                orang-orang
+                ikutan happy kalo ada kamu. Buat HitsBae yang kepribadian nya fresh, MinBae rekomendasiin
+                Pucelle
+                Audacity Le Parfum EDP Valorous yang punya aroma khas Apel, Beri dan Sandalwood buat jaga kamu
+                tetap
+                fresh
+                sepanjang hari!
+              </p>
+            </div>
+
+            <div>
+              <p>
+                Aroma Sweet
+              </p>
+              <p>
+                Siapa yang sering dijuluki si kalem dan manis sama temen-temennya? Kalo kamu punya kepribadian
+                yang lebih suka ketenangan dan orang-orang cepat merasa sama nyaman sama kamu, kamu pasti bakal
+                suka
+                banget aroma Sweet. Wangi yang manis seperti floral dan Caramel bakal cocok banget buat kamu.
+                MinBae
+                rekomendasiin Pucelle Audacity Le Parfum EDP Glimmery buat jadi signature scent kamu. Aromanya
+                yang calm
+                dari perpaduan floral, fruity, musky dan green yang segar dari Raspberry dan
+                wangi bunga, dengan sentuhan manis gourmand dan Caramel bakal bikin pribadi kamu yang hangat
+                semakin
+                berkesan.
+              </p>
+            </div>
+
+            <img src="./images/content/article/new-img-article-17.png" alt="" class="w-full h-auto object-cover">
+
+            <div>
+              <p>
+                Aroma Bold
+              </p>
+              <p>
+                Terakhir, buat kamu yang ber kepribadian pemberani, super friendly<, dan semangat melakukan
+                hal-hal baru dan apapun yang kamu suka, aroma yang bold paling cocok buat kamu. Aroma intens
+                yang khas
+                dari Bergamot, Sweet Berry, dan Bouquet yang dipadukan sama Vanilla dari Pucelle Audacity Le
+                Parfum
+                EDP Ascendant cocok banget nih bikin pribadi kamu yang welcoming makin memorable buat
+                orang-orang tersayang. Jangan lupa spray setiap hari ya!
+              </p>
+            </div>
+
+            <p>
+              Nah, itu dia tips memilih parfum berdasarkan kepribadian dari MinBae. Yuk, pilih Pucelle
+              Audacity Le Parfum EDP favoritmu di e-commerce langganan kamu. Cek Mandom Official Shop di Shopee
+              dan
+              Tokopedia atau di Alfamart dan Indomaret ya buat pilih varian kesukaanmu. Jangan lupa pakai Pucelle
+              Audacity tiap hari dan bawa kemanapun kamu beraktivitas biar harum seharian!
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- latest news -->
+        <div class="col-span-12 md:col-span-3">
+          <div class="border-0 md:border border-scheme-pink p-0 md:p-6 space-y-6 bg-scheme-pale-pink md:bg-transparent">
+            <p class="text-center text-xl md:text-base text-scheme-text-grey tracking-widest pt-6 md:pt-0">
+              LATEST NEWS
+            </p>
+
+            <div class="space-y-6">
+
+              <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                <div>
+                  <img src="./images/content/article/article-img-2.png" alt=""
+                       class="w-full h-44 object-cover">
+                </div>
+
+                <div class="text-base space-y-4 px-4">
+                  <p class="uppercase text-sm tracking-wider">
+                    28 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey">
+                    <a href="">
+                      Cintai Diri Sendiri di Hari yang Fitri
+                    </a>
+                  </p>
+                  <div class="text-scheme-pink">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                <div>
+                  <img src="./images/content/article/article-img-3.png" alt=""
+                       class="w-full h-44 object-cover">
+                </div>
+
+                <div class="text-base space-y-4 px-4">
+                  <p class="uppercase text-sm tracking-wider">
+                    25 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey">
+                    <a href="">
+                      Tunjukkan Kesan yang Baik Lewat Parfum Kesayanganmu!
+                    </a>
+                  </p>
+                  <div class="text-scheme-pink">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                <div>
+                  <img src="./images/content/article/article-img-4.png" alt=""
+                       class="w-full h-44 object-cover">
+                </div>
+
+                <div class="text-base space-y-4 px-4">
+                  <p class="uppercase text-sm tracking-wider">
+                    23 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey">
+                    <a href="">
+                      Alasan Buat Jatuh Cinta Sama Sandalwood alias Kayu Cendana
+                    </a>
+                  </p>
+                  <div class="text-scheme-pink">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6 border-b md:border-none border-gray-300 pb-4 px-4 md:px-0">
+                <div>
+                  <img src="./images/content/article/article-img-5.png" alt=""
+                       class="w-full h-44 object-cover">
+                </div>
+
+                <div class="text-base space-y-4 px-4">
+                  <p class="uppercase text-sm tracking-wider">
+                    17 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey">
+                    <a href="">
+                      Wangi-wangi yang Bikin Kangen Terus! Apa Aja Sih?
+                    </a>
+                  </p>
+                  <div class="text-scheme-pink">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-6 pb-4 px-4 md:px-0">
+                <div>
+                  <img src="./images/content/article/article-img-6.png" alt=""
+                       class="w-full h-44 object-cover">
+                </div>
+
+                <div class="text-base space-y-4 px-4">
+                  <p class="uppercase text-sm tracking-wider">
+                    28 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey">
+                    <a href="">
+                      Cara Gampang Pede Sama Personal Style Kamu
+                    </a>
+                  </p>
+                  <div class="text-scheme-pink">
+                    <a href="">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- related news -->
+        <div class="col-span-12 md:space-y-8 mt-24 md:mt-20 xl:mt-24 hidden md:block md:px-4 2xl:px-0">
+          <!-- heading -->
+          <div class="md:border-b-2 border-gray-200 pb-6">
+            <p class="md:text-2xl text-scheme-text-grey">
+              Artikel Terkait
+            </p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-6">
+            <!-- card -->
+            <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+              <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                <a href="">
+                  <img src="./images/content/article/article-img-2.png" alt=""
+                       class="w-full h-60 xl:h-80 2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                </a>
+              </div>
+              <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                <div class="space-y-4">
+                  <p class="uppercase text-base tracking-widest">
+                    28 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey text-base lg:text-base xl:text-xl h-16 line-clamp-2 leading-8">
+                    <a href="">
+                      Cintai Diri Sendiri di Hari yang Fitri
+                    </a>
+                  </p>
+                </div>
+                <div class="text-scheme-pink text-base md:text-base xl:text-xl flex items-center justify-start gap-2">
+                  <a href="">Read More</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- card -->
+            <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+              <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                <a href="">
+                  <img src="./images/content/article/article-img-3.png" alt=""
+                       class="w-full xl:h-80  2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                </a>
+              </div>
+
+              <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                <div class="space-y-4">
+                  <p class="uppercase text-base tracking-widest">
+                    25 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey text-base lg:text-base xl:text-xl h-16 line-clamp-2 leading-8">
+                    <a href="">
+                      Tunjukkan Kesan yang Baik Lewat Parfum Kesayanganmu!
+                    </a>
+                  </p>
+                </div>
+                <div class="text-scheme-pink text-base md:text-base xl:text-xl flex items-center justify-start gap-2">
+                  <a href="">Read More</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- card -->
+            <div class="col-span-3 md:col-span-1 space-y-6 pb-4 border-b md:border-none border-gray-200">
+              <div class="h-60 xl:h-80 2xl:h-96 overflow-hidden px-4 md:px-0">
+                <a href="">
+                  <img src="./images/content/article/article-img-4.png" alt=""
+                       class="w-full xl:h-80  2xl:h-96 object-cover transition duration-300 hover:scale-105">
+                </a>
+              </div>
+
+              <div class="text-base space-y-4 md:space-y-8 px-8 md:px-4">
+                <div class="space-y-4">
+                  <p class="uppercase text-base tracking-widest">
+                    23 Apr 2022
+                  </p>
+                  <p class="text-scheme-text-grey text-base lg:text-base xl:text-xl h-16 line-clamp-2 leading-8">
+                    <a href="">
+                      Alasan Buat Jatuh Cinta Sama Sandalwood alias Kayu Cendana
+                    </a>
+                  </p>
+                </div>
+                <div class="text-scheme-pink text-base md:text-base xl:text-xl flex items-center justify-start gap-2">
+                  <a href="">Read More</a>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- footer -->
+<footer class="text-gray-600 px-4 md:px-4 2xl:px-0">
+  <div class="container mx-auto">
+    <div class="py-8 flex flex-col md:flex-row items-center gap-4">
+
+      <div class="md:border-r md:pr-4 border-gray-600 h-12 flex items-center">
+        <img src="./images/content/pucelle-logo-black.png"
+             class="w-36 lg:w-36 xl:w-40" alt="">
+      </div>
+
+      <div>
+        <p class="w-full md:w-2/3 text-center md:text-left px-4 md:px-0 md:text-sm lg:text-sm xl:text-base">
+          <b>The Scent of Cool Beauty Platform. </b>
+          <span id="desc-footer">
+												Fragrance yang elegan dan eksklusif untuk persona kamu yang unik, stylish, modern dan urban.
+										</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="py-4 md:py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+      <div class="w-full text-center md:text-left">
+        <p class="text-sm lg:text-sm xl:text-base">
+          Pucelle.id Copyright © 2022. All Rights Reserved.
+        </p>
+      </div>
+
+      <div class="flex items-center space-x-10">
+        <!-- item -->
+        <div>
+          <a href="https://www.facebook.com/PucelleID/">
+            <img src="./images/content/icFacebook.png" alt=""
+                 class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+          </a>
+        </div>
+
+        <!-- item -->
+        <div>
+          <a href="https://www.instagram.com/pucelleid/">
+            <img src="./images/content/icInstagram.png" alt=""
+                 class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+          </a>
+        </div>
+
+        <!-- item -->
+        <div>
+          <a href="https://www.youtube.com/channel/UC3I6CeILuZXqkxK8ZH-BoHw">
+            <img src="./images/content/icYoutube.png" alt=""
+                 class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+          </a>
+        </div>
+
+        <div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+        <!-- item -->
+        <div>
+          <a href="https://shopee.co.id/mandomindonesia">
+            <img src="./images/content/icShopee.png" alt=""
+                 class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+          </a>
+        </div>
+
+        <!-- item -->
+        <div>
+          <a href="https://www.tokopedia.com/mandomofficial?source=universe&st=product">
+            <img src="./images/content/icTokopedia.png" alt=""
+                 class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /**
+   * scroll header
+   */
+  let myHeader = document.querySelector('.header')
+  window.onscroll = () => {
+    if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+      myHeader.classList.add("scrolled-header")
+    } else {
+      myHeader.classList.remove("scrolled-header")
+    }
+  }
+
+
+  let boxNavSm = document.getElementById('sm-nav')
+  let btnSmNav = document.getElementById('btn-sm-nav')
+
+  if (typeof (btnSmNav) !== "undefined") {
+    btnSmNav.addEventListener('click', function () {
+
+      if (boxNavSm.classList.contains('hidden')) {
+        btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+        boxNavSm.classList.remove('hidden');
+        setTimeout(function () {
+          boxNavSm.classList.remove('visually-hidden');
+        }, 20);
+      } else {
+        btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+        boxNavSm.classList.add('visually-hidden');
+        boxNavSm.addEventListener('transitionend', function (e) {
+          boxNavSm.classList.add('hidden');
+        }, {
+          capture: false,
+          once: true,
+          passive: false
+        });
+      }
+
+    }, false);
+  }
+
+
+  function showModal(mainModal, contentModal) {
+    document.getElementById(mainModal).style.display = 'flex'
+    document.getElementById(contentModal).style.display = 'flex'
+
+    setTimeout(() => {
+      document.getElementById(mainModal).style.opacity = 1
+      document.getElementById(contentModal).style.opacity = 1
+    }, 200)
+  }
+
+  function hideModal(mainModal, contentModal) {
+    document.getElementById(mainModal).style.opacity = '0'
+    document.getElementById(contentModal).style.opacity = '0'
+    setTimeout(() => {
+      document.getElementById(mainModal).style.display = 'none'
+      document.getElementById(contentModal).style.display = 'none'
+    }, 200)
+  }
+
+  /**
+   * SHOW MODAL SHARE
+   */
+  let btnShowShare = document.getElementById('show-share')
+  let btnHideShare = document.getElementById('hide-modal-share')
+
+  btnShowShare.addEventListener('click', function () {
+    showModal('main-modal', 'modal-share')
+  })
+
+  btnHideShare.addEventListener('click', function () {
+    hideModal('main-modal', 'modal-share')
+  })
+
+
+</script>
+
+</body>
+
+</html>

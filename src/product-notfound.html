@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>pucelle</title>
+	<meta name="description"
+	      content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+	<meta name="keywords"
+	      content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Plamen Nikolov, WeAreAthlon">
+	<script src="./js/custome.js"></script>
+</head>
+
+<body class="relative">
+
+<!-- modal homepage -->
+<div id="homepage-modal" class="hidden homepage-modal fixed h-screen w-full bg-black/70 z-[100]">
+	<div class="w-full h-full flex items-center justify-center flex-col relative">
+		<div class="w-[520px] h-[520px] relative">
+			<div class="absolute -right-12 -top-12 rounded-full w-10 h-10 bg-scheme-pink">
+				<button id="hide-modal-home" type="button"
+				        class="w-full h-full flex items-center justify-center text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+					     stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+					</svg>
+				</button>
+			</div>
+
+			<div class="w-[520px] h-[520px] overflow-hidden">
+				<img src="./images/content/img-modal.png" alt="" class="w-full h-full object-contain">
+			</div>
+
+			<div class="inline-block absolute left-0 bottom-12 w-full">
+				<div class="flex items-center justify-center">
+					<a href="#" target="_blank"
+					   class="bg-scheme-pink px-10 py-4 rounded-full text-white text-sm flex items-center justify-center gap-2">
+						<span>SHOP NOW</span>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd"
+							      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+							      clip-rule="evenodd"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- header -->
+<div class="header fixed top-0 left-0 w-full z-50">
+	<!-- main header -->
+	<div class="main-header h-[60px] md:h-[100px] container mx-auto flex items-center justify-between px-4 md:px-0 z-50 relative">
+		<div class="w-full flex justify-between items-center relative">
+			<!-- logo site -->
+			<div>
+				<a href="index.html">
+					<img src="./images/content/pucelle-logo-black.png"
+					     class="h-[16px] md:h-[30px] object-contain" alt="">
+				</a>
+			</div>
+
+			<!-- small nav btn -->
+			<div class="block md:hidden flex items-center justify-center gap-4">
+				<ul class="flex items-center justify-center gap-2">
+					<li class="active-lang">ID</li>
+					<div class="w-0.5 h-4 bg-scheme-grey"></div>
+					<li class="">EN</li>
+				</ul>
+
+				<button id="btn-sm-nav">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"
+					     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+					</svg>
+				</button>
+			</div>
+
+			<!-- large nav -->
+			<nav class="hidden md:block">
+				<ul class="flex items-center space-x-[60px] text-scheme-grey">
+					<li><a href="product.html">Our Products</a></li>
+					<li><a href="articles.html">Pucelleclopedia</a></li>
+					<li><a href="quiz.html">Define Your Scent</a></li>
+					<li><a href="contact-us.html">Contact Us</a></li>
+					<li>
+						<div class="flex items-center justify-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none" viewBox="0 0 24 24"
+							     stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round"
+								      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+							</svg>
+							<button class="active-lang">ID</button>
+							<div class="flex-none w-0.5 h-4 bg-scheme-grey"></div>
+							<button class="">EN</button>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<!-- small nav content -->
+	<div id="sm-nav"
+	     class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[60px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+		<div class="space-y-8 text-right text-lg">
+			<nav>
+				<ul class="text-scheme-grey space-y-8">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="product.html">Our Products</a></li>
+					<li><a href="articles.html">Pucelleclopedia</a></li>
+					<li><a href="quiz.html">Define Your Scent</a></li>
+					<li><a href="contact-us.html">Contact Us</a></li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+</div>
+
+<!-- main content -->
+<main id="main-content" class="min-h-screen relative text-scheme-grey">
+
+	<!--btn to top -->
+	<div class="fixed right-8 bottom-20 z-50">
+		<a href="#main-content" id="btn-go-top" type="button">
+			<img src=./images/content/btn-go-top.svg alt="" class="w-20 md:w-24">
+		</a>
+	</div>
+
+	<!-- main product content -->
+	<div class="w-full md:container md:mx-auto py-[60px] md:py-20 text-scheme-text-grey">
+
+		<!-- breadcrumbs -->
+		<div class="col-span-1 md:col-span-12 text-sm md:text-lg py-6 md:py-12 px-8 md:px-0">
+			<a href="/" class="first-breadcrumb text-scheme-pink">Home</a>
+			<a href="./product.html">Our Products</a>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-12">
+			<!-- content-left -->
+			<div class="col-span-3 hidden md:block">
+
+				<div class="h-16">
+					<p class="text-scheme-text-grey text-2xl">
+						Filter Search
+					</p>
+				</div>
+
+				<div class="space-y-4">
+					<!-- filter accordion - variant -->
+					<div class="bg-white max-w-xl mx-auto" x-data="{selected:0}">
+						<ul class="shadow-box mb-12">
+
+							<li class="relative border-y border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 1 ? selected = 1 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Eau de Cologne
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container1"
+								     x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck1"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck1">Eau de Luxe Cologne</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="relative border-b border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 2 ? selected = 2 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Eau de Parfum
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container2"
+								     x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck2"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck2">
+												Audacity Eau de Parfum
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="relative border-b border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 3 ? selected = 3 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Spray Cologne
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container3"
+								     x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck3"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck3">
+												La Signature
+											</label>
+										</div>
+
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck4"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck4">
+												Mist Cologne
+											</label>
+										</div>
+
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck5"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck5">
+												Mist Cologne Pink Me
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="relative border-b border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 4 ? selected = 4 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Body Spray
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container4"
+								     x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck6"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck6">
+												Eau de Luxe Body Spray
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="relative border-b border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 5 ? selected = 5 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Gel Cologne
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container5"
+								     x-bind:style="selected == 5 ? 'max-height: ' + $refs.container5.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck7"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck7">
+												Icy Gel Cologne
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="relative border-b border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 6 ? selected = 6 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Splash Cologne
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container6"
+								     x-bind:style="selected == 6 ? 'max-height: ' + $refs.container6.scrollHeight + 'px' : ''">
+									<div class="pb-6 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="checkbox" id="cologneCheck8"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="cologneCheck8">
+												Splash Cologne
+											</label>
+										</div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+
+						<ul class="shadow-box mb-6">
+							<li class="relative border-y border-gray-200"
+							    x-data="{selected: null, open: false}">
+								<button type="button" class="w-full py-4 text-left"
+								        @click="selected !== 7 ? selected = 7 : selected = null, open = ! open">
+									<div class="flex items-center justify-between">
+										<p>
+											Scent Type
+										</p>
+
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink"
+										     :class="{'rotate-180': open}" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+										</svg>
+									</div>
+								</button>
+
+								<div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+								     x-ref="container7"
+								     x-bind:style="selected == 7 ? 'max-height: ' + $refs.container7.scrollHeight + 'px' : ''">
+									<div class="px-2 py-4 space-y-4 text-scheme-text-grey">
+										<div class="flex items-center justify-start space-x-2">
+											<input type="radio" id="scent-type-1" name="scent-type"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="scent-type-1">All Scents</label>
+										</div>
+
+										<div class="flex items-center justify-start space-x-2">
+											<input type="radio" id="scent-type-2" name="scent-type"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="scent-type-2">Sweet</label>
+										</div>
+
+										<div class="flex items-center justify-start space-x-2">
+											<input type="radio" id="scent-type-3" name="scent-type"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="scent-type-3">Fruity</label>
+										</div>
+
+										<div class="flex items-center justify-start space-x-2">
+											<input type="radio" id="scent-type-4" name="scent-type"
+											       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+											<label for="scent-type-4">Floral</label>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+			</div>
+
+			<!-- content-right -->
+			<div class="col-span-1 md:col-span-9">
+				<!-- search -->
+				<div class="h-16 px-8 md:px-0 mb-4 md:mb-0">
+					<div class="relative flex justify-end items-center">
+						<label for="search-bar" class="w-full md:w-72">
+							<input id="search-bar" type="text"
+							       class="w-full rounded-md border border-gray-300 py-3 pr-10"
+							       placeholder="Search for Product">
+						</label>
+
+						<button class="absolute right-[1%] top-1/4 text-scheme-pink">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+							     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round"
+								      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+							</svg>
+						</button>
+					</div>
+				</div>
+
+				<!-- small filter -->
+				<div class="block md:hidden border">
+					<!-- product type -->
+					<div>
+						<button id="btn-product-type" class="w-full flex items-center justify-between px-8 py-4">
+							<span class="text-sm tracking-wider">Product Type</span>
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon-btn-filter h-5 w-5 text-scheme-pink"
+							     fill="none"
+							     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+							</svg>
+						</button>
+
+						<div id="content-product-type" class="content-filter-sm hidden">
+							<div class="bg-white max-w-xl mx-auto" x-data="{selected:0}">
+								<ul class="shadow-box text-sm">
+									<li class="relative border-y border-gray-200"
+									    x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 1 ? selected = 1 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Eau de Cologne
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container1"
+										     x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm1"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0">
+													<label for="cologneCheckSm1">Eau de Luxe Cologne</label>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="relative border-b border-gray-200"
+									    x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 2 ? selected = 2 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Eau de Parfum
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container2"
+										     x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm2"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm2">
+														Audacity Eau de Parfum
+													</label>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="relative border-b border-gray-200"
+									    x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 3 ? selected = 3 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Spray Cologne
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container3"
+										     x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm3"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm3">
+														La Signature
+													</label>
+												</div>
+
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm4"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm4">
+														Mist Cologne
+													</label>
+												</div>
+
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm5"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm5">
+														Mist Cologne Pink Me
+													</label>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="relative border-b border-gray-200"
+									    x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 4 ? selected = 4 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Body Spray
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container4"
+										     x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm6"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm6">
+														Eau de Luxe Body Spray
+													</label>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="relative border-b border-gray-200"
+									    x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 5 ? selected = 5 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Gel Cologne
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container5"
+										     x-bind:style="selected == 5 ? 'max-height: ' + $refs.container5.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm7"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm7">
+														Icy Gel Cologne
+													</label>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li class="relative text-sm" x-data="{selected: null, open: false}">
+										<button type="button" class="w-full py-4 px-8 text-left"
+										        @click="selected !== 6 ? selected = 6 : selected = null, open = ! open">
+											<div class="flex items-center justify-between">
+												<p>
+													Splash Cologne
+												</p>
+
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink"
+												     :class="{'rotate-180': open}" fill="none"
+												     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+													<path stroke-linecap="round" stroke-linejoin="round"
+													      d="M19 9l-7 7-7-7"/>
+												</svg>
+											</div>
+										</button>
+
+										<div class="relative overflow-hidden transition-all max-h-0 duration-700"
+										     style=""
+										     x-ref="container6"
+										     x-bind:style="selected == 6 ? 'max-height: ' + $refs.container6.scrollHeight + 'px' : ''">
+											<div class="pb-6 px-8 space-y-4 text-scheme-text-grey">
+												<div class="flex items-center justify-start space-x-2">
+													<input type="checkbox" id="cologneCheckSm8"
+													       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+													<label for="cologneCheckSm8">
+														Splash Cologne
+													</label>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- scent type -->
+					<div>
+						<button id="btn-scent-type"
+						        class="w-full flex items-center justify-between px-8 py-4 border-t border-gray-200">
+							<span class="text-sm tracking-wider">Scent type</span>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-scheme-pink" fill="none"
+							     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+							</svg>
+						</button>
+
+						<div id="content-scent-type" class="content-filter-sm hidden">
+							<div class="bg-white max-w-xl mx-auto px-8 pb-4" x-data="{selected:0}">
+								<div class="flex items-center justify-start gap-4 text-sm py-2">
+									<input type="radio" id="scent1" name="scent-type"
+									       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+									<label for="scent1">All Scent</label>
+								</div>
+
+								<div class="flex items-center justify-start gap-4 text-sm py-2">
+									<input type="radio" id="scent2" name="scent-type"
+									       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+									<label for="scent2">Sweet</label>
+								</div>
+
+								<div class="flex items-center justify-start gap-4 text-sm py-2">
+									<input type="radio" id="scent3" name="scent-type"
+									       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+									<label for="scent3">Fruity</label>
+								</div>
+
+								<div class="flex items-center justify-start gap-4 text-sm py-2">
+									<input type="radio" id="scent4" name="scent-type"
+									       class="focus:outline-none focus:border-b-scheme-pink focus:ring-0 ">
+									<label for="scent4">Floral</label>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- product -->
+				<div class="py-8 md:py-8 space-y-20">
+					<div class="w-full h-auto min-h-[50vh] flex flex-col items-center justify-center gap-8">
+
+						<img src="./images/content/product/not-found.png" alt="" class="w-36 h-auto">
+
+						<p class="text-4xl">
+							Ups!
+						</p>
+						<p class="w-full md:w-1/3 mx-auto text-center">
+							Produk dengan kata kunci <span class="font-bold">‘deodorn’</span> tidak ditemukan.
+							Silakan coba kata kunci yang lain.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</main>
+
+<!-- footer -->
+<footer class="text-gray-600 px-4 md:px-0">
+	<div class="container mx-auto">
+		<div class="py-8 flex flex-col md:flex-row items-center gap-4">
+
+			<div class="md:border-r md:pr-4 border-gray-600 h-12 flex items-center">
+				<img src="./images/content/pucelle-logo-black.png"
+				     class="w-36 md:w-40" alt="">
+			</div>
+
+			<div>
+				<p class="w-full md:w-2/3 text-center md:text-left px-4 md:px-0">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+					et dolore magna aliqua. Ut enim ad mini.
+				</p>
+			</div>
+
+		</div>
+
+		<div class="py-4 md:py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+			<div class="w-full text-center md:text-left">
+				<p class="text-sm md:text-base">
+					Pucelle.id Copyright © 2022. All Rights Reserved.
+				</p>
+			</div>
+
+			<div class="flex items-center space-x-10">
+				<!-- item -->
+				<div>
+					<a href="https://www.facebook.com/PucelleID/">
+						<img src="./images/content/icFacebook.png" alt=""
+						     class="w-6 md:w-12 transition duration-300 ease hover:scale-110">
+					</a>
+				</div>
+
+				<!-- item -->
+				<div>
+					<a href="https://www.instagram.com/pucelleid/">
+						<img src="./images/content/icInstagram.png" alt=""
+						     class="w-6 md:w-12 transition duration-300 ease hover:scale-110">
+					</a>
+				</div>
+
+				<!-- item -->
+				<div>
+					<a href="https://www.youtube.com/channel/UC3I6CeILuZXqkxK8ZH-BoHw">
+						<img src="./images/content/icYoutube.png" alt=""
+						     class="w-6 md:w-12 transition duration-300 ease hover:scale-110">
+					</a>
+				</div>
+
+				<div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+				<!-- item -->
+				<div>
+					<a href="https://shopee.co.id/mandomindonesia">
+						<img src="./images/content/icShopee.png" alt=""
+						     class="w-6 md:w-12 transition duration-300 ease hover:scale-110">
+					</a>
+				</div>
+
+				<!-- item -->
+				<div>
+					<a href="https://www.tokopedia.com/mandomofficial?source=universe&st=product">
+						<img src="./images/content/icTokopedia.png" alt=""
+						     class="w-6 md:w-12 transition duration-300 ease hover:scale-110">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+    <!-- scroll header -->
+    let myHeader = document.querySelector('.header')
+    window.onscroll = () => {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            myHeader.classList.add("scrolled-header")
+        } else {
+            myHeader.classList.remove("scrolled-header")
+        }
+    }
+
+
+    let boxNavSm = document.getElementById('sm-nav')
+    let btnSmNav = document.getElementById('btn-sm-nav')
+
+    if (typeof (btnSmNav) !== "undefined") {
+        btnSmNav.addEventListener('click', function () {
+
+            if (boxNavSm.classList.contains('hidden')) {
+                btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+                boxNavSm.classList.remove('hidden');
+                setTimeout(function () {
+                    boxNavSm.classList.remove('visually-hidden');
+                }, 20);
+            } else {
+                btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+                boxNavSm.classList.add('visually-hidden');
+                boxNavSm.addEventListener('transitionend', function () {
+                    boxNavSm.classList.add('hidden');
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                });
+            }
+
+        }, false);
+    }
+
+
+    let modalHome = document.getElementById('homepage-modal')
+    let btnHideModalHome = document.getElementById('hide-modal-home')
+    btnHideModalHome.addEventListener('click', function () {
+        modalHome.style.opacity = '0'
+
+        setTimeout(() => {
+            modalHome.style.display = 'none'
+        }, 500)
+
+    })
+
+    /**
+     * FILTER
+     */
+    function showAcc(btn, content) {
+        let btnFilter = document.getElementById(btn)
+        btnFilter.addEventListener('click', function (e) {
+            document.getElementById(content).classList.toggle('hidden')
+            this.children[1].classList.toggle('rotate-180')
+        })
+    }
+
+    showAcc('btn-product-type', 'content-product-type')
+    showAcc('btn-scent-type', 'content-scent-type')
+</script>
+
+</body>
+
+</html>

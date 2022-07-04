@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="UTF-8">
+		<title>pucelle</title>
+		<meta name="description"
+		      content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+		<meta name="keywords"
+		      content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Plamen Nikolov, WeAreAthlon">
+
+		<meta name="title" content="Pucelle Indonesia - Personality Remaja Wanita">
+		<meta name="description"
+		      content="Pucelle brand yang menjual produk kecantikan di indonesia berfocus untuk menjadikan personality remaja wanita selalu ceria dan percaya diri.">
+		<script src="./js/custome.js"></script>
+		<script src="./js/edit-lang.js"></script>
+		<script src="./js/data-lang.js"></script>
+		<script src="./js/app.js"></script>
+
+		<script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
+		<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css"/>
+</head>
+
+<body class="relative">
+
+<!-- modal homepage -->
+<div id="homepage-modal" class="homepage-modal fixed h-screen w-full bg-black/70 z-[100] opacity-0">
+		<div class="w-full h-full flex items-center justify-center relative">
+				<div class="2xl:w-[40rem] min-h-auto relative">
+
+						<button id="hide-modal-home" type="button"
+						        class="w-8 h-8 md:w-10 md:h-10 bg-scheme-pink text-white rounded-full flex items-center justify-center absolute -top-8 right-0 md:-top-[8%] md:-right-[8%]">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24"
+								     stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+								</svg>
+						</button>
+
+						<div class="px-10 md:px-0">
+								<img src="./images/content/pop-up-image.png" alt="" class="w-full h-full object-contain">
+						</div>
+
+						<div class="absolute w-full left-0 bottom-0">
+								<div class="flex items-center justify-center py-7 md:py-12 2xl:py-16">
+										<a href=""
+										   class="bg-scheme-pink text-xs 2xs:text-base text-white rounded-full px-8 md:px-12 py-2 2xs:py-3 md:py-5 transition duration-300 hover:shadow-lg flex items-center justify-center gap-2">
+												<span>SHOP NOW</span>
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-4 2xs:h-6 w-4 2xs:w-6" fill="none" viewBox="0 0 24 24"
+												     stroke="currentColor" stroke-width="2">
+														<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+												</svg>
+										</a>
+								</div>
+						</div>
+
+
+				</div>
+		</div>
+</div>
+
+<!-- header -->
+<div class="header fixed top-0 left-0  w-full z-50">
+		<!-- top-nav -->
+		<div class="relative block">
+				<div class="flex items-center justify-center h-[40px] md:h-[40px] bg-scheme-lilac space-x-4 text-sm lg:text-xs xl:text-base">
+						<p class="hidden md:block">
+								GET EXCLUSIVE DEALS ON OUR E-COMMERCE PLATFORMS!
+						</p>
+						<p class="block md:hidden">
+								GET EXCLUSIVE DEALS!
+						</p>
+						<div class="text-white flex items-center space-x-2 transition hover:text-scheme-pink">
+								<a href="" target="_blank">
+										Shop Now
+								</a>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd"
+										      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+										      clip-rule="evenodd"/>
+								</svg>
+						</div>
+				</div>
+		</div>
+
+		<!-- main header -->
+		<div class="main-header h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[100px] container mx-auto flex items-center justify-between px-4 lg:px-4 xl:px-4 2xl:px-0 z-50 relative">
+				<div class="w-full flex justify-between items-center relative">
+						<!-- logo site -->
+						<div>
+								<a href="./index.html">
+										<img src="./images/content/pucelle-logo-black.png"
+										     class="h-[16px] xl:h-[24px] 2xl:h-[30px] object-contain" alt="">
+								</a>
+						</div>
+
+						<!-- small nav btn -->
+						<div class="block lg:hidden flex items-center justify-center gap-4">
+								<ul class="flex items-center justify-center gap-2  text-base md:text-sm">
+										<li class="active-lang">ID</li>
+										<div class="w-0.5 h-4 bg-scheme-grey"></div>
+										<li class="">EN</li>
+								</ul>
+
+								<button id="btn-sm-nav">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+										</svg>
+								</button>
+						</div>
+
+						<!-- large nav -->
+						<nav class="hidden lg:block">
+								<ul class="flex items-center lg:space-x-12 xl:space-x-[60px] text-scheme-grey lg:text-xs xl:text-base">
+										<li><a href="product.html">Our Products</a></li>
+										<li><a href="articles.html">Pucelleclopedia</a></li>
+										<li><a href="quiz.html">Define Your Scent</a></li>
+										<li><a href="contact-us.html">Contact Us</a></li>
+										<li>
+												<div class="flex items-center justify-center gap-2">
+														<svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none" viewBox="0 0 24 24"
+														     stroke="currentColor" stroke-width="2">
+																<path stroke-linecap="round" stroke-linejoin="round"
+																      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+														</svg>
+														<button id="id-lang" class="button-lang id-lang">ID</button>
+														<div class="flex-none w-0.5 h-4 bg-scheme-grey"></div>
+														<button id="en-lang" class="button-lang en-lang ">EN</button>
+												</div>
+										</li>
+								</ul>
+						</nav>
+				</div>
+		</div>
+
+		<!-- small nav content -->
+		<div id="sm-nav"
+		     class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[100px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+				<div class="space-y-8 text-right text-lg">
+						<nav>
+								<ul class="text-scheme-grey space-y-8">
+										<li><a href="index.html">Home</a></li>
+										<li><a href="product.html">Our Products</a></li>
+										<li><a href="articles.html">Pucelleclopedia</a></li>
+										<li><a href="quiz.html">Define Your Scent</a></li>
+										<li><a href="contact-us.html">Contact Us</a></li>
+								</ul>
+						</nav>
+				</div>
+
+		</div>
+</div>
+
+<!-- main content -->
+<main id="main-content" class="pt-[100px] md:pt-[40px] relative">
+
+		<!--btn to top -->
+		<div id="content-go-top" class="opacity-0 content-go-top fixed right-8 bottom-20 z-50">
+				<a href="#main-content" id="btn-go-top" type="button">
+						<img src=./images/content/btn-go-top.svg alt="" class="w-20 lg:w-16 xl:w-24">
+				</a>
+		</div>
+
+		<!-- section 1 - herobanner-->
+		<div class="herobanner w-full h-full">
+				<div data-slick='{"infinite":true, "slidesToShow":1, "slidesToScroll":1, "dots":true, "arrows":false, "fade":true}'
+				     class="h-auto md:h-[410px] lg:h-[546px] xl:h-[728px] 2xl:h-[920px] bg-scheme-baby-blue !mb-0 relative">
+
+						<!-- slide -->
+						<div class="w-full h-full">
+								<div class="w-full h-[700px] xl:h-[728px] 2xl:h-[920px] hidden md:block relative">
+										<div class="absolute top-0 left-0 w-1/2 h-full z-20">
+												<div class="w-full h-full flex flex-col items-center justify-center text-white gap-2">
+														<p class="md:text-5xl lg:text-6xl xl:text-8xl text-banner">PUCELLE</p>
+														<p class="md:text-xl lg:text-2xl xl:text-5xl text-banner">DYNAMIC BANNER</p>
+														<p class="md:text-xl lg:text-2xl xl:text-5xl text-banner">CUSTOM TEXT</p>
+												</div>
+										</div>
+										<img src="./images/content/test-image.png" alt="" class="w-full h-full">
+								</div>
+
+								<div class="w-full h-auto block md:hidden relative">
+										<div class="absolute top-0 left-0 w-full h-1/2 z-20">
+												<div class="w-full h-full flex flex-col items-center justify-center text-white gap-1">
+														<p class="text-6xl text-banner">PUCELLE</p>
+														<p class="text-2xl text-banner">DYNAMIC BANNER</p>
+														<p class="text-2xl text-banner">CUSTOM TEXT</p>
+												</div>
+										</div>
+										<img src="./images/content/banner-dynamic-mobile.png" alt="" class="w-full h-full">
+								</div>
+						</div>
+
+						<!-- slide -->
+						<div class="w-full h-full">
+								<div class="w-full h-[700px] xl:h-[728px] 2xl:h-[920px] hidden md:block relative">
+										<img src="./images/content/test-image-2.png" alt="" class="w-full h-full">
+								</div>
+
+								<div class="w-full h-auto block md:hidden relative">
+										<img src="./images/content/banner-static-mobile.png" alt="" class="w-full h-full">
+								</div>
+						</div>
+
+						<!-- slide -->
+						<div class="w-full h-full bg-[#E6E7EC]">
+								<div class="w-full h-[700px] md:h-[410px] lg:h-[546px] xl:h-[728px] 2xl:h-[920px] grid grid-cols-1 md:grid-cols-2">
+										<div class="col-span-1 flex flex-col justify-center  px-4 md:px-0 md:pt-0">
+												<div class="w-full md:w-[80%] 2xl:w-2/3 mx-auto text-4xl md:text-4xl xl:text-6xl 2xl:text-7xl font-bold space-y-4 md:space-y-6 text-scheme-grey">
+														<p>RAYAKAN</p>
+														<p>LEBARAN URBAN</p>
+														<p>BERSAMA KAMI</p>
+												</div>
+										</div>
+										<div class="col-span-1 overflow-hidden">
+												<img src="./images/content/herobanner-img-1.png" alt="" class="w-full h-full object-cover">
+										</div>
+								</div>
+						</div>
+
+				</div>
+		</div>
+
+		<!-- section 2 - quiz -->
+		<div class="bg-scheme-baby-blue h-auto md:h-[250px] lg:h-[350px] xl:h-[432px] text-scheme-text-grey">
+				<div class="h-full container mx-auto max-w-7xl flex flex-col-reverse md:flex-row px-4 xl:px-0 gap-8 md:gap-0">
+
+						<!-- image -->
+						<div data-aos="fade-zoom-in" class="order-2 md:order-1 w-full relative">
+								<div class="flex w-full h-full items-end p-6">
+										<img src="./images/content/quiz-img-homepage.png" class="h-full object-contain" alt="">
+								</div>
+						</div>
+
+						<div data-aos="fade-up"
+						     class="order-1 md:order-2 w-full space-y-10 md:space-y-4 lg:space-y-8 flex flex-col items-center md:items-start justify-center pt-[30px] mb-[30px] md:mb-0 md:pt-0">
+								<div class="space-y-4 lg:space-y-6 xl:space-y-10 text-center md:text-left">
+										<div>
+												<p class="text-3xl md:text-2xl lg:text-4xl xl:text-3xl 2xl:text-5xl">
+														DEFINE YOUR SCENT
+												</p>
+										</div>
+										<div class="leading-8 text-lg md:text-xs lg:text-base xl:text-xl">
+												<p>
+														Finding your signature scent is no easy journey, but we're here to help. Answer a few simple
+														questions, and we will connect you with scent recommendations that suit your preferences and
+														personality.
+												</p>
+												<p>
+														Just click away!
+												</p>
+										</div>
+								</div>
+								<div>
+										<a href="#"
+										   class="bg-scheme-pink text-white inline-flex items-center space-x-2 px-6 py-4 text-sm lg:text-base rounded-full">
+												<span>COMING SOON</span>
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+												     stroke="currentColor" stroke-width="2">
+														<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+												</svg>
+										</a>
+								</div>
+						</div>
+				</div>
+		</div>
+
+		<!-- section 3 - favorites products -->
+		<div class="bg-white py-8 lg:py-8 xl:py-16 pb-20 md:pb-16 lg:space-y-6 xl:space-y-12 block">
+				<!-- heading -->
+				<div data-aos="fade-up" class="flex flex-col items-center gap-8">
+						<div class="text-center text-3xl lg:text-3xl xl:text-4xl">
+								<p class="relative group inline-block">
+										<span>MOST FAVORITES</span>
+										<span class="absolute left-0 -bottom-1 w-full h-2 bg-scheme-lilac -z-10 h-[60%]"></span>
+								</p>
+						</div>
+
+						<div class="space-x-6">
+								<button class="hidden px-6 py-3 rounded-full bg-white border border-scheme-pink text-scheme-pink active-btn-favorites">
+										Fragrance
+								</button>
+								<button class="hidden px-6 py-3 rounded-full bg-white border border-scheme-pink text-scheme-pink">
+										Deodorant
+								</button>
+						</div>
+				</div>
+
+				<div class="container mx-auto px-0 md:px-[2rem] lg:px-[4rem] xl:px-[7rem] 2xl:px-16">
+						<div class="emk-slick" data-slick='{"infinite":true, "slidesToShow":4, "slidesToScroll":1, "dots":false, "arrows":true, "fade":false,
+            "responsive":
+            [{"breakpoint": 1366, "settings": {"slidesToShow": 4, "slidesToScroll": 1,"infinite": true,  "arrows":true, "dots": false}},
+            {"breakpoint": 1024, "settings": {"slidesToShow": 4, "slidesToScroll": 1,"infinite": true,  "arrows":true, "dots": false}},
+            {"breakpoint": 428, "settings": {"slidesToShow": 1, "slidesToScroll": 1,"infinite": true,  "arrows":true, "dots": false, "centerMode": true, "variableWidth": true }}
+            ]}'>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Fruity, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-1.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class="font-lg:text-base xltext-lg md:text-xl">
+														Lucent
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Oriental, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-2.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Dainty
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Fruity, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-3.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Glitzy
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Oriental, Gourmand</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-4.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Audacity EDP
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Glimmery
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Fruity, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-1.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class="font-lg:text-base xltext-lg md:text-xl">
+														Lucent
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Oriental, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-2.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Dainty
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Fruity, Floral</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-3.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Eau de Luxe Cologne
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Glitzy
+												</p>
+										</div>
+								</div>
+
+								<div data-aos="fade-up" class="!w-48 lg:w-auto xl:!w-full h-full space-y-8">
+										<div class="relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex flex-col justify-between py-10 text-white text-center">
+																<div>
+																		<p>Scent Profile:</p>
+																		<p>Oriental, Gourmand</p>
+																</div>
+
+																<div>
+																		<a href="#" class="flex items-center gap-2 justify-center">
+																				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+																				     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+																						<path stroke-linecap="round" stroke-linejoin="round"
+																						      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+																				</svg>
+																				<span class="tracking-widest">CLICK TO VIEW</span>
+																		</a>
+																</div>
+														</div>
+												</div>
+												<img src="./images/content/product-4.png"
+												     class="w-full object-contain" alt="">
+										</div>
+
+										<div class="text-center space-y-4 space-y-4 xl:space-y-4">
+												<div class="w-2/3 mx-auto">
+														<a href="#" class="text-xs lg:text-xs xl:text-base text-scheme-grey">
+																Audacity EDP
+														</a>
+												</div>
+												<p class=" text-lg lg:text-base xl:text-xl">
+														Glimmery
+												</p>
+										</div>
+								</div>
+
+
+						</div>
+				</div>
+		</div>
+
+		<!-- section 4 - the latest news -->
+		<div class="bg-scheme-light-grey py-12 gl:py-16 xl:py-20">
+				<div class="container md:px-4 mx-auto space-y-10 lg:space-y-12 xl:space-y-20">
+						<!-- heading -->
+						<div data-aos="fade-up" class="text-center">
+								<p class="text-3xl md:text-2xl lg:text-3xl xl:text-4xl">
+										PUCELLECLOPEDIA
+								</p>
+						</div>
+
+						<!-- body -->
+						<div class="space-y-12 lg:space-y-16 xl:space-y-20">
+								<!-- item -->
+								<div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-0">
+										<div data-aos="fade-up"
+										     class="w-full h-[225px] xl:h-[367px] 2xl:h-[441px] mb-4 md:mb-0 col-span-1 relative overflow-hidden">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex justify-center items-center text-white text-center">
+																<a href="#">
+																		READ MORE
+																</a>
+														</div>
+												</div>
+												<img src="./images/content/news-2.png" alt="" class="w-full h-full object-cover">
+										</div>
+
+										<div data-aos="fade-up" data-aos-delay="100" class="col-span-1 my-auto flex items-center">
+												<div class="pl:-0 pr:0 md:pl-12 lg:pl-20 xl:pl-28 md:pr-8 lg:pr-12 xl:pr-12 space-y-4 xl:space-y-4 2xl:space-y-6">
+														<p class=" text-sm lg:text-base text-white bg-scheme-lilac px-2 py-1 inline-block">
+																DEODORANT
+														</p>
+														<div>
+																<p class="text-2xl xl:text-3xl 2xl:text-4xl">
+																		<a href="#" class="xl:leading-snug 2xl:leading-normal line-clamp-2">
+																				Tips Penggunaan Deodoran Agar Kamu Segar Sepanjang Hari
+																		</a>
+																</p>
+														</div>
+														<p class="text-sm md:text-sm xl:text-lg 2xl:text-xl text-scheme-grey line-clamp-4 md:line-clamp-3 lg:line-clamp-4 leading-6 xl:leading-9">
+																Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+																incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+																exercitation ullamco laboris nisi ut aliquip ex ea comm.
+														</p>
+
+														<div>
+																<a href="index-article.html" target="_blank"
+																   class="flex items-center space-x-2 transition text-scheme-pink text-base lg:text-lg xl:text-xl">
+																		<span>Read More</span>
+																		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+																		     fill="currentColor">
+																				<path fill-rule="evenodd"
+																				      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+																				      clip-rule="evenodd"/>
+																		</svg>
+																</a>
+														</div>
+												</div>
+										</div>
+								</div>
+
+								<!-- item -->
+								<div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-0">
+										<div data-aos="fade-up" data-aos-delay="100"
+										     class="order-2 md:order-1 col-span-1 my-auto flex items-center">
+												<div class="pr:0 md:pr-8 lg:pr-20 xl:pr-28 pl:-0 md:pl-8 lg:pl-12 xl:pl-16 space-y-4 xl:space-y-4 2xl:space-y-6">
+														<p class="text-sm lg:text-base text-white bg-scheme-lilac px-2 py-1 inline-block">
+																FRAGRANCE WORLD
+														</p>
+														<div>
+																<p class="text-2xl xl:text-3xl 2xl:text-4xl">
+																		<a href="#" class="xl:leading-snug 2xl:leading-normal line-clamp-2">
+																				Tips Penggunaan Agar Parfum Kamu Tahan Makin Lama
+																		</a>
+																</p>
+														</div>
+														<p class="text-sm xl:text-lg 2xl:text-xl text-scheme-grey line-clamp-4 md:line-clamp-3 lg:line-clamp-4 leading-6 xl:leading-9">
+																Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+																incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+																exercitation ullamco laboris nisi ut aliquip ex ea comm.
+														</p>
+
+														<div>
+																<a href="" target="_blank"
+																   class="flex items-center space-x-2 transition text-scheme-pink text-base lg:text-lg xl:text-xl">
+																		<span>Read More</span>
+																		<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+																		     fill="currentColor">
+																				<path fill-rule="evenodd"
+																				      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+																				      clip-rule="evenodd"/>
+																		</svg>
+																</a>
+														</div>
+												</div>
+										</div>
+
+										<div data-aos="fade-up"
+										     class="w-full h-[225px] xl:h-[367px] 2xl:h-[441px] mb-4 md:mb-0 order-1 md:order-2 col-span-1 relative">
+												<div class="w-full h-full absolute top-0 left-0 transition duration-300 opacity-0 hover:opacity-100 backdrop-opacity-0 hover:backdrop-opacity-10 backdrop-invert bg-scheme-pink/0 hover:bg-scheme-pink/70">
+														<div class="w-full h-full flex justify-center items-center text-white text-center">
+																<a href="#">
+																		READ MORE
+																</a>
+														</div>
+												</div>
+												<img src="./images/content/news-1.png" alt="" class="w-full h-full object-cover">
+										</div>
+								</div>
+						</div>
+
+						<!-- footer -->
+						<div>
+								<div class="flex items-center justify-center">
+										<a href="articles.html"
+										   class="text-base md:text-sm lg:text-base px-16 py-4 rounded-full bg-white border border-scheme-pink text-scheme-pink transition duration-300 hover:bg-scheme-pink hover:text-white">
+												SEE MORE
+										</a>
+								</div>
+						</div>
+				</div>
+		</div>
+
+		<!-- section 5 - gallery -->
+		<div class="py-8 md:py-16 space-y-12 px-4 hidden md:px-0">
+				<!-- heading -->
+				<div data-aos="fade-up" class="text-center text-4xl">
+						<p class="relative group inline-block">
+								<span>MOST FAVORITES</span>
+								<span class="absolute left-0 -bottom-1 w-full h-2 bg-scheme-lilac -z-10 h-[60%]"></span>
+						</p>
+				</div>
+
+				<!-- body -->
+				<div data-aos="fade-up" class="flex items-center justify-center gap-0 md:gap-10">
+						<div class="flex-none w-1/2 h-auto md:w-[24rem] md:h-[24rem] p-1 md:p-0">
+								<img src="./images/content/gallery-1.png" alt="" class="w-full h-full object-contain">
+						</div>
+
+						<div class="flex-none w-1/2 h-auto md:w-[24rem] md:h-[24rem] p-1 md:p-0">
+								<img src="./images/content/gallery-2.png" alt="" class="w-full h-full object-contain">
+						</div>
+
+						<div class="flex-none w-1/2 h-auto md:w-[24rem] md:h-[24rem] p-1 md:p-0">
+								<img src="./images/content/gallery-3.png" alt="" class="w-full h-full object-contain">
+						</div>
+
+						<div class="flex-none w-1/2 h-auto md:w-[24rem] md:h-[24rem] p-1 md:p-0">
+								<img src="./images/content/gallery-4.png" alt="" class="w-full h-full object-contain">
+						</div>
+				</div>
+		</div>
+
+		<!-- section 6 - instagram -->
+		<div class="py-12 md:py-16 flex flex-col gap-y-12">
+
+				<div class="hidden md:block text-center text-3xl md:text-2xl lg:text-3xl xl:text-4xl">
+						<p class="relative group inline-block">
+								<span>@PUCELLEID ON INSTAGRAM</span>
+								<span class="absolute left-0 -bottom-1 w-full h-2 bg-scheme-lilac -z-10 h-[60%]"></span>
+						</p>
+				</div>
+
+				<div class="flex flex-col gap-4 md:hidden text-center text-3xl md:text-4xl">
+						<div class="relative group inline-block flex-none">
+        <span class="relative">
+          <span>@PUCELLEID</span>
+          <span class="absolute left-0 -bottom-1 w-full h-2 bg-scheme-lilac -z-10 h-[60%]"></span>
+        </span>
+						</div>
+
+						<div class="relative group inline-block flex-none">
+        <span class="relative">
+          <span>ON INSTAGRAM</span>
+          <span class="absolute left-0 -bottom-1 w-full h-2 bg-scheme-lilac -z-10 h-[60%]"></span>
+        </span>
+						</div>
+				</div>
+
+				<ul class="juicer-feed" data-feed-id="pucellenumber1scentsational" data-overlay="true" data-per="7"
+				    data-truncate="125" data-columns="5"></ul>
+		</div>
+
+</main>
+
+<!-- footer -->
+<footer class="text-gray-600 px-4 lg:px-8 xl:px-0">
+		<div class="container mx-auto">
+				<div class="py-8 flex flex-col md:flex-row items-center gap-4">
+
+						<div class="md:border-r md:pr-4 border-gray-600 h-12 flex items-center">
+								<img src="./images/content/pucelle-logo-black.png"
+								     class="w-36 lg:w-36 xl:w-40" alt="">
+						</div>
+
+						<div>
+								<p class="w-full md:w-2/3 text-center md:text-left px-4 md:px-0 md:text-sm lg:text-sm xl:text-base">
+										<b>The Scent of Cool Beauty Platform. </b>
+										<span id="desc-footer">
+												Fragrance yang elegan dan eksklusif untuk persona kamu yang unik, stylish, modern dan urban.
+										</span>
+								</p>
+						</div>
+
+				</div>
+
+				<div class="py-4 md:py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+						<div class="w-full text-center md:text-left">
+								<p class="text-sm lg:text-sm xl:text-base">
+										Pucelle.id Copyright © 2022. All Rights Reserved.
+								</p>
+						</div>
+
+						<div class="flex items-center space-x-10">
+								<!-- item -->
+								<div>
+										<a href="https://www.facebook.com/PucelleID/">
+												<img src="./images/content/icFacebook.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.instagram.com/pucelleid/">
+												<img src="./images/content/icInstagram.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.youtube.com/channel/UC3I6CeILuZXqkxK8ZH-BoHw">
+												<img src="./images/content/icYoutube.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+								<!-- item -->
+								<div>
+										<a href="https://shopee.co.id/mandomindonesia">
+												<img src="./images/content/icShopee.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.tokopedia.com/mandomofficial?source=universe&st=product">
+												<img src="./images/content/icTokopedia.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+						</div>
+				</div>
+		</div>
+</footer>
+
+<script>
+    /**
+     * set modal only show on first visitor
+     */
+    window.addEventListener('DOMContentLoaded', function () {
+        let dataVisitor = window.localStorage.getItem('data-visitor')
+
+        document.getElementById('hide-modal-home').addEventListener('click', function () {
+            localStorage.setItem('data-visitor', 'yes');
+        })
+
+        if (dataVisitor === "yes") {
+            document.getElementById('homepage-modal').style.display = 'none'
+            document.getElementById('homepage-modal').style.opacity = 0
+        } else {
+            document.getElementById('homepage-modal').style.display = 'block'
+            document.getElementById('homepage-modal').style.opacity = 1
+        }
+    })
+</script>
+
+<script>
+    /**
+     * scroll header
+     */
+    let myHeader = document.querySelector('.header')
+    let btnToTop = document.getElementById('content-go-top')
+    window.onscroll = () => {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            myHeader.classList.add("scrolled-header")
+        } else {
+            myHeader.classList.remove("scrolled-header")
+        }
+
+
+        if (document.body.scrollTop >= 300 || document.documentElement.scrollTop >= 300) {
+            btnToTop.style.opacity = 1
+            btnToTop.style.cursor = 'pointer'
+        } else {
+            btnToTop.style.opacity = 0
+            btnToTop.style.cursor = 'auto'
+        }
+    }
+
+    /**
+     * SHOW BTN GO TOP
+     * @type {HTMLElement}
+     */
+
+
+    let boxNavSm = document.getElementById('sm-nav')
+    let btnSmNav = document.getElementById('btn-sm-nav')
+
+    if (typeof (btnSmNav) !== "undefined") {
+        btnSmNav.addEventListener('click', function () {
+
+            if (boxNavSm.classList.contains('hidden')) {
+                btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+                boxNavSm.classList.remove('hidden');
+                setTimeout(function () {
+
+                    boxNavSm.classList.remove('visually-hidden');
+                }, 20);
+            } else {
+                btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+                boxNavSm.classList.add('visually-hidden');
+                boxNavSm.addEventListener('transitionend', function (e) {
+                    boxNavSm.classList.add('hidden');
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                });
+            }
+
+        }, false);
+    }
+
+
+    let modalHome = document.getElementById('homepage-modal')
+    let btnHideModalHome = document.getElementById('hide-modal-home')
+    btnHideModalHome.addEventListener('click', function () {
+        modalHome.style.opacity = '0'
+
+        setTimeout(() => {
+            modalHome.style.display = 'none'
+        }, 500)
+
+    })
+</script>
+
+</body>
+
+</html>

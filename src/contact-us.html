@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="UTF-8">
+		<title>pucelle</title>
+		<meta name="description"
+		      content="Simple starter webpack 5 project template boilerplate supporting SASS/PostCSS, Babel ES7, browser syncing, code linting. Easy project setup having multiple features and developer friendly tools.">
+		<meta name="keywords"
+		      content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Plamen Nikolov, WeAreAthlon">
+
+		<meta name="title" content="Pucelle Indonesia - Personality Remaja Wanita">
+		<meta name="description"
+		      content="Pucelle brand yang menjual produk kecantikan di indonesia berfocus untuk menjadikan personality remaja wanita selalu ceria dan percaya diri.">
+		<script src="./js/custome.js"></script>
+		<script src="./js/edit-lang.js"></script>
+		<script src="./js/data-lang.js"></script>
+		<script src="./js/app.js"></script>
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+</head>
+
+<body class="relative">
+
+<!-- modal send message -->
+<div id="modal-contact"
+     class="modal absolute opacity-0 hidden w-full h-full min-h-screen bg-black/50 z-[100] flex items-center justify-center text-scheme-grey px-6 md:px-0">
+
+		<!-- modal buy -->
+		<div id="modal-buy"
+		     class="modal fixed w-full h-full top-0 left-0 flex flex-col items-center justify-center px-6">
+				<div class="w-full md:w-1/2 mx-auto h-auto bg-white py-12 space-y-8 flex flex-col items-center justify-center">
+						<img src="./images/content/success-send.png" alt="" class="w-32">
+						<p class="text-center font-bold  text-2xl md:text-3xl">
+								Message Sent!
+						</p>
+
+						<div class="flex items-center justify-center">
+								<button id="finish-modal" class="px-8 py-3 rounded-full bg-scheme-pink text-white">
+										FINISH
+								</button>
+						</div>
+				</div>
+
+		</div>
+
+</div>
+
+<!-- header -->
+<div class="header fixed top-0 left-0 w-full z-50">
+		<!-- main header -->
+		<div class="main-header h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[100px] container mx-auto flex items-center justify-between px-4 lg:px-4 xl:px-4 2xl:px-0 z-50 relative">
+				<div class="w-full flex justify-between items-center relative">
+						<!-- logo site -->
+						<div>
+								<a href="./index.html">
+										<img src="./images/content/pucelle-logo-black.png"
+										     class="h-[16px] xl:h-[24px] 2xl:h-[30px] object-contain" alt="">
+								</a>
+						</div>
+
+						<!-- small nav btn -->
+						<div class="block lg:hidden flex items-center justify-center gap-4">
+								<ul class="flex items-center justify-center gap-2  text-base md:text-sm">
+										<li class="active-lang">ID</li>
+										<div class="w-0.5 h-4 bg-scheme-grey"></div>
+										<li class="">EN</li>
+								</ul>
+
+								<button id="btn-sm-nav">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"
+										     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+										</svg>
+								</button>
+						</div>
+
+						<!-- large nav -->
+						<nav class="hidden lg:block">
+								<ul class="flex items-center lg:space-x-12 xl:space-x-[60px] text-scheme-grey lg:text-xs xl:text-base">
+										<li><a href="product.html">Our Products</a></li>
+										<li><a href="articles.html">Pucelleclopedia</a></li>
+										<li><a href="quiz.html">Define Your Scent</a></li>
+										<li><a href="contact-us.html">Contact Us</a></li>
+										<li>
+												<div class="flex items-center justify-center gap-2">
+														<svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none" viewBox="0 0 24 24"
+														     stroke="currentColor" stroke-width="2">
+																<path stroke-linecap="round" stroke-linejoin="round"
+																      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+														</svg>
+														<button id="id-lang" class="button-lang id-lang">ID</button>
+														<div class="flex-none w-0.5 h-4 bg-scheme-grey"></div>
+														<button id="en-lang" class="button-lang en-lang ">EN</button>
+												</div>
+										</li>
+								</ul>
+						</nav>
+				</div>
+		</div>
+
+		<!-- small nav content -->
+		<div id="sm-nav"
+		     class="content-sm-nav visually-hidden hidden w-full h-screen absolute top-[60px] left-0 h-screen bg-scheme-light-grey p-12 z-40">
+
+				<div class="space-y-8 text-right text-lg">
+						<nav>
+								<ul class="text-scheme-grey space-y-8">
+										<li><a href="index.html">Home</a></li>
+										<li><a href="product.html">Our Products</a></li>
+										<li><a href="articles.html">Pucelleclopedia</a></li>
+										<li><a href="quiz.html">Define Your Scent</a></li>
+										<li><a href="contact-us.html">Contact Us</a></li>
+								</ul>
+						</nav>
+				</div>
+
+		</div>
+</div>
+
+<!-- main content -->
+<main id="main-content" class="min-h-screen  relative text-scheme-grey">
+		<div class="w-full h-full min-h-screen relative">
+				<div class="absolute top-0 left-0 w-full h-[400px] bg-scheme-pale-blue z-10"></div>
+				<div class="pt-[60px] md:pt-[100px] relative z-20 md:space-y-20">
+
+						<div class="bg-scheme-pale-blue text-center text-3xl py-12 block md:hidden">
+								<p>
+										CONTACT US
+								</p>
+						</div>
+
+						<!-- form -->
+						<div class="mx-auto mt-0 md:mt-16 w-full md:max-w-xl 2xl:max-w-2xl bg-white px-4 md:px-12 py-8 md:py-12 mb-10 md:mb-auto md:space-y-16 border-b md:border-b-0  shadow-none md:shadow-md border-gray-200">
+								<!-- heading -->
+								<div class="hidden md:block">
+										<p class="text-4xl text-scheme-text-grey text-center">
+												CONTACT US
+										</p>
+								</div>
+
+								<!-- body -->
+								<div class="space-y-10">
+
+										<div class="flex flex-col">
+												<label class="tracking-widest" for="name">FULL NAME</label>
+												<input id="name" type="text" placeholder="Type full name"
+												       class="block w-full px-0 focus:outline-none border-t-0 border-x-0 border-b border-b-gray-300 focus:border-b-scheme-pink focus:ring-0">
+										</div>
+
+										<div class="flex flex-col">
+												<label class="tracking-widest" for="email">EMAIL ADDRESS</label>
+												<input id="email" type="email" placeholder="Type email address"
+												       class="block w-full px-0 focus:outline-none border-t-0 border-x-0 border-b border-b-gray-300 focus:border-b-scheme-pink focus:ring-0">
+										</div>
+
+										<div class="flex flex-col">
+												<label class="tracking-widest" for="subject">SUBJECT</label>
+												<input id="subject" type="text" placeholder="Type subject"
+												       class="block w-full px-0 focus:outline-none border-t-0 border-x-0 border-b border-b-gray-300 focus:border-b-scheme-pink focus:ring-0">
+										</div>
+
+										<div>
+												<label>
+              <textarea cols="full" rows="6"
+                        class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:border-scheme-pink focus:ring-0"
+                        placeholder="Type message here"></textarea>
+												</label>
+										</div>
+
+										<div class="flex items-center justify-center">
+												<div class="g-recaptcha" data-sitekey="your_site_key"></div>
+										</div>
+
+
+										<div class="flex items-center justify-center">
+												<button id="send-msg"
+												        class="px-12 py-4 bg-scheme-pink text-white rounded-full transition duration-300 hover:shadow-md">
+														SEND MESSAGE
+												</button>
+										</div>
+
+								</div>
+						</div>
+
+						<!-- map -->
+						<div class="pb-16">
+								<div class="mb-10 md:mb-20">
+										<p class="text-3xl md:text-4xl text-scheme-text-grey text-center">
+												WHERE TO FIND US
+										</p>
+								</div>
+
+								<div class="container mx-auto flex flex-col md:flex-row items-center gap-6">
+
+										<div class="w-full flex items-center justify-center block md:hidden">
+												<p class="bg-scheme-baby-blue text-2xl px-4 py-2">
+														HEAD OFFICE
+												</p>
+										</div>
+
+										<div class="w-full h-[282px] md:h-[423px] relative">
+												<!-- heading map -->
+												<div class="absolute w-full h-auto -top-6 left-0 hidden md:block">
+														<div class="w-full flex items-center justify-center">
+																<p class="bg-scheme-baby-blue text-2xl px-4 py-2">
+																		HEAD OFFICE
+																</p>
+														</div>
+												</div>
+
+												<!-- desc map -->
+												<div class="absolute top-1/4 w-full h-auto">
+														<div class="flex items-center justify-center">
+																<div class="flex-none bg-white p-6 text-sm md:text-base shadow-lg">
+																		<p>Wisma 46 Kota BNI Suite 7.01, 7th Floor</p>
+																		<p>Jl. Jendral Sudirman Kav 1 Jakarta 10220</p>
+																		<p>customer-care@mandom.co.id</p>
+																		<p>(021)-298 095 00</p>
+																</div>
+														</div>
+												</div>
+
+												<!-- map -->
+												<iframe class="w-full h-full"
+												        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.226898870923!2d106.819357957974!3d-6.203712898877236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!3m2!1sid!2sid!4v1547858725077">
+												</iframe>
+										</div>
+
+								</div>
+
+						</div>
+				</div>
+		</div>
+</main>
+
+<!-- footer -->
+<footer class="text-gray-600 px-4 lg:px-8 xl:px-0">
+		<div class="container mx-auto">
+				<div class="py-8 flex flex-col md:flex-row items-center gap-4">
+
+						<div class="md:border-r md:pr-4 border-gray-600 h-12 flex items-center">
+								<img src="./images/content/pucelle-logo-black.png"
+								     class="w-36 lg:w-36 xl:w-40" alt="">
+						</div>
+
+						<div>
+								<p class="w-full md:w-2/3 text-center md:text-left px-4 md:px-0 md:text-sm lg:text-sm xl:text-base">
+										<b>The Scent of Cool Beauty Platform. </b>
+										<span id="desc-footer">
+												Fragrance yang elegan dan eksklusif untuk persona kamu yang unik, stylish, modern dan urban.
+										</span>
+								</p>
+								</p>
+						</div>
+
+				</div>
+
+				<div class="py-4 md:py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+						<div class="w-full text-center md:text-left">
+								<p class="text-sm lg:text-sm xl:text-base">
+										Pucelle.id Copyright © 2022. All Rights Reserved.
+								</p>
+						</div>
+
+						<div class="flex items-center space-x-10">
+								<!-- item -->
+								<div>
+										<a href="https://www.facebook.com/PucelleID/">
+												<img src="./images/content/icFacebook.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.instagram.com/pucelleid/">
+												<img src="./images/content/icInstagram.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.youtube.com/channel/UC3I6CeILuZXqkxK8ZH-BoHw">
+												<img src="./images/content/icYoutube.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<div class="h-10 w-0.5 bg-scheme-grey hidden md:block"></div>
+
+								<!-- item -->
+								<div>
+										<a href="https://shopee.co.id/mandomindonesia">
+												<img src="./images/content/icShopee.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+
+								<!-- item -->
+								<div>
+										<a href="https://www.tokopedia.com/mandomofficial?source=universe&st=product">
+												<img src="./images/content/icTokopedia.png" alt=""
+												     class="w-6 md:w-16 lg:w-12 transition duration-300 ease hover:scale-110">
+										</a>
+								</div>
+						</div>
+				</div>
+		</div>
+</footer>
+
+<script>
+    /**
+     * scroll header
+     */
+    let myHeader = document.querySelector('.header')
+    window.onscroll = () => {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            myHeader.classList.add("scrolled-header")
+        } else {
+            myHeader.classList.remove("scrolled-header")
+        }
+    }
+
+    let boxNavSm = document.getElementById('sm-nav')
+    let btnSmNav = document.getElementById('btn-sm-nav')
+
+    if (typeof (btnSmNav) !== "undefined") {
+        btnSmNav.addEventListener('click', function () {
+
+            if (boxNavSm.classList.contains('hidden')) {
+                btnSmNav.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24"\n stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M6 18L18 6M6 6l12 12"/> </svg>'
+
+                boxNavSm.classList.remove('hidden');
+                setTimeout(function () {
+                    boxNavSm.classList.remove('visually-hidden');
+                }, 20);
+            } else {
+                btnSmNav.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-scheme-pink" fill="none"\n' +
+                    'viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" ' +
+                    'd="M4 6h16M4 12h16M4 18h16"/></svg>'
+
+                boxNavSm.classList.add('visually-hidden');
+                boxNavSm.addEventListener('transitionend', function (e) {
+                    boxNavSm.classList.add('hidden');
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                });
+            }
+
+        }, false);
+    }
+
+    document.getElementById('finish-modal').addEventListener('click', function () {
+        document.getElementById('modal-contact').style.opacity = 0
+        setTimeout(() => {
+            document.getElementById('modal-contact').style.display = 'none'
+        }, 500)
+    })
+
+
+    document.getElementById('send-msg').addEventListener('click', function () {
+        document.getElementById('modal-contact').style.display = 'block'
+        setTimeout(() => {
+            document.getElementById('modal-contact').style.opacity = 1
+        }, 300)
+
+    })
+
+</script>
+
+</body>
+
+</html>

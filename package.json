@@ -1,0 +1,102 @@
+{
+  "author": "yuyuid <myudisobari12@gmail.com> (https://yuyuid.id)",
+  "name": "@mochamadyudi/webpack-boilerplate",
+  "version": "5.11.0",
+  "description": "Starter project template boilerplate based on Webpack with SASS/PostCSS and babel ES6/7 support.",
+  "homepage": "https://github.com/mochamadyudi/webpack-boilerplate#readme",
+  "presets": [
+    "@babel/preset-react"
+  ],
+  "browserslist": [
+    "last 2 versions",
+    "> 5%"
+  ],
+  "bugs": {
+    "url": "https://github.com/mochamadyudi/webpack-boilerplate/issues",
+    "email": "myudisobari12@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Mochamad yudi Sobari",
+      "email": "myudisobari12@gmail.com",
+      "url": "https://yuyuid.id"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-syntax-jsx": "^7.16.5",
+    "@babel/plugin-transform-react-display-name": "^7.16.5",
+    "@babel/plugin-transform-react-jsx": "^7.16.5",
+    "@babel/plugin-transform-react-jsx-self": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.1.1",
+    "html-webpack-plugin": "^5.5.0",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^9.0.0",
+    "less-plugin-npm-import": "^2.1.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^7.0.2",
+    "sass": "^1.43.4",
+    "sass-lint": "^1.13.1",
+    "sass-loader": "^12.3.0",
+    "tailwindcss": "^3.0.5",
+    "terser-webpack-plugin": "^5.2.5",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.70.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.4",
+    "webpack-merge": "^5.8.0"
+  },
+  "engines": {
+    "node": "^12 || >=14"
+  },
+  "keywords": [
+    "webpack",
+    "boilerplate",
+    "template",
+    "setup"
+  ],
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
+  },
+  "scripts": {
+    "gulp:watch": "gulp watch",
+    "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
+    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
+    "bundle": "npm install && npm run watch",
+    "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
+    "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
+    "lint:sass": "sass-lint -v -q",
+    "lint:js": "eslint --ext .js src/js/",
+    "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
+  },
+  "target": "web",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "alpinejs": "^3.7.1",
+    "aos": "^2.3.4",
+    "axios": "^0.24.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "jquery": "^3.6.0",
+    "less-loader": "^10.2.0",
+    "postcss-import": "^14.0.2",
+    "slick-carousel": "^1.8.1",
+    "style-loader": "^3.3.1"
+  }
+}
